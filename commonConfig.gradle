@@ -1,0 +1,30 @@
+//用来存放项目中的所有配置，统一管理而不是每个moudle自己写一份，
+// 修改起来更加方便
+//各个项目工程版本的全局配置 ,版本更新前请确认更新
+
+ext {
+    android = [compileSdkVersion: 26,
+               buildToolsVersion: '26.1.0',
+               minSdkVersion    : 17,
+               targetSdkVersion : 26,
+               versionCode      : 127,
+               versionName      : '1.0.127',
+               versionSupporPad : '1', //各个项目工程版本的全局配置 ,版本更新前请确认更新
+               updateNecess     : 'may',
+               greendaoDbVersion: 8
+    ]
+
+    signingConfigs = [storeFile    : "aa.jks",
+                      storePassword: "aa",
+                      keyAlias     : "aa",
+                      keyPassword  : "aa"]
+
+    tinker=["tinker_version":'1.9.1']
+
+    java = [sourceCompatibility: JavaVersion.VERSION_1_7,
+            targetCompatibility: JavaVersion.VERSION_1_7]
+    dependencies = [multidex    : "com.android.support:multidex",
+                    gson        : "com.google.code.gson:gson:2.8.0",
+                    okhttp      : "com.squareup.okhttp3:okhttp:3.9.0",
+                    recyclerview: "com.android.support:recyclerview-v7:25.4.0"]
+}
