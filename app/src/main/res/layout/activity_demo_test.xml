@@ -4,11 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#a9c5e5"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context="com.zbc.androiddevelomentartdemo.activity.DemoTestActivity">
 
     <TextView
-        android:id="@+id/tv_next3"
+        android:id="@+id/tv_msg"
+        android:layout_width="match_parent"
+        android:layout_height="480px"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="100px"
+        android:layout_marginRight="40px"
+        android:background="@color/color_bg_f0f0f0"
+        android:gravity="center"
+        android:text="序列化测试"
+        android:textColor="@color/color_text_33333" />
+
+
+    <TextView
+        android:id="@+id/tv_serializable"
         android:layout_width="match_parent"
         android:layout_height="144px"
         android:layout_marginLeft="40px"
@@ -16,11 +30,11 @@
         android:layout_marginRight="40px"
         android:background="@color/color_47a8fc"
         android:gravity="center"
-        android:text="数据序列化"
+        android:text="Serializable 数据序列化"
         android:textColor="@color/color_bg_ffffff" />
 
     <TextView
-        android:id="@+id/tv_send_msg"
+        android:id="@+id/tv_unserializable"
         android:layout_width="match_parent"
         android:layout_height="144px"
         android:layout_marginLeft="40px"
@@ -28,11 +42,11 @@
         android:layout_marginRight="40px"
         android:background="@color/color_47a8fc"
         android:gravity="center"
-        android:text="传递信息给指定的service"
+        android:text="Serializable 数据反序列化"
         android:textColor="@color/color_bg_ffffff" />
 
     <TextView
-        android:id="@+id/tv_scroll_conflict"
+        android:id="@+id/tv_parcelable"
         android:layout_width="match_parent"
         android:layout_height="144px"
         android:layout_marginLeft="40px"
@@ -40,12 +54,11 @@
         android:layout_marginRight="40px"
         android:background="@color/color_47a8fc"
         android:gravity="center"
-        android:text="android且套滑动事件冲突解决"
+        android:text="parcelable 数据序列化"
         android:textColor="@color/color_bg_ffffff" />
 
-
     <TextView
-        android:id="@+id/tv_ibinder_test"
+        android:id="@+id/tv_unparcelable"
         android:layout_width="match_parent"
         android:layout_height="144px"
         android:layout_marginLeft="40px"
@@ -53,32 +66,7 @@
         android:layout_marginRight="40px"
         android:background="@color/color_47a8fc"
         android:gravity="center"
-        android:text="IBinder数据传递"
+        android:text="parcelable 数据反序列化"
         android:textColor="@color/color_bg_ffffff" />
-
-
-    <TextView
-        android:id="@+id/tv_gesturedetector"
-        android:layout_width="match_parent"
-        android:layout_height="144px"
-        android:layout_marginLeft="40px"
-        android:layout_marginTop="100px"
-        android:layout_marginRight="40px"
-        android:background="@color/color_47a8fc"
-        android:gravity="center"
-        android:text="手势监听识别"
-        android:textColor="@color/color_bg_ffffff" />
-    <TextView
-        android:id="@+id/tv_remoteview"
-        android:layout_width="match_parent"
-        android:layout_height="144px"
-        android:layout_marginLeft="40px"
-        android:layout_marginTop="100px"
-        android:layout_marginRight="40px"
-        android:background="@color/color_47a8fc"
-        android:gravity="center"
-        android:text="remoteviewDemo"
-        android:textColor="@color/color_bg_ffffff" />
-
 
 </LinearLayout>

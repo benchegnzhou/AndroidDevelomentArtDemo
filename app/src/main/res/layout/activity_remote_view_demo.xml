@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.RemoteViewDemoActivity">
+
+    <Button
+        android:id="@+id/btn_notifiction_test"
+        android:layout_width="match_parent"
+        android:layout_height="144px"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="40px"
+        android:layout_marginRight="40px"
+        android:background="@color/color_47a8fc"
+        android:text="通知栏消息测试"
+        android:textColor="@color/colorwhite"
+        android:textSize="18sp" />
+
+
+    <Button
+        android:id="@+id/btn_appweiget_test"
+        android:layout_width="match_parent"
+        android:layout_height="144px"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="40px"
+        android:layout_marginRight="40px"
+        android:background="@color/color_47a8fc"
+        android:text="桌面小控件测试"
+        android:textColor="@color/colorwhite"
+        android:textSize="18sp" />
+
+
+</LinearLayout>

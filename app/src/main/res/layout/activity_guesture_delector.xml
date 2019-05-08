@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.GuestureDelectorActivity">
+
+
+    <com.zbc.androiddevelomentartdemo.view.CustomViewGroup
+        android:id="@+id/view_group_c"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="90px"
+        android:background="#33625afe">
+
+        <com.zbc.androiddevelomentartdemo.view.AutoScrollView
+            android:id="@+id/iv_img"
+            android:layout_width="800px"
+            android:layout_height="800px"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/image_a2" />
+
+    </com.zbc.androiddevelomentartdemo.view.CustomViewGroup>
+</RelativeLayout>
