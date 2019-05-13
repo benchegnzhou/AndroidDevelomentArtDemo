@@ -1,84 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_next3"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="144px"
-        android:layout_marginLeft="40px"
-        android:layout_marginTop="100px"
-        android:layout_marginRight="40px"
-        android:background="@color/color_47a8fc"
-        android:gravity="center"
-        android:text="数据序列化"
-        android:textColor="@color/color_bg_ffffff" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tv_send_msg"
-        android:layout_width="match_parent"
-        android:layout_height="144px"
-        android:layout_marginLeft="40px"
-        android:layout_marginTop="100px"
-        android:layout_marginRight="40px"
-        android:background="@color/color_47a8fc"
-        android:gravity="center"
-        android:text="传递信息给指定的service"
-        android:textColor="@color/color_bg_ffffff" />
+        <TextView
+            android:id="@+id/tv_next3"
+            android:layout_width="match_parent"
+            android:layout_height="144px"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="100px"
+            android:layout_marginRight="40px"
+            android:background="@color/color_47a8fc"
+            android:gravity="center"
+            android:text="数据序列化"
+            android:textColor="@color/color_bg_ffffff" />
 
-    <TextView
-        android:id="@+id/tv_scroll_conflict"
-        android:layout_width="match_parent"
-        android:layout_height="144px"
-        android:layout_marginLeft="40px"
-        android:layout_marginTop="100px"
-        android:layout_marginRight="40px"
-        android:background="@color/color_47a8fc"
-        android:gravity="center"
-        android:text="android且套滑动事件冲突解决"
-        android:textColor="@color/color_bg_ffffff" />
+        <TextView
+            android:id="@+id/tv_send_msg"
+            android:layout_width="match_parent"
+            android:layout_height="144px"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="100px"
+            android:layout_marginRight="40px"
+            android:background="@color/color_47a8fc"
+            android:gravity="center"
+            android:text="传递信息给指定的service"
+            android:textColor="@color/color_bg_ffffff" />
 
-
-    <TextView
-        android:id="@+id/tv_ibinder_test"
-        android:layout_width="match_parent"
-        android:layout_height="144px"
-        android:layout_marginLeft="40px"
-        android:layout_marginTop="100px"
-        android:layout_marginRight="40px"
-        android:background="@color/color_47a8fc"
-        android:gravity="center"
-        android:text="IBinder数据传递"
-        android:textColor="@color/color_bg_ffffff" />
+        <TextView
+            android:id="@+id/tv_scroll_conflict"
+            android:layout_width="match_parent"
+            android:layout_height="144px"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="100px"
+            android:layout_marginRight="40px"
+            android:background="@color/color_47a8fc"
+            android:gravity="center"
+            android:text="android且套滑动事件冲突解决"
+            android:textColor="@color/color_bg_ffffff" />
 
 
-    <TextView
-        android:id="@+id/tv_gesturedetector"
-        android:layout_width="match_parent"
-        android:layout_height="144px"
-        android:layout_marginLeft="40px"
-        android:layout_marginTop="100px"
-        android:layout_marginRight="40px"
-        android:background="@color/color_47a8fc"
-        android:gravity="center"
-        android:text="手势监听识别"
-        android:textColor="@color/color_bg_ffffff" />
-    <TextView
-        android:id="@+id/tv_remoteview"
-        android:layout_width="match_parent"
-        android:layout_height="144px"
-        android:layout_marginLeft="40px"
-        android:layout_marginTop="100px"
-        android:layout_marginRight="40px"
-        android:background="@color/color_47a8fc"
-        android:gravity="center"
-        android:text="remoteviewDemo"
-        android:textColor="@color/color_bg_ffffff" />
+        <TextView
+            android:id="@+id/tv_ibinder_test"
+            android:layout_width="match_parent"
+            android:layout_height="144px"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="100px"
+            android:layout_marginRight="40px"
+            android:background="@color/color_47a8fc"
+            android:gravity="center"
+            android:text="IBinder数据传递"
+            android:textColor="@color/color_bg_ffffff" />
 
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tv_gesturedetector"
+            android:layout_width="match_parent"
+            android:layout_height="144px"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="100px"
+            android:layout_marginRight="40px"
+            android:background="@color/color_47a8fc"
+            android:gravity="center"
+            android:text="手势监听识别"
+            android:textColor="@color/color_bg_ffffff" />
+
+        <TextView
+            android:id="@+id/tv_remoteview"
+            android:layout_width="match_parent"
+            android:layout_height="144px"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="100px"
+            android:layout_marginRight="40px"
+            android:background="@color/color_47a8fc"
+            android:gravity="center"
+            android:text="remoteviewDemo"
+            android:textColor="@color/color_bg_ffffff" />
+
+
+    </LinearLayout>
+
+</ScrollView>
+

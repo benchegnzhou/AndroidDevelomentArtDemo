@@ -8,14 +8,51 @@
     tools:context=".activity.RemoteViewDemoActivity">
 
     <Button
-        android:id="@+id/btn_notifiction_test"
+        android:id="@+id/btn_notifiction_small_test"
         android:layout_width="match_parent"
         android:layout_height="144px"
         android:layout_marginLeft="40px"
         android:layout_marginTop="40px"
         android:layout_marginRight="40px"
         android:background="@color/color_47a8fc"
-        android:text="通知栏消息测试"
+        android:text="系统小图通知栏消息测试"
+        android:textColor="@color/colorwhite"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btn_notifiction_big_test"
+        android:layout_width="match_parent"
+        android:layout_height="144px"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="40px"
+        android:layout_marginRight="40px"
+        android:background="@color/color_47a8fc"
+        android:text="系统大图通知栏消息测试"
+        android:textColor="@color/colorwhite"
+        android:textSize="18sp" />
+
+
+    <Button
+        android:id="@+id/btn_androido_height"
+        android:layout_width="match_parent"
+        android:layout_height="144px"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="40px"
+        android:layout_marginRight="40px"
+        android:background="@color/color_47a8fc"
+        android:text="8.0.0版本及其以上高优先级"
+        android:textColor="@color/colorwhite"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btn_androido_default"
+        android:layout_width="match_parent"
+        android:layout_height="144px"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="40px"
+        android:layout_marginRight="40px"
+        android:background="@color/color_47a8fc"
+        android:text="8.0.0版本及其以上默认先级"
         android:textColor="@color/colorwhite"
         android:textSize="18sp" />
 
