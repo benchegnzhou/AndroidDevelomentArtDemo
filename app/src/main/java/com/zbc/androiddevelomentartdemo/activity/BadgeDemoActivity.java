@@ -38,7 +38,6 @@ import butterknife.OnClick;
  * 类    名： BadgeDemoActivity
  * 备    注：
  */
-
 public class BadgeDemoActivity extends AppCompatActivity {
 
     @Bind(R.id.tv_badge_add)
@@ -55,8 +54,19 @@ public class BadgeDemoActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             if (msg.what == 100) {
                 try {
-                    count += 10;
-                    //  sendIconNumNotification();
+
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                Thread.sleep(1000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            count += 10;
+                            sendIconNumNotification();
+                        }
+                    }).start();
 
                    /* NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                     Notification notification = new NotificationCompat.Builder(BadgeDemoActivity.this, "subscribe")
@@ -74,7 +84,7 @@ public class BadgeDemoActivity extends AppCompatActivity {
                     method.invoke(extraNotification, count);
                     manager.notify(2000, notification);*/
 
-                    sendToXiaoMi(String.valueOf(count));
+//                    sendToXiaoMi(String.valueOf(count));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
