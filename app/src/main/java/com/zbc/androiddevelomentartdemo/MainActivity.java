@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.zbc.androiddevelomentartdemo.activity.BadgeDemoActivity;
 import com.zbc.androiddevelomentartdemo.activity.DemoTestActivity;
 import com.zbc.androiddevelomentartdemo.activity.GuestureDelectorActivity;
 import com.zbc.androiddevelomentartdemo.activity.IBinderTestActivity;
@@ -67,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     @OnClick({R.id.tv_next3, R.id.tv_send_msg, R.id.tv_remoteview
-            , R.id.tv_gesturedetector, R.id.tv_scroll_conflict, R.id.tv_ibinder_test})
+            , R.id.tv_gesturedetector, R.id.tv_scroll_conflict, R.id.tv_ibinder_test
+            , R.id.tv_badge_demo})
     public void onClick(View view) {
         switch (view.getId()) {
 
@@ -158,6 +160,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.tv_remoteview:
                 startActivity(new Intent(this, RemoteViewDemoActivity.class));
                 break;
+            case R.id.tv_badge_demo:
+                startActivity(new Intent(this, BadgeDemoActivity.class));
+                break;
+
             default:
         }
     }

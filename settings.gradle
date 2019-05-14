@@ -1,1 +1,1 @@
-include ':app','commonutils','baseRecyclerViewHelperlibrary'
+include ':app','commonutils','baseRecyclerViewHelperlibrary','badgesAppIcon'
