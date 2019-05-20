@@ -13,7 +13,8 @@
         android:icon="@mipmap/image_a3"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.BadgeDemoActivity"></activity>
+        <activity android:name=".activity.DrawableTestActivity"></activity>
+        <activity android:name=".activity.BadgeDemoActivity" />
         <activity android:name=".activity.RemoteViewDemoActivity" />
         <activity android:name=".activity.IBinderTestActivity" />
         <activity android:name=".activity.ScrolllConflictActivity" />

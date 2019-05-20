@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.zbc.androiddevelomentartdemo.activity.BadgeDemoActivity;
 import com.zbc.androiddevelomentartdemo.activity.DemoTestActivity;
+import com.zbc.androiddevelomentartdemo.activity.DrawableTestActivity;
 import com.zbc.androiddevelomentartdemo.activity.GuestureDelectorActivity;
 import com.zbc.androiddevelomentartdemo.activity.IBinderTestActivity;
 import com.zbc.androiddevelomentartdemo.activity.RemoteViewDemoActivity;
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick({R.id.tv_next3, R.id.tv_send_msg, R.id.tv_remoteview
             , R.id.tv_gesturedetector, R.id.tv_scroll_conflict, R.id.tv_ibinder_test
-            , R.id.tv_badge_demo})
+            , R.id.tv_badge_demo,R.id.tv_drawable_test})
     public void onClick(View view) {
         switch (view.getId()) {
 
@@ -162,6 +163,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.tv_badge_demo:
                 startActivity(new Intent(this, BadgeDemoActivity.class));
+                break;
+            case R.id.tv_drawable_test:
+                startActivity(new Intent(this, DrawableTestActivity.class));
                 break;
 
             default:

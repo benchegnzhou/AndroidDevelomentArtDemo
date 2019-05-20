@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:insetLeft="@dimen/qb_px_10"
+    android:insetTop="@dimen/qb_px_4"
+    android:insetRight="@dimen/qb_px_10"
+    android:insetBottom="@dimen/qb_px_4">
+    <shape android:shape="rectangle">
+        <solid android:color="@color/apptheme" />
+    </shape>
+</inset>

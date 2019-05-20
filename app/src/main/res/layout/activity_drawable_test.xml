@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".activity.DrawableTestActivity">
+
+
+        <TextView
+            android:id="@+id/tv_drawable_transition"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_288"
+            android:layout_marginLeft="@dimen/qb_px_40"
+            android:layout_marginTop="@dimen/qb_px_100"
+            android:layout_marginRight="@dimen/qb_px_40"
+            android:background="@drawable/transition_drawable_test"
+            android:gravity="center"
+            android:text="TransitionDrawable对应于 transition 标签，它用于实现两个Drawable之间的淡入淡出效果\n
+        \n点击我可以背景动画取反哦"
+            android:textColor="@color/color_bg_ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_drawable_layerdrawable"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_288"
+            android:layout_marginLeft="@dimen/qb_px_40"
+            android:layout_marginTop="@dimen/qb_px_100"
+            android:layout_marginRight="@dimen/qb_px_40"
+            android:background="@drawable/layerlist_test1"
+            android:gravity="center"
+            android:text="LayerDrawable对应的XML标签是 layer-list，它表示一种层次化的Drawable集合，通
+过将不同的Drawable放置在不同的层上面从而达到一种叠加后的效果。 使用这种方式可以组合出复杂的背景纹理"
+            android:textColor="@color/apptheme"
+            android:textSize="18sp" />
+
+
+        <TextView
+            android:id="@+id/tv_drawable_level"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_288"
+            android:layout_marginLeft="@dimen/qb_px_40"
+            android:layout_marginTop="@dimen/qb_px_100"
+            android:layout_marginRight="@dimen/qb_px_40"
+            android:background="@drawable/level_drawable_test"
+            android:gravity="center"
+            android:text="LevelListDrawable对应于 level-list 标签，它同样表示一个Drawable集合，集合中的每个Drawable都有一个等级（level）的概念。根据不同的等级，LevelListDrawable会切换
+为对应的Drawable
+\n\n点击我切换背景图层哦"
+            android:textColor="@color/color_bg_ffffff"
+            android:textSize="18sp" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_288"
+            android:layout_marginLeft="@dimen/qb_px_40"
+            android:layout_marginTop="@dimen/qb_px_100"
+            android:layout_marginRight="@dimen/qb_px_40"
+            android:background="@color/colorAccent">
+
+            <TextView
+                android:id="@+id/tv_drawable_insert"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_288"
+                android:background="@drawable/inset_drawable_test"
+                android:gravity="center"
+                android:text="InsetDrawable对应于 inset 标签，它可以将其他Drawable内嵌到自己当中，并可以在四周留出一定的间距。当一个View希望自己的背景比自己的实际区域小的时候，可以采用InsetDrawable来实现，同时我们知道，通过LayerDrawable也可以实现这种效果。
+        "
+                android:textColor="@color/color_bg_ffffff"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+
+
+
+
+        <TextView
+            android:id="@+id/tv_drawable_clip"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_288"
+            android:layout_marginLeft="@dimen/qb_px_40"
+            android:layout_marginTop="@dimen/qb_px_100"
+            android:layout_marginRight="@dimen/qb_px_40"
+            android:background="@drawable/clip_clip_test"
+            android:gravity="center"
+            android:text="ClipDrawable对应于clip标签，它可以根据自己当前的等级（level）来裁剪另一个Drawable，裁剪方向可以通过android:clipOrientation和android:gravity这两个属性来共同控
+制\n\n拖动改变图片裁剪"
+            android:textColor="@color/color_bg_ffffff"
+            android:textSize="18sp" />
+        <SeekBar
+            android:id="@+id/seek_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_40"
+            android:layout_marginLeft="@dimen/qb_px_40"
+            android:layout_marginTop="@dimen/qb_px_40"
+            android:layout_marginRight="@dimen/qb_px_40" />
+    </LinearLayout>
+</ScrollView>
