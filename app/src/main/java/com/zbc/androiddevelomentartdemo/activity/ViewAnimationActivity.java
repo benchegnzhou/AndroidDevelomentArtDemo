@@ -62,7 +62,7 @@ public class ViewAnimationActivity extends AppCompatActivity {
 
 
 
-    @OnClick({R.id.btn_translation, R.id.btn_rotate, R.id.btn_rotate, R.id.btn_alpha})
+    @OnClick({R.id.btn_translation, R.id.btn_rotate, R.id.btn_scale, R.id.btn_alpha})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_translation:
