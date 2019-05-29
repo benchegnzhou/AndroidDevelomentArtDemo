@@ -8,9 +8,11 @@
 
     <ImageView
         android:id="@+id/iv_img"
-        android:layout_width="@dimen/qb_px_860"
-        android:layout_height="@dimen/qb_px_860"
+        android:layout_width="@dimen/qb_px_460"
+        android:layout_height="@dimen/qb_px_460"
         android:scaleType="centerCrop"
+        android:layout_marginTop="@dimen/qb_px_600"
+        android:layout_centerHorizontal="true"
         android:src="@mipmap/image_a3" />
 
     <LinearLayout
