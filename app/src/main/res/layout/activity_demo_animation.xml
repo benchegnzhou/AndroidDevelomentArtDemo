@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.DemoAnimationActivity">
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/tv_view_animation"
+        android:layout_width="match_parent"
+        android:layout_height="144px"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="100px"
+        android:layout_marginRight="40px"
+        android:background="@color/color_47a8fc"
+        android:gravity="center"
+        android:text="view动画演示"
+        android:textColor="@color/color_bg_ffffff" />
+
+    <TextView
+        android:id="@+id/tv_frame_animation"
+        android:layout_width="match_parent"
+        android:layout_height="144px"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="100px"
+        android:layout_marginRight="40px"
+        android:background="@color/color_47a8fc"
+        android:gravity="center"
+        android:text="帧动画演示"
+        android:textColor="@color/color_bg_ffffff" />
+
+    <TextView
+        android:id="@+id/tv_property_animation"
+        android:layout_width="match_parent"
+        android:layout_height="144px"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="100px"
+        android:layout_marginRight="40px"
+        android:background="@color/color_47a8fc"
+        android:gravity="center"
+        android:text="属性动画演示"
+        android:textColor="@color/color_bg_ffffff" />
+</LinearLayout>

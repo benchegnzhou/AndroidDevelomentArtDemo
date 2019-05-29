@@ -13,7 +13,8 @@
         android:icon="@mipmap/image_a3"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.PropertyAnimationActivity"></activity>
+        <activity android:name=".activity.FrameAnimationActivity"></activity>
+        <activity android:name=".activity.PropertyAnimationActivity" />
         <activity android:name=".activity.ViewAnimationActivity" />
         <activity android:name=".activity.DemoAnimationActivity" />
         <activity android:name=".activity.DrawableTestActivity" />
