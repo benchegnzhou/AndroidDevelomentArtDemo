@@ -6,4 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".activity.ViewAnimationActivity">
 
+    <ImageView
+        android:id="@+id/iv_img"
+        android:layout_width="@dimen/qb_px_860"
+        android:layout_height="@dimen/qb_px_860"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/image_a3" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/qb_px_144"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/btn_translation"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="平移动画" />
+
+        <Button
+            android:id="@+id/btn_rotate"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="旋转动画" />
+
+        <Button
+            android:id="@+id/btn_scale"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="缩放动画" />
+
+        <Button
+            android:id="@+id/btn_alpha"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="渐变动画" />
+
+
+    </LinearLayout>
+
+
 </RelativeLayout>
