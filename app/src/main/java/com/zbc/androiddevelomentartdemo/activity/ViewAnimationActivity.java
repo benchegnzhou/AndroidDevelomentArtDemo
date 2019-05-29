@@ -69,7 +69,7 @@ public class ViewAnimationActivity extends AppCompatActivity {
                 int left = ivImg.getLeft() - 500;
                 int top = ivImg.getTop() - 500;
                 TranslateAnimation translateAnimation = new TranslateAnimation(left,left+500,top,top+500);
-                translateAnimation.setDuration(800);
+                translateAnimation.setDuration(1200);
                 translateAnimation.setInterpolator(new BounceInterpolator());
                 ivImg.startAnimation(translateAnimation);
                 break;
@@ -81,13 +81,13 @@ public class ViewAnimationActivity extends AppCompatActivity {
                 break;
             case R.id.btn_scale:
                 ScaleAnimation scaleAnimation = new ScaleAnimation(mWidth*0.5f,mWidth,mHeight*0.5f,mWidth );
-                scaleAnimation.setDuration(300);
+                scaleAnimation.setDuration(1200);
                 scaleAnimation.setInterpolator(new BounceInterpolator());
                 ivImg.startAnimation(scaleAnimation);
                 break;
             case R.id.btn_alpha:
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.2f,1);
-                alphaAnimation.setDuration(300);
+                alphaAnimation.setDuration(1200);
                 alphaAnimation.setInterpolator(new BounceInterpolator());
                 ivImg.startAnimation(alphaAnimation);
                 break;
