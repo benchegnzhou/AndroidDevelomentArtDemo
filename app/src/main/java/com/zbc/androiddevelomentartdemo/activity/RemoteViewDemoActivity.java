@@ -61,7 +61,7 @@ public class RemoteViewDemoActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.btn_notifiction_small_test:
                 Notification notification = new Notification();
-                notification.icon = R.mipmap.image_a1;
+                notification.icon = R.drawable.image_a1;
                 notification.tickerText = "来自测试者的测试通知";
 
                 notification.when = System.currentTimeMillis();
@@ -161,9 +161,9 @@ public class RemoteViewDemoActivity extends AppCompatActivity {
      */
     private void showNotictionN() {
         Bitmap btm = BitmapFactory.decodeResource(getResources(),
-                R.mipmap.image_a2);
+                R.drawable.image_a2);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
-                RemoteViewDemoActivity.this).setSmallIcon(R.mipmap.image_a3)
+                RemoteViewDemoActivity.this).setSmallIcon(R.drawable.image_a3)
                 .setContentTitle("a new message title")
                 .setContentText("the context of the new message");
         //第一次提示消息的时候显示在通知栏上
@@ -194,7 +194,7 @@ public class RemoteViewDemoActivity extends AppCompatActivity {
                 .setContentText("今天中午吃什么？")
                 .setWhen(System.currentTimeMillis())
                 .setSmallIcon(R.mipmap.img_cat)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.image_a2))
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.image_a2))
                 .setAutoCancel(true)
                 .setNumber(10)
                 .build();
@@ -207,7 +207,7 @@ public class RemoteViewDemoActivity extends AppCompatActivity {
                 .setContentTitle("收到一条订阅消息")
                 .setContentText("地铁沿线30万商铺抢购中！")
                 .setWhen(System.currentTimeMillis())
-                .setSmallIcon(R.mipmap.iamge_a4)
+                .setSmallIcon(R.drawable.image_a4)
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.img_cat))
                 .setAutoCancel(true)
                 .build();
@@ -220,7 +220,7 @@ public class RemoteViewDemoActivity extends AppCompatActivity {
      */
     private void showBigNotifitionN() {
         Bitmap btm = BitmapFactory.decodeResource(getResources(),
-                R.mipmap.image_a2);
+                R.drawable.image_a2);
         Intent intent = new Intent(RemoteViewDemoActivity.this,
                 MainActivity.class);
 

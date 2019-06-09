@@ -10,14 +10,52 @@
         android:id="@+id/iv_img"
         android:layout_width="@dimen/qb_px_460"
         android:layout_height="@dimen/qb_px_460"
-        android:scaleType="centerCrop"
-        android:layout_marginTop="@dimen/qb_px_600"
         android:layout_centerHorizontal="true"
-        android:src="@mipmap/image_a3" />
+        android:layout_marginTop="@dimen/qb_px_400"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_a2" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/qb_px_144"
+        android:layout_marginBottom="@dimen/qb_px_210"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/btn_translation_xml"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="平移动画XML" />
+
+        <Button
+            android:id="@+id/btn_rotate_xml"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="旋转动画XML" />
+
+        <Button
+            android:id="@+id/btn_scale_xml"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="缩放动画XML" />
+
+        <Button
+            android:id="@+id/btn_alpha_xml"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="渐变动画XML" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/qb_px_144"
+        android:layout_marginBottom="@dimen/qb_px_20"
         android:layout_alignParentBottom="true">
 
         <Button
@@ -50,6 +88,5 @@
 
 
     </LinearLayout>
-
 
 </RelativeLayout>

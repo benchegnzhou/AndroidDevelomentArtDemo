@@ -21,7 +21,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:scaleType="centerCrop"
-            android:src="@mipmap/image_a2" />
+            android:src="@drawable/image_a2" />
 
     </com.zbc.androiddevelomentartdemo.view.CustomViewGroup>
 </RelativeLayout>

@@ -1,13 +1,13 @@
 package com.zbc.androiddevelomentartdemo.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
@@ -33,8 +33,16 @@ public class ViewAnimationActivity extends AppCompatActivity {
     Button btnScale;
     @Bind(R.id.btn_alpha)
     Button btnAlpha;
-    private int mWidth;
-    private int mHeight;
+    @Bind(R.id.btn_translation_xml)
+    Button btnTranslationXml;
+    @Bind(R.id.btn_rotate_xml)
+    Button btnRotateXml;
+    @Bind(R.id.btn_scale_xml)
+    Button btnScaleXml;
+    @Bind(R.id.btn_alpha_xml)
+    Button btnAlphaXml;
+    private int mImgHeight;
+    private int mImgWidth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,53 +51,93 @@ public class ViewAnimationActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
 
-        final View view = ivImg;
-        ViewTreeObserver observer = view.getViewTreeObserver();
+        ViewTreeObserver observer = ivImg.getViewTreeObserver();
         observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
 
+
+            @SuppressWarnings("deprecation")
             @Override
             public void onGlobalLayout() {
                 ivImg.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                mWidth = ivImg.getMeasuredWidth();
-                mHeight = ivImg.getMeasuredHeight();
+                mImgWidth = ivImg.getMeasuredWidth();
+                mImgHeight = ivImg.getMeasuredHeight();
             }
         });
 
     }
 
 
-
-
-
-
-    @OnClick({R.id.btn_translation, R.id.btn_rotate, R.id.btn_scale, R.id.btn_alpha})
+    @OnClick({R.id.btn_translation
+            , R.id.btn_rotate
+            , R.id.btn_scale
+            , R.id.btn_alpha
+            , R.id.btn_translation_xml
+            , R.id.btn_scale_xml
+            , R.id.btn_rotate_xml
+            , R.id.btn_alpha_xml})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_translation:
                 int left = ivImg.getLeft() - 500;
                 int top = ivImg.getTop() - 500;
-                TranslateAnimation translateAnimation = new TranslateAnimation(left,left+500,top,top+500);
+                TranslateAnimation translateAnimation = new TranslateAnimation(left, left + 500, top, top + 500);
                 translateAnimation.setDuration(1200);
                 translateAnimation.setInterpolator(new BounceInterpolator());
+                translateAnimation.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
                 ivImg.startAnimation(translateAnimation);
                 break;
             case R.id.btn_rotate:
-                RotateAnimation rotateAnimation = new RotateAnimation(0,360,0,0);
+                RotateAnimation rotateAnimation = new RotateAnimation(0, 360, 0, 0);
                 rotateAnimation.setDuration(1200);
                 rotateAnimation.setInterpolator(new BounceInterpolator());
                 ivImg.startAnimation(rotateAnimation);
                 break;
             case R.id.btn_scale:
-                ScaleAnimation scaleAnimation = new ScaleAnimation(mWidth*0.5f,mWidth,mHeight*0.5f,mWidth );
+                ScaleAnimation scaleAnimation = new ScaleAnimation(0.1f,1.0f,2.0f,1.0f  );
                 scaleAnimation.setDuration(1200);
-                scaleAnimation.setInterpolator(new BounceInterpolator());
+//                scaleAnimation.setInterpolator(new BounceInterpolator());
                 ivImg.startAnimation(scaleAnimation);
                 break;
             case R.id.btn_alpha:
-                AlphaAnimation alphaAnimation = new AlphaAnimation(0.2f,1);
+                AlphaAnimation alphaAnimation = new AlphaAnimation(0.2f, 1);
                 alphaAnimation.setDuration(1200);
                 alphaAnimation.setInterpolator(new BounceInterpolator());
                 ivImg.startAnimation(alphaAnimation);
+                break;
+            case R.id.btn_translation_xml:
+                Animation animation = AnimationUtils.loadAnimation(this, R.anim.translate_anim);
+                animation.setInterpolator( new AccelerateInterpolator());
+                ivImg.startAnimation(animation);
+                break;
+            case R.id.btn_rotate_xml:
+                Animation animationRotate = AnimationUtils.loadAnimation(this, R.anim.rotate_anim);
+                animationRotate.setInterpolator( new AccelerateInterpolator());
+                ivImg.startAnimation(animationRotate);
+                break;
+            case R.id.btn_scale_xml:
+                Animation animationScale= AnimationUtils.loadAnimation(this, R.anim.scale_animation);
+                animationScale.setInterpolator( new AccelerateInterpolator());
+                ivImg.startAnimation(animationScale);
+                break;
+            case R.id.btn_alpha_xml:
+                Animation animationAlpha= AnimationUtils.loadAnimation(this, R.anim.alpha_animation);
+                animationAlpha.setInterpolator( new AccelerateInterpolator());
+                ivImg.startAnimation(animationAlpha);
                 break;
             default:
         }
