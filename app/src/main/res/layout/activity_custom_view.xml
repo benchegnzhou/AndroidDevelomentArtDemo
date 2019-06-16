@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_fafafa"
+    android:orientation="vertical"
+    tools:context=".activity.CustomViewActivity">
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/qb_px_40"
+        android:layout_marginTop="@dimen/qb_px_20"
+        android:layout_marginRight="@dimen/qb_px_40"
+        android:background="@color/color_bg_ffffff"
+        android:paddingLeft="@dimen/qb_px_10"
+        android:paddingTop="@dimen/qb_px_6"
+        android:paddingRight="@dimen/qb_px_10"
+        android:paddingBottom="@dimen/qb_px_6"
+        android:textColor="@color/color_text_999999"
+        android:textSize="18sp" />
+
+
+    <com.zbc.androiddevelomentartdemo.view.CustomTextView
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/qb_px_20"
+        android:textColor="@color/color_bg_ffffff"
+        android:textSize="18sp"
+        android:background="@color/color_37a3ee"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:id="@+id/tv_android_custom_view"
+        android:layout_width="match_parent"
+        android:layout_height="144px"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="100px"
+        android:layout_marginRight="40px"
+        android:background="@color/color_47a8fc"
+        android:gravity="center"
+        android:text="android "
+        android:textColor="@color/color_bg_ffffff" />
+</LinearLayout>

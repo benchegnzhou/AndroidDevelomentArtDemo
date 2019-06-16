@@ -13,7 +13,8 @@
         android:icon="@mipmap/list_ic_message_huodong"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.FrameTestActivity"></activity>
+        <activity android:name=".activity.CustomViewActivity"></activity>
+        <activity android:name=".activity.FrameTestActivity" />
         <activity android:name=".activity.FrameAnimationActivity" />
         <activity android:name=".activity.PropertyAnimationActivity" />
         <activity android:name=".activity.ViewAnimationActivity" />

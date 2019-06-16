@@ -121,6 +121,17 @@
             android:gravity="center"
             android:text="android 动画演示"
             android:textColor="@color/color_bg_ffffff" />
+        <TextView
+            android:id="@+id/tv_android_custom_view"
+            android:layout_width="match_parent"
+            android:layout_height="144px"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="100px"
+            android:layout_marginRight="40px"
+            android:background="@color/color_47a8fc"
+            android:gravity="center"
+            android:text="android 控件自定义基础"
+            android:textColor="@color/color_bg_ffffff" />
 
 
     </LinearLayout>

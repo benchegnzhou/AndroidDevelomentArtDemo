@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.zbc.androiddevelomentartdemo.activity.BadgeDemoActivity;
+import com.zbc.androiddevelomentartdemo.activity.CustomViewActivity;
 import com.zbc.androiddevelomentartdemo.activity.DemoAnimationActivity;
 import com.zbc.androiddevelomentartdemo.activity.DemoTestActivity;
 import com.zbc.androiddevelomentartdemo.activity.DrawableTestActivity;
@@ -71,7 +72,8 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick({R.id.tv_next3, R.id.tv_send_msg, R.id.tv_remoteview
             , R.id.tv_gesturedetector, R.id.tv_scroll_conflict, R.id.tv_ibinder_test
-            , R.id.tv_badge_demo,R.id.tv_drawable_test,R.id.tv_android_animation})
+            , R.id.tv_badge_demo, R.id.tv_drawable_test, R.id.tv_android_animation
+            , R.id.tv_android_custom_view})
     public void onClick(View view) {
         switch (view.getId()) {
 
@@ -170,6 +172,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.tv_android_animation:
                 startActivity(new Intent(this, DemoAnimationActivity.class));
+                break;
+            case R.id.tv_android_custom_view:
+                startActivity(new Intent(this, CustomViewActivity.class));
                 break;
             default:
         }
