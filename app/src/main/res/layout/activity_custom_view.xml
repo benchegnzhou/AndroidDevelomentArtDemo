@@ -25,11 +25,13 @@
 
 
     <com.zbc.androiddevelomentartdemo.view.CustomTextView
+        android:id="@+id/tv_custom"
         android:layout_width="match_parent"
-        android:layout_marginTop="@dimen/qb_px_20"
-        android:textColor="@color/color_bg_ffffff"
-        android:textSize="18sp"
+        android:paddingLeft="@dimen/qb_px_40"
+        android:paddingRight="@dimen/qb_px_40"
+        android:layout_marginTop="@dimen/qb_px_60"
         android:background="@color/color_37a3ee"
+        android:textColor="@color/color_bg_ffffff"
         android:layout_height="wrap_content" />
 
 
@@ -42,6 +44,6 @@
         android:layout_marginRight="40px"
         android:background="@color/color_47a8fc"
         android:gravity="center"
-        android:text="android "
+        android:text="android 自定义控件测试"
         android:textColor="@color/color_bg_ffffff" />
 </LinearLayout>

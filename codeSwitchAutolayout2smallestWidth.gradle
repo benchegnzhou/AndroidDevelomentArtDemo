@@ -1,0 +1,200 @@
+task codeReplacePx2qb_xml(group: "recode", description: "代码替换脚本将xml中的px替换为qb_px") {
+    doFirst {
+        def fileNum = 0
+        def folderNum = 0
+        def fileSuccessNum = 0
+        def fileFailNum = 0
+        println "脚本开始执行"
+        File file = new File("G:\\house\\app\\android\\wuye\\app\\src\\main\\res\\layout")
+
+        if (file.exists()) {
+            LinkedList<File> list = new LinkedList<File>()
+
+            //组装数据
+            if (file.isDirectory()) {
+                folderNum++
+                for (File file2 : file.listFiles()) {
+                    if (file2.isDirectory()) {
+                        folderNum++
+                        for (File file3 : file2.listFiles()) {
+                            folderNum++
+                            if (file3.isDirectory()) {
+                                folderNum++
+                                for (File file4 : file3.listFiles()) {
+                                    if (file4.isDirectory()) {
+                                        folderNum++
+                                    } else {
+                                        list.add(file4)
+                                    }
+                                }
+                            } else {
+                                list.add(file3)
+                            }
+                        }
+                    } else {
+                        list.add(file2)
+                    }
+                }
+            } else {
+                list.add(file)
+            }
+
+
+
+            for (File fileOperate : list) {
+                if (fileOperate.isDirectory()) {
+                    System.out.println("文件夹:" + fileOperate.getAbsolutePath() + "\n\n\n");
+                    folderNum++
+                } else {
+                    fileNum++
+                    System.out.println("正在替换文件:" + fileOperate.getAbsolutePath())
+                    if (fileOperate.getAbsolutePath().toLowerCase().endsWith(".xml")) {
+                        LinkedList<String> lins = new LinkedList<String>();
+
+                        try {
+                            FileInputStream fis = new FileInputStream(fileOperate.getAbsolutePath().toString());
+                            InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
+                            BufferedReader br = new BufferedReader(isr);
+                            String line = null;
+
+                            while ((line = br.readLine()) != null) {
+                                String content = line
+                                if (content != null && content.length() > 0) {
+                                    content = content.replaceAll("com.zhy.autolayout.Auto", "")
+                                    if (content.matches(".*=\"\\d+px\".*") && content.contains("px\"")) {
+
+                                        String temp1 = content.find("\"\\d+px\"")
+                                        System.out.println("-----------需要替换的变量--------\n" + temp1)
+                                        String result = "\"@dimen/qb_px_" + temp1.find("\\d+") + "\""
+                                        System.out.println("-----------替换后的变量--------\n" + result)
+                                        if (!temp1.equals("1px") && !temp1.equals("0px")) {
+                                            content = content.replace(temp1, result)
+                                            System.out.println("----------替换后的结果---------\n" + content + "\n")
+                                        }
+                                        System.out.println("-------------------\n" + content)
+                                    }
+                                    lins.add(content)
+                                } else {
+                                    lins.add(content)
+                                }
+                            }
+                            fileOperate.withWriter('UTF-8') { writer ->
+                                lins.each { lineTemp ->
+                                    writer.writeLine(lineTemp)
+                                }
+                            }
+
+                            System.out.println("----------执行成功---------\n" + fileOperate.getAbsolutePath())
+                            fileSuccessNum++
+                        } catch (IOException e) {
+                            System.out.println("-------------------\n" + e.toString())
+                            System.out.println("----------执行成功---------\n" + fileOperate.getAbsolutePath())
+                            fileFailNum++
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        } else {
+            System.out.println("文件不存在!");
+        }
+        System.out.println("文件夹共有:" + folderNum + ",文件共有:" + fileNum + ",执行成功的文件有" + fileSuccessNum + ",执行失败的文件有" + fileFailNum);
+    }
+}
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+task codeReplaceAtolayout_java(group: "recode", description: "代码替换脚本") {
+    doFirst {
+        def fileNum = 0
+        def folderNum = 0
+        def fileSuccessNum = 0
+        def fileFailNum = 0
+        println "脚本开始执行"
+        File file = new File("G:\\house\\app\\android\\wuye\\app\\src\\main\\java\\com\\ztsc\\house\\customview")
+
+        if (file.exists()) {
+            LinkedList<File> list = new LinkedList<File>()
+
+            //组装数据
+            if (file.isDirectory()) {
+                folderNum++
+                for (File file2 : file.listFiles()) {
+                    if (file2.isDirectory()) {
+                        folderNum++
+                        for (File file3 : file2.listFiles()) {
+                            folderNum++
+                            if (file3.isDirectory()) {
+                                folderNum++
+                                for (File file4 : file3.listFiles()) {
+                                    if (file4.isDirectory()) {
+                                        folderNum++
+                                    } else {
+                                        list.add(file4)
+                                    }
+                                }
+                            } else {
+                                list.add(file3)
+                            }
+                        }
+                    } else {
+                        list.add(file2)
+                    }
+                }
+            } else {
+                list.add(file)
+            }
+
+
+            for (File fileOperate : list) {
+                if (fileOperate.exists()) {
+                    fileNum++
+                    System.out.println("正在替换文件:" + fileOperate.getAbsolutePath());
+                    if (fileOperate.getAbsolutePath().toLowerCase().endsWith(".java")) {
+
+                        LinkedList<String> lins = new LinkedList<String>();
+                        try {
+                            FileInputStream fis = new FileInputStream(fileOperate.getAbsolutePath().toString());
+                            InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
+                            BufferedReader br = new BufferedReader(isr);
+                            String line = null;
+
+                            while ((line = br.readLine()) != null) {
+                                String content = line
+                                if (content != null && content.length() > 0) {
+                                    // System.out.println("------------替换前-------\n" + content)
+                                    content = content.replaceAll("import com.zhy.autolayout.AutoRelativeLayout;", "import android.widget.RelativeLayout;")
+                                    content = content.replaceAll("import com.zhy.autolayout.AutoLinearLayout;", "import android.widget.LinearLayout;")
+                                    content = content.replaceAll("import com.zhy.autolayout.AutoFrameLayout;", "import android.widget.FrameLayout;")
+                                    content = content.replaceAll("AutoRelativeLayout", "RelativeLayout")
+                                    content = content.replaceAll("AutoLinearLayout", "LinearLayout")
+                                    content = content.replaceAll("AutoFrameLayout", "FrameLayout")
+                                    lins.add(content)
+                                } else {
+                                    lins.add(content)
+                                }
+                            }
+                            fileOperate.withWriter('UTF-8') { writer ->
+                                lins.each { lineTemp ->
+                                    writer.writeLine(lineTemp)
+                                }
+                            }
+
+                            System.out.println("----------执行成功---------\n" + fileOperate.getAbsolutePath())
+                            fileSuccessNum++
+                        } catch (IOException e) {
+                            fileFailNum++
+                            System.out.println("-------------------\n" + e.toString())
+                            System.out.println("----------执行失败---------\n" + fileTemp.getAbsolutePath())
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+            System.out.println("文件夹共有:" + folderNum + ",文件共有:" + fileNum + ",执行成功的文件有" + fileSuccessNum + ",执行失败的文件有" + fileFailNum);
+        }else {
+            System.out.println("文件不存在" )
+
+        }
+    }
+}
