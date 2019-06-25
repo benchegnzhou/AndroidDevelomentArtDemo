@@ -2,9 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:background="@color/color_fafafa"
+    android:layout_marginLeft="@dimen/qb_px_200"
+    android:layout_marginRight="@dimen/qb_px_200"
+    android:background="@color/color_hint_dcdcdc"
     android:orientation="vertical"
     tools:context=".activity.CustomViewActivity">
 
@@ -26,7 +28,7 @@
 
     <com.zbc.androiddevelomentartdemo.view.CustomTextView
         android:id="@+id/tv_custom"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/qb_px_1000"
         android:paddingLeft="@dimen/qb_px_40"
         android:paddingRight="@dimen/qb_px_40"
         android:layout_marginTop="@dimen/qb_px_60"

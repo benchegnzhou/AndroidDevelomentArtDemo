@@ -1,6 +1,7 @@
 package com.zbc.androiddevelomentartdemo.view;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -27,6 +28,7 @@ public class CustomTextView extends View implements ViewTreeObserver.OnPreDrawLi
     private int mWidth;
     private int mHeight;
     private int mLineSpacing = 6;
+    private Paint mPaint;
 
 
     public CustomTextView(Context context) {
@@ -39,11 +41,41 @@ public class CustomTextView extends View implements ViewTreeObserver.OnPreDrawLi
 
     public CustomTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        initPaint();
     }
 
 
     /**
-     * 测量控件的大小
+     * 画笔初始化
+     */
+    private void initPaint() {
+        if (mPaint == null) {
+            mPaint = new Paint();
+        }
+        mPaint.setAntiAlias(true);
+        mPaint.setColor(mTextColor);
+        mPaint.setTextSize(mTextSize);
+    }
+
+
+    /**
+     * 测量控件的大小,得到的是父容器的大小换句话说就是自定义控件最大可以使用的大小
+     * 经过测试如果父控件固定大小match_parent，子控件页同样的使用确定大小的数值1040
+     * 返回mode=MeasureSpec.EXACTLY: 大小为子控件的设置数值大小size=1040，结论子控件为确切值时，子控件onMeasure获得设置的确切值
+     * <p>
+     * 设置父控件1000，子控件设置1040
+     * 返回mode=MeasureSpec.EXACTLY: 大小为子控件的设置数值大小size=1040
+     * <p>
+     * <p>
+     * 设置父控件大小为wrap_content，子控件设置1040
+     * 返回mode=MeasureSpec.EXACTLY: 大小为子控件的设置数值大小size=1040
+     * <p>
+     * 设置父控件大小为match_parent，子控件设置wrap_content
+     * 返回mode=MeasureSpec.AT_MOST: 大小为子控件的设置数值大小size=父控件的剩余空间1080-marginLeft-marginRight
+     * <p>
+     * <p>
+     * 设置父控件大小为wrap_content，子控件设置wrap_content
+     * 返回mode=MeasureSpec.AT_MOST: 大小为子控件的设置数值大小size=父控件的剩余可用空间1080-marginLeft-marginRight
      *
      * @param widthMeasureSpec
      * @param heightMeasureSpec
@@ -51,6 +83,7 @@ public class CustomTextView extends View implements ViewTreeObserver.OnPreDrawLi
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         //super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        initPaint();
         onWidthMeassure(widthMeasureSpec);
         onHeightMeassure(heightMeasureSpec);
         setMeasuredDimension(mWidth, mHeight);
@@ -63,6 +96,7 @@ public class CustomTextView extends View implements ViewTreeObserver.OnPreDrawLi
         switch (mode) {
             case MeasureSpec.EXACTLY:
                 mHeight = size;
+
                 break;
             case MeasureSpec.AT_MOST:
 //                height = Math.min(defaultHeight, size);
@@ -116,8 +150,9 @@ public class CustomTextView extends View implements ViewTreeObserver.OnPreDrawLi
                 mWidth = size;
                 break;
             case MeasureSpec.AT_MOST:
-                int paddingLeft = getPaddingLeft();
-                int paddingRight = getPaddingRight();
+                int padding = getPaddingLeft() + getPaddingRight();
+                Rect rect = new Rect();
+                mPaint.getTextBounds(mText, 0, mText.length() - 1, rect);
                 mWidth = Math.min(defaultWidth, size);
                 break;
             //对象可以无限的大，不受限制
@@ -135,20 +170,21 @@ public class CustomTextView extends View implements ViewTreeObserver.OnPreDrawLi
         super.onLayout(changed, left, top, right, bottom);
     }
 
-
+    /**
+     * 创建一个bitmap位图存储上一次的图像信息
+     *
+     * @param canvas
+     */
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         //创建bitmap用于报错bitmap图像,后续的绘图信息可以从里面直接取出并恢复
-//        Bitmap bitmap = Bitmap.createBitmap(getWidth(), getHeight(), null);
-//        canvas.drawBitmap(bitmap, 0, 0, null);
-        Paint paint = new Paint();
-        paint.setAntiAlias(true);
-        paint.setColor(mTextColor);
-        paint.setTextSize(mTextSize);
+        Bitmap bitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_4444);
+        canvas.drawBitmap(bitmap, 0, 0, null);
+
         Rect rect = new Rect();
-        paint.getTextBounds(mText, 0, mText.length() - 1, rect);
-        canvas.drawText(mText, 0 /*getPaddingLeft()*/, rect.height(), paint);
+        mPaint.getTextBounds(mText, 0, mText.length() - 1, rect);
+        canvas.drawText(mText, getPaddingLeft(), rect.height() + getPaddingTop(), mPaint);
     }
 
 
