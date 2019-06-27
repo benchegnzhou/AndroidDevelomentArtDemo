@@ -11,6 +11,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
+import java.util.ArrayList;
+
 /**
  * Created by benchengzhou on 2019/6/16  15:59 .
  * 作者邮箱： mappstore@163.com
@@ -20,7 +22,7 @@ import android.view.ViewTreeObserver;
  */
 
 public class CustomTextView extends View implements ViewTreeObserver.OnPreDrawListener {
-    private int defaultWidth = 100;
+    private int defaultWidth = 0;
     private int defaultHeight = 100;
     private String mText = "";
     private int mTextColor = 0xff666666;
@@ -28,7 +30,9 @@ public class CustomTextView extends View implements ViewTreeObserver.OnPreDrawLi
     private int mWidth;
     private int mHeight;
     private int mLineSpacing = 6;
+    private int lineWidthValueMax = 0;
     private Paint mPaint;
+    private Rect mMaxRect;
 
 
     public CustomTextView(Context context) {
@@ -49,12 +53,32 @@ public class CustomTextView extends View implements ViewTreeObserver.OnPreDrawLi
      * 画笔初始化
      */
     private void initPaint() {
+        //基线
+        int baseLineY = 0;
+        int baseLineX = 0;
+
         if (mPaint == null) {
             mPaint = new Paint();
         }
         mPaint.setAntiAlias(true);
         mPaint.setColor(mTextColor);
         mPaint.setTextSize(mTextSize);
+
+
+        //计算各线在位置
+        Paint.FontMetrics fm = mPaint.getFontMetrics();
+
+        float ascent = baseLineY + fm.ascent;//当前绘制顶线
+        float descent = baseLineY + fm.descent;//当前绘制底线
+        float top = baseLineY + fm.top;//可绘制最顶线
+        float bottom = baseLineY + fm.bottom;//可绘制最低线
+
+        //字符串所占的高度和宽度
+        int width = (int) mPaint.measureText(mText);
+        int height = (int) (bottom - top);
+        //单个文字绘制时可以占据的最大矩形区域
+        mMaxRect = new Rect(baseLineX, (int) (baseLineY + fm.top), (baseLineX + width), (int) (baseLineY + fm.bottom));
+
     }
 
 
@@ -91,6 +115,7 @@ public class CustomTextView extends View implements ViewTreeObserver.OnPreDrawLi
 
     private int onHeightMeassure(int heightMeasureSpec) {
         mHeight = 0;
+
         int mode = MeasureSpec.getMode(heightMeasureSpec);
         int size = MeasureSpec.getSize(heightMeasureSpec);
         switch (mode) {
@@ -99,11 +124,10 @@ public class CustomTextView extends View implements ViewTreeObserver.OnPreDrawLi
 
                 break;
             case MeasureSpec.AT_MOST:
-//                height = Math.min(defaultHeight, size);
+                // height = Math.min(defaultHeight, size);
                 //获取文本的和padding的宽高作为控件的宽高
-                int paddingTop = getPaddingTop();
-                int paddingBottom = getPaddingBottom();
-                mHeight = getTextHeight(paddingTop, paddingBottom);
+
+                mHeight = getTextHeight();
 
                 break;
             //对象可以无限的大，不受限制
@@ -116,52 +140,114 @@ public class CustomTextView extends View implements ViewTreeObserver.OnPreDrawLi
 
     }
 
+
     /**
-     * 获取控件的高度
+     * 控件宽度测量
+     *
+     * @param widthMeasureSpec
+     * @return
      */
-    private int getTextHeight(int paddingTop, int paddingBottom) {
-        int height = 0;
-        Paint paint = new Paint();
-        paint.setAntiAlias(true);
-        paint.setColor(mTextColor);
-        paint.setTextSize(mTextSize);
-        Rect rect = new Rect();
-        paint.getTextBounds(mText, 0, mText.length() - 1, rect);
-
-        //判断文字的行数
-        if (!TextUtils.isEmpty(mText)) {
-            //超过一行
-            if (mWidth < rect.width()) {
-                int lineCount = rect.width() / mWidth + (rect.width() % mWidth == 0 ? 0 : 1);
-                height = lineCount * rect.height() + ((lineCount > 1 ? 0 : lineCount - 1) * mLineSpacing);
-            } else {
-                height = rect.height();
-            }
-        }
-        return height + paddingTop + paddingBottom;
-    }
-
     private int onWidthMeassure(int widthMeasureSpec) {
         mWidth = 0;
         int mode = MeasureSpec.getMode(widthMeasureSpec);
         int size = MeasureSpec.getSize(widthMeasureSpec);
+
+
+        int padding = getPaddingLeft() + getPaddingRight();
+
+
         switch (mode) {
             case MeasureSpec.EXACTLY:
                 mWidth = size;
                 break;
             case MeasureSpec.AT_MOST:
-                int padding = getPaddingLeft() + getPaddingRight();
-                Rect rect = new Rect();
-                mPaint.getTextBounds(mText, 0, mText.length() - 1, rect);
-                mWidth = Math.min(defaultWidth, size);
+                int want = size - padding;
+                mWidth = getTextWidth(want);
                 break;
             //对象可以无限的大，不受限制
             case MeasureSpec.UNSPECIFIED:
-                mWidth = Math.min(defaultWidth, size);
+                Rect rect = new Rect();
+                mPaint.getTextBounds(mText, 0, mText.length() - 1, rect);
+                mWidth = rect.width() + padding;
                 break;
+
             default:
         }
         return mWidth;
+    }
+
+
+    /**
+     * 获取控件的宽度
+     *
+     * @param want
+     */
+    private int getTextWidth(int want) {
+        int width = 0;
+        Rect rect = new Rect();
+        mPaint.getTextBounds(mText, 0, mText.length() - 1, rect);
+        //有空间并且一行可以乘下,需要绘制文字
+        if (want > 0 && rect.width() <= want) {
+            width = rect.width();
+        } else if (want > 0 && rect.width() > want) {
+            width = want;
+        }
+        return width;
+    }
+
+    ArrayList<String> mTextList = new ArrayList<>();
+
+    /**
+     * 获取控件的高度
+     */
+    private int getTextHeight() {
+        int height = 0;
+        int baseX = 0;
+        int baseY = 0;
+        mTextList.clear();
+        int paddingTop = getPaddingTop();
+        int paddingBottom = getPaddingBottom();
+        int lineWidthMax = Math.max(mWidth - getPaddingLeft() - getPaddingRight(), 0);
+        if (mText == null || mText.length() == 0) {
+            return 0;
+        }
+        Rect rect = new Rect();
+        mPaint.getTextBounds(mText, 0, mText.length() - 1, rect);
+        //一行显示
+        if (rect.width() <= lineWidthMax) {
+            mTextList.add(mText);
+            return rect.height() + getPaddingTop() + getPaddingBottom();
+        }
+
+        float lineNum = rect.width() * 1f / mWidth;
+        //  每行文字个数
+        int onelineTexts = (int) (mText.length() / lineNum + 0.5f);
+        String textRemain = mText;
+        boolean hasString = true;
+        while (hasString) {
+//            if (onelineTexts >= lineNum) {
+            for (int i = onelineTexts; i < textRemain.length() - 1; i++) {
+                if (i == textRemain.length() - 1) {
+                    mTextList.add(textRemain);
+                    textRemain = "";
+                    hasString = false;
+                    break;
+                }
+                Rect rectF = new Rect();
+                String remianTempF = textRemain.substring(0, i);
+                String remianTempL = textRemain.substring(0, i + 1);
+                mPaint.getTextBounds(remianTempF, 0, remianTempF.length() - 1, rectF);
+                Rect rectL = new Rect();
+                mPaint.getTextBounds(remianTempL.substring(0, i), 0, remianTempL.length() - 1, rectL);
+                if (rectF.width() < mWidth && rectL.width() > mWidth) {
+                    mTextList.add(textRemain.substring(0, i));
+                    textRemain = textRemain.substring(0, i);
+                    break;
+                }
+            }
+//            }
+        }
+        return rect.height() * mTextList.size() + paddingTop + paddingBottom;
     }
 
 
@@ -181,10 +267,16 @@ public class CustomTextView extends View implements ViewTreeObserver.OnPreDrawLi
         //创建bitmap用于报错bitmap图像,后续的绘图信息可以从里面直接取出并恢复
         Bitmap bitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_4444);
         canvas.drawBitmap(bitmap, 0, 0, null);
+        if (mTextList == null || mTextList.size() == 0) {
+            return;
+        }
+        for (int i = 0; i < mTextList.size(); i++) {
+            String text = mTextList.get(i);
+            Rect rect = new Rect();
+            mPaint.getTextBounds(text, 0, text.length() - 1, rect);
+            canvas.drawText(text, getPaddingLeft(), rect.height() + getPaddingTop(), mPaint);
+        }
 
-        Rect rect = new Rect();
-        mPaint.getTextBounds(mText, 0, mText.length() - 1, rect);
-        canvas.drawText(mText, getPaddingLeft(), rect.height() + getPaddingTop(), mPaint);
     }
 
 
