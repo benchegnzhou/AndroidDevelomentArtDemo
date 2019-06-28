@@ -42,9 +42,9 @@ public class CustomViewActivity extends AppCompatActivity {
 
     private void initData() {
         tvMessage.setText("自定义控件基础知识介绍,一个控件自定义，先后经历view的测量、布局位置摆放、绘制");
-        tvCustom.setText("自定义控件基础知识介绍,一个控件自定义，先后经历view的测量、布局位置摆放、绘制")
+        tvCustom.setText("自定义控件基础知识介绍,一个控件自定义，先后经历view的测量、布局位置摆放、绘制。自定义控件基础知识介绍,一个控件自定义，先后经历view的测量、布局位置摆放、绘制")
         .settextColor(0xffffffff)
-        .setTextSize(40);
+        .setTextSize(72);
     }
 
 

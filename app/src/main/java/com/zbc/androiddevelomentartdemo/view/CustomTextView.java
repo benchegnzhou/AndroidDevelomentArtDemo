@@ -207,47 +207,58 @@ public class CustomTextView extends View implements ViewTreeObserver.OnPreDrawLi
         mTextList.clear();
         int paddingTop = getPaddingTop();
         int paddingBottom = getPaddingBottom();
-        int lineWidthMax = Math.max(mWidth - getPaddingLeft() - getPaddingRight(), 0);
+        double lineWidthMax = Math.max(mWidth - getPaddingLeft() - getPaddingRight(), 0.01);
         if (mText == null || mText.length() == 0) {
             return 0;
         }
         Rect rect = new Rect();
         mPaint.getTextBounds(mText, 0, mText.length() - 1, rect);
+
         //一行显示
         if (rect.width() <= lineWidthMax) {
             mTextList.add(mText);
             return rect.height() + getPaddingTop() + getPaddingBottom();
         }
 
-        float lineNum = rect.width() * 1f / mWidth;
+        double lineNum = rect.width() * 1f / lineWidthMax;
         //  每行文字个数
         int onelineTexts = (int) (mText.length() / lineNum + 0.5f);
         String textRemain = mText;
-        boolean hasString = true;
-        while (hasString) {
-//            if (onelineTexts >= lineNum) {
-            for (int i = onelineTexts; i < textRemain.length() - 1; i++) {
-                if (i == textRemain.length() - 1) {
-                    mTextList.add(textRemain);
-                    textRemain = "";
-                    hasString = false;
-                    break;
-                }
-                Rect rectF = new Rect();
-                String remianTempF = textRemain.substring(0, i);
-                String remianTempL = textRemain.substring(0, i + 1);
-                mPaint.getTextBounds(remianTempF, 0, remianTempF.length() - 1, rectF);
-                Rect rectL = new Rect();
-                mPaint.getTextBounds(remianTempL.substring(0, i), 0, remianTempL.length() - 1, rectL);
-                if (rectF.width() < mWidth && rectL.width() > mWidth) {
-                    mTextList.add(textRemain.substring(0, i));
-                    textRemain = textRemain.substring(0, i);
-                    break;
+
+        while (!TextUtils.isEmpty(textRemain)) {
+
+            if (onelineTexts > textRemain.length()) {//不到一行
+                mTextList.add(textRemain);
+                textRemain = "";
+            } else {
+                for (int i = onelineTexts; i < textRemain.length() - 1; i++) {
+                    if (i == textRemain.length() - 1) {
+                        mTextList.add(textRemain);
+                        textRemain = "";
+                        break;
+                    }
+                    Rect rectF = new Rect();
+                    String remianTempF = textRemain.substring(0, i);
+                    String remianTempL = textRemain.substring(0, i + 1);
+                    mPaint.getTextBounds(remianTempF, 0, remianTempF.length() - 1, rectF);
+                    Rect rectL = new Rect();
+                    mPaint.getTextBounds(remianTempL.substring(0, i), 0, remianTempL.length() - 1, rectL);
+                    float widthF = mPaint.measureText(remianTempF);
+                    float widthL = mPaint.measureText(remianTempL);
+
+
+                    if (widthF > lineWidthMax) {  //减小字数
+                        i = Math.max(1, onelineTexts - 5);
+                    } else if (widthF <= lineWidthMax && widthL >= lineWidthMax) {
+                        mTextList.add(textRemain.substring(0, i));
+                        textRemain = textRemain.substring(i);
+                        break;
+                    }
                 }
             }
-//            }
+
         }
-        return rect.height() * mTextList.size() + paddingTop + paddingBottom;
+        return (rect.height() + mLineSpacing) * mTextList.size() + paddingTop + paddingBottom;
     }
 
 
@@ -264,17 +275,33 @@ public class CustomTextView extends View implements ViewTreeObserver.OnPreDrawLi
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        //计算各线在位置
+        Paint.FontMetrics fm = mPaint.getFontMetrics();
+
         //创建bitmap用于报错bitmap图像,后续的绘图信息可以从里面直接取出并恢复
         Bitmap bitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_4444);
         canvas.drawBitmap(bitmap, 0, 0, null);
         if (mTextList == null || mTextList.size() == 0) {
             return;
         }
+        Rect rect = new Rect();
+        mPaint.getTextBounds(mText, 0, mText.length() - 1, rect);
+
+        Paint paint = new Paint();
+        paint.setColor(0xff000000);
+        paint.setStrokeWidth(2);
         for (int i = 0; i < mTextList.size(); i++) {
             String text = mTextList.get(i);
-            Rect rect = new Rect();
-            mPaint.getTextBounds(text, 0, text.length() - 1, rect);
-            canvas.drawText(text, getPaddingLeft(), rect.height() + getPaddingTop(), mPaint);
+            int lineLeft = getPaddingLeft();
+            float lineTop = getPaddingTop() + i * (mLineSpacing + rect.height()); //- fm.descent * (i + 1)
+
+            canvas.drawText(text, lineLeft, rect.height() + lineTop, mPaint);
+
+            Rect rect2 = new Rect();
+            mPaint.getTextBounds(text, 0, text.length() - 1, rect2);
+            //   canvas.drawRect(rect2,paint);
+            canvas.drawLine(lineLeft, lineTop, lineLeft, rect.height() + lineTop, paint);
+            canvas.drawLine(lineLeft, rect.height() + lineTop + fm.descent, rect.width(), rect.height() + lineTop + fm.descent , paint);
         }
 
     }
