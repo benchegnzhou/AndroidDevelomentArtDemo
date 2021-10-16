@@ -10,7 +10,6 @@ import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
 import com.ztsc.commonutils.logcat.LogUtil;
-import junit.framework.Assert;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -310,7 +309,7 @@ public class BitmapUtils {
      * @return
      */
     public static Bitmap extractThumbNail(final String path, final int height, final int width, final boolean crop) {
-        Assert.assertTrue(path != null && !path.equals("") && height > 0 && width > 0);
+        assert(path != null && !path.equals("") && height > 0 && width > 0);
 
         BitmapFactory.Options options = new BitmapFactory.Options();
 

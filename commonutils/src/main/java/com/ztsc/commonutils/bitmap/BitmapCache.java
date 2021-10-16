@@ -3,11 +3,11 @@ package com.ztsc.commonutils.bitmap;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
-import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.widget.ImageView;
 
 
+import androidx.fragment.app.FragmentActivity;
 
 import java.io.BufferedInputStream;
 import java.io.File;

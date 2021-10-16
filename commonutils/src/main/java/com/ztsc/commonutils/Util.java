@@ -22,7 +22,6 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images.Thumbnails;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
 import android.telephony.TelephonyManager;
 import android.text.Editable;
 import android.text.Spannable;
@@ -37,6 +36,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+
+import androidx.annotation.NonNull;
 
 import com.ztsc.commonutils.logcat.LogUtil;
 

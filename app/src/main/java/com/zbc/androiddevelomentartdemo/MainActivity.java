@@ -13,10 +13,13 @@ import android.os.Message;
 import android.os.Messenger;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.custom_round_view.constant.MOUDLE_AROUTER;
 import com.zbc.androiddevelomentartdemo.activity.BadgeDemoActivity;
 import com.zbc.androiddevelomentartdemo.activity.CustomViewActivity;
 import com.zbc.androiddevelomentartdemo.activity.DemoAnimationActivity;
@@ -34,7 +37,7 @@ import com.ztsc.commonutils.logcat.LogUtil;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -48,14 +51,13 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    @Bind(R.id.tv_next3)
+    @BindView(R.id.tv_next3)
     TextView tvNext3;
-    @Bind(R.id.tv_send_msg)
+    @BindView(R.id.tv_send_msg)
     TextView tvSendMsg;
-    @Bind(R.id.tv_gesturedetector)
+    @BindView(R.id.tv_gesturedetector)
     TextView tvGesturedetector;
-    @Bind(R.id.tv_scroll_conflict)
+    @BindView(R.id.tv_scroll_conflict)
     TextView tvScrollConflict;
     private Messenger mService;
     private Messenger mGetReplyMessenger = new Messenger(new MessageHandle());
@@ -73,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick({R.id.tv_next3, R.id.tv_send_msg, R.id.tv_remoteview
             , R.id.tv_gesturedetector, R.id.tv_scroll_conflict, R.id.tv_ibinder_test
             , R.id.tv_badge_demo, R.id.tv_drawable_test, R.id.tv_android_animation
-            , R.id.tv_android_custom_view})
+            , R.id.tv_android_custom_view, R.id.tv_custom_view_advanced})
     public void onClick(View view) {
         switch (view.getId()) {
 
@@ -175,6 +177,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.tv_android_custom_view:
                 startActivity(new Intent(this, CustomViewActivity.class));
+                break;
+            case R.id.tv_custom_view_advanced:
+                ARouter.getInstance().build(MOUDLE_AROUTER.ROUNDVIEW_MAIN_ACTIVITY).navigation();
                 break;
             default:
         }

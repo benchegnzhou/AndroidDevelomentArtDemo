@@ -1,1 +1,2 @@
 include ':app','commonutils','baseRecyclerViewHelperlibrary','badgesAppIcon'
+include ':custom_round_view'
