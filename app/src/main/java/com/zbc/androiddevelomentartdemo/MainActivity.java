@@ -179,8 +179,7 @@ public class MainActivity extends AppCompatActivity {
                 ARouter.getInstance().build(CustomViewActivity.PATH).navigation();
                 break;
             case R.id.tv_custom_view_advanced:
-//                ARouter.getInstance().build(MOUDLE_AROUTER.ROUNDVIEW_MAIN_ACTIVITY2).navigation();
-                ARouter.getInstance().build("/custom_round_view/RoundViewMainActivity").navigation();
+                ARouter.getInstance().build(MOUDLE_AROUTER.ROUNDVIEW_MAIN_ACTIVITY).navigation();
                 break;
             default:
         }

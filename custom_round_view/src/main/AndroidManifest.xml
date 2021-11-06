@@ -7,7 +7,8 @@
         android:label="@string/app_name">
         <activity
             android:name=".RoundViewMainActivity"
-            android:exported="true"></activity>
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>

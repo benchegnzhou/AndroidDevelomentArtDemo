@@ -47,6 +47,7 @@ dependencies {
     testImplementation rootProject.ext.dependencies.espresso
     implementation rootProject.ext.dependencies.recyclerview
     implementation rootProject.ext.dependencies.appcompat
+    implementation rootProject.ext.dependencies.base_recyclerview_helper
     // Replace with the latest version
     implementation rootProject.ext.dependencies.arouter_api
     kapt rootProject.ext.dependencies.arouter_compiler

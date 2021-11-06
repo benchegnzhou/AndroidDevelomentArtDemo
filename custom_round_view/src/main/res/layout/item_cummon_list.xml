@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="144px"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginTop="20dp">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/common_list_item_bg"
+        android:gravity="center"
+        tool:text="我是条目的标题哈"
+        android:textColor="#121212"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
