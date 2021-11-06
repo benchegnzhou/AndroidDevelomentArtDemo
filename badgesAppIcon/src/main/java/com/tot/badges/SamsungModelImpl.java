@@ -3,9 +3,10 @@ package com.tot.badges;
 import android.app.Application;
 import android.app.Notification;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 
 import static com.tot.badges.Utils.UNABLE_TO_RESOLVE_INTENT_ERROR_;
+
+import androidx.annotation.NonNull;
 
 /**
  * 没有找到官方文档说明，只有网上的方法

@@ -2,9 +2,10 @@ package com.zbc.androiddevelomentartdemo.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.zbc.androiddevelomentartdemo.R;
 import com.zbc.androiddevelomentartdemo.entity.SystemMsgBean;
@@ -12,7 +13,7 @@ import com.zbc.androiddevelomentartdemo.entity.UserBean;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -25,7 +26,7 @@ import butterknife.ButterKnife;
 
 public class IBinderTestActivity extends AppCompatActivity {
 
-    @Bind(R.id.tv_msg)
+    @BindView(R.id.tv_msg)
     TextView tvMsg;
 
     @Override
@@ -76,7 +77,7 @@ public class IBinderTestActivity extends AppCompatActivity {
                 .append("userBean:" + userBean.toString() + "\n")
                 .append("msgBean:" + msgBean.toString() + "\n")
                 .append("\n\n\nvalue in bundle:\n\n")
-                .append("intValue:" +intValue2 + "\n")
+                .append("intValue:" + intValue2 + "\n")
                 .append("stringValue:" + stringValue2 + "\n")
                 .append("stringListValues:" + listStr2.toString() + "\n")
                 .append("userBean:" + userBean2.toString() + "\n")

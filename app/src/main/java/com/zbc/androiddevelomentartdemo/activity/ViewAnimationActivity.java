@@ -1,7 +1,6 @@
 package com.zbc.androiddevelomentartdemo.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateInterpolator;
@@ -15,31 +14,33 @@ import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.zbc.androiddevelomentartdemo.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class ViewAnimationActivity extends AppCompatActivity {
 
-    @Bind(R.id.iv_img)
+    @BindView(R.id.iv_img)
     ImageView ivImg;
-    @Bind(R.id.btn_translation)
+    @BindView(R.id.btn_translation)
     Button btnTranslation;
-    @Bind(R.id.btn_rotate)
+    @BindView(R.id.btn_rotate)
     Button btnRotate;
-    @Bind(R.id.btn_scale)
+    @BindView(R.id.btn_scale)
     Button btnScale;
-    @Bind(R.id.btn_alpha)
+    @BindView(R.id.btn_alpha)
     Button btnAlpha;
-    @Bind(R.id.btn_translation_xml)
+    @BindView(R.id.btn_translation_xml)
     Button btnTranslationXml;
-    @Bind(R.id.btn_rotate_xml)
+    @BindView(R.id.btn_rotate_xml)
     Button btnRotateXml;
-    @Bind(R.id.btn_scale_xml)
+    @BindView(R.id.btn_scale_xml)
     Button btnScaleXml;
-    @Bind(R.id.btn_alpha_xml)
+    @BindView(R.id.btn_alpha_xml)
     Button btnAlphaXml;
     private int mImgHeight;
     private int mImgWidth;

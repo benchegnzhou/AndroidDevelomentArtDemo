@@ -20,8 +20,9 @@ buildscript {
         // 数据库GreenDao
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20'// add plugin
-
-
+        classpath 'com.jakewharton:butterknife-gradle-plugin:10.1.0'
+        //ARouter https://blog.csdn.net/yu540135101/article/details/113720438
+        classpath "com.alibaba:arouter-register:1.0.2"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -39,7 +40,6 @@ allprojects {
 
         maven { url 'http://maven.aliyun.com/nexus/content/repositories/releases/' }
         maven { url 'https://jitpack.io' }
-
     }
 }
 

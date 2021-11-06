@@ -4,10 +4,12 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.Scroller;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
 
 import com.ztsc.commonutils.logcat.LogUtil;
 
@@ -20,7 +22,7 @@ import com.ztsc.commonutils.logcat.LogUtil;
  * 备    注：
  */
 
-public class AutoScrollView extends android.support.v7.widget.AppCompatImageView {
+public class AutoScrollView extends AppCompatImageView {
 
     private Context mContext;
     private int flag = 0;

@@ -13,10 +13,13 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
-        //arouter
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
+        //ARouter
+        kapt {
+            arguments {
+                //根据模块名来命名路由根节点
+                arg("AROUTER_MODULE_NAME", project.getName())
+                //生成Json文件
+                //arg("AROUTER_GENERATE_DOC", "enable")
             }
         }
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -38,12 +41,13 @@ android {
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.+'
-//    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation rootProject.ext.dependencies.junit
+    testImplementation rootProject.ext.dependencies.runner
+    testImplementation rootProject.ext.dependencies.espresso
     implementation rootProject.ext.dependencies.recyclerview
     implementation rootProject.ext.dependencies.appcompat
     // Replace with the latest version
     implementation rootProject.ext.dependencies.arouter_api
-    annotationProcessor rootProject.ext.dependencies.arouter_compiler
+    kapt rootProject.ext.dependencies.arouter_compiler
 }

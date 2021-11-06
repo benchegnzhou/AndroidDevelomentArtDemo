@@ -2,7 +2,8 @@ package com.tot.badges;
 
 import android.app.Application;
 import android.app.Notification;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

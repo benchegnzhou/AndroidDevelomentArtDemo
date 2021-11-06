@@ -1,18 +1,18 @@
 package com.zbc.androiddevelomentartdemo.activity;
 
 import android.graphics.drawable.ClipDrawable;
-import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LevelListDrawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.zbc.androiddevelomentartdemo.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -25,17 +25,17 @@ import butterknife.OnClick;
  */
 public class DrawableTestActivity extends AppCompatActivity {
 
-    @Bind(R.id.tv_drawable_transition)
+    @BindView(R.id.tv_drawable_transition)
     TextView tvDrawableTransition;
-    @Bind(R.id.tv_drawable_layerdrawable)
+    @BindView(R.id.tv_drawable_layerdrawable)
     TextView tvDrawableLayerdrawable;
-    @Bind(R.id.tv_drawable_level)
+    @BindView(R.id.tv_drawable_level)
     TextView tvDrawableLevel;
-    @Bind(R.id.tv_drawable_insert)
+    @BindView(R.id.tv_drawable_insert)
     TextView tvDrawableInsert;
-    @Bind(R.id.tv_drawable_clip)
+    @BindView(R.id.tv_drawable_clip)
     TextView tvDrawableClip;
-    @Bind(R.id.seek_bar)
+    @BindView(R.id.seek_bar)
     SeekBar seekBar;
     private TransitionDrawable mDrawable;
     private LevelListDrawable mLevelBackground;

@@ -1,10 +1,10 @@
 package com.zbc.androiddevelomentartdemo.activity;
 
-import android.os.Binder;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.zbc.androiddevelomentartdemo.R;
 import com.zbc.androiddevelomentartdemo.entity.UserBean;
@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -32,15 +32,15 @@ import butterknife.OnClick;
 public class DemoTestActivity extends AppCompatActivity {
 
 
-    @Bind(R.id.tv_msg)
+    @BindView(R.id.tv_msg)
     TextView tvMsg;
-    @Bind(R.id.tv_serializable)
+    @BindView(R.id.tv_serializable)
     TextView tvSerializable;
-    @Bind(R.id.tv_unserializable)
+    @BindView(R.id.tv_unserializable)
     TextView tvUnserializable;
-    @Bind(R.id.tv_parcelable)
+    @BindView(R.id.tv_parcelable)
     TextView tvParcelable;
-    @Bind(R.id.tv_unparcelable)
+    @BindView(R.id.tv_unparcelable)
     TextView tvUnparcelable;
 
     @Override
@@ -80,8 +80,7 @@ public class DemoTestActivity extends AppCompatActivity {
                 break;
 
             case R.id.tv_parcelable:
-                Binder binder   = new Binder();
-
+//                BindViewer BindViewer = new BindViewer();
                 break;
             case R.id.tv_unparcelable:
                 break;

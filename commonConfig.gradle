@@ -3,10 +3,10 @@
 //各个项目工程版本的全局配置 ,版本更新前请确认更新
 
 ext {
-    android = [compileSdkVersion: 30,
-               buildToolsVersion: '30.0.0',
+    android = [compileSdkVersion: 31,
+               buildToolsVersion: '31.0.0',
                minSdkVersion    : 17,
-               targetSdkVersion : 30,
+               targetSdkVersion : 31,
                versionCode      : 127,
                versionName      : '1.0.127',
                versionSupporPad : '1', //各个项目工程版本的全局配置 ,版本更新前请确认更新
@@ -23,20 +23,22 @@ ext {
 
     java = [sourceCompatibility: JavaVersion.VERSION_1_7,
             targetCompatibility: JavaVersion.VERSION_1_7]
-    dependencies = [multidex              : "com.android.support:multidex",
-                    gson                  : "com.google.code.gson:gson:2.8.0",
-                    okhttp                : "com.squareup.okhttp3:okhttp:3.9.0",
-                    recyclerview          : "androidx.recyclerview:recyclerview:1.2.0",
-                    arouter_api           : "com.alibaba:arouter-api:1.5.2",
-                    arouter_compiler      : "com.alibaba:arouter-compiler:1.5.2",
-                    gson                  : 'com.google.code.gson:gson:2.8.8',
-                    junit                 : 'junit:junit:4.13.2',               //testImplementation
-                    espresso              : 'androidx.test.espresso:espresso-core:3.4.0',
-                    butterknife           : 'com.jakewharton:butterknife:10.2.3',
-                    butterknife_compiler: 'com.jakewharton:butterknife-compiler:10.2.3',
-                    runner                : 'androidx.test:runner:1.4.0',
-                    test_core                : 'androidx.test:core:1.4.0-beta02',       // Optional -- Robolectric environment
-                    mockito_core                : 'org.mockito:mockito-core:4.0.0',     // Optional -- Mockito framework
-                    constraintlayout      : 'androidx.constraintlayout:constraintlayout:2.1.1',
-                    appcompat             : "androidx.appcompat:appcompat:1.4.0-beta01"]
+    dependencies = [multidex                : "com.android.support:multidex",
+                    gson                    : "com.google.code.gson:gson:2.8.0",
+                    okhttp                  : "com.squareup.okhttp3:okhttp:3.9.0",
+                    recyclerview            : "androidx.recyclerview:recyclerview:1.2.0",
+                    base_recyclerview_helper: 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4',
+                    arouter_api             : "com.alibaba:arouter-api:1.5.2",
+                    arouter_compiler        : "com.alibaba:arouter-compiler:1.5.2",
+                    gson                    : 'com.google.code.gson:gson:2.8.8',
+                    junit                   : 'junit:junit:4.13.2',               //testImplementation
+                    espresso                : 'androidx.test.espresso:espresso-core:3.4.0',
+                    butterknife             : 'com.jakewharton:butterknife:10.2.3',
+                    butterknife_compiler    : 'com.jakewharton:butterknife-compiler:10.2.3',
+                    runner                  : 'androidx.test:runner:1.4.0',
+                    test_core               : 'androidx.test:core:1.4.0-beta03',       // Optional -- Robolectric environment
+                    mockito_core            : 'org.mockito:mockito-core:4.0.0',     // Optional -- Mockito framework
+                    constraintlayout        : 'androidx.constraintlayout:constraintlayout:2.1.1',
+                    appcompat               : "androidx.appcompat:appcompat:1.4.0-beta01"]
+
 }

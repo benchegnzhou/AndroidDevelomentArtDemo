@@ -3,6 +3,7 @@ package com.zbc.androiddevelomentartdemo.application;
 import android.app.Application;
 import android.content.Context;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.ztsc.commonutils.CommonUtil;
 import com.ztsc.commonutils.utilconfig.Config;
 
@@ -33,6 +34,15 @@ public class MApplication extends Application {
                 .setLogTag("ZBC_DEVELOPMENT_ART_DEMO")
                 .setToastOpen(true));
 
+        initARouter();
+    }
+
+    private void initARouter() {
+        // 日志开启
+        ARouter.openLog();
+        // 调试模式开启，如果在install run模式下运行，则必须开启调试模式
+        ARouter.openDebug();
+        ARouter.init(this);
     }
 
 }

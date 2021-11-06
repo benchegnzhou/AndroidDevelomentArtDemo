@@ -4,7 +4,8 @@ import android.app.Application;
 import android.app.Notification;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 /**
  * https://developer.huawei.com/consumer/cn/devservice/doc/30802

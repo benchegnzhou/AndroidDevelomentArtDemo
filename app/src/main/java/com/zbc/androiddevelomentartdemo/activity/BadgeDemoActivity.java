@@ -6,18 +6,18 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.NotificationCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import com.tot.badges.IconBadgeNumManager;
 import com.zbc.androiddevelomentartdemo.MainActivity;
@@ -27,7 +27,7 @@ import com.ztsc.commonutils.toast.ToastUtils;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -40,9 +40,9 @@ import butterknife.OnClick;
  */
 public class BadgeDemoActivity extends AppCompatActivity {
 
-    @Bind(R.id.tv_badge_add)
+    @BindView(R.id.tv_badge_add)
     TextView tvBadgeAdd;
-    @Bind(R.id.tv_badge_sub)
+    @BindView(R.id.tv_badge_sub)
     TextView tvBadgeSub;
     private IconBadgeNumManager setIconBadgeNumManager;
 

@@ -1297,7 +1297,6 @@ public class Util {
             monthNow = Integer.parseInt(getDateStr().substring(5, 7));
         }
 
-
         ArrayList<String> monthList = new ArrayList<String>();
         for (int i = 1; i <= monthNow; i++) {
             if (i < 10) {              //数据格式补全

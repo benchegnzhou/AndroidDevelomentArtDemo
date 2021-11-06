@@ -1,9 +1,10 @@
 package com.zbc.androiddevelomentartdemo.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.zbc.androiddevelomentartdemo.R;
 import com.zbc.androiddevelomentartdemo.adapter.AppAdapter;
@@ -11,7 +12,7 @@ import com.zbc.androiddevelomentartdemo.view.HorizontalScrollView;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -24,13 +25,13 @@ import butterknife.ButterKnife;
 
 public class ScrolllConflictActivity extends AppCompatActivity {
 
-    @Bind(R.id.view_111)
+    @BindView(R.id.view_111)
     RecyclerView view111;
-    @Bind(R.id.view_222)
+    @BindView(R.id.view_222)
     RecyclerView view222;
-    @Bind(R.id.view_333)
+    @BindView(R.id.view_333)
     RecyclerView view333;
-    @Bind(R.id.horizontal_scroll_view)
+    @BindView(R.id.horizontal_scroll_view)
     HorizontalScrollView horizontalScrollView;
     private AppAdapter view111Adapter;
     private AppAdapter view222Adapter;

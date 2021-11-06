@@ -2,7 +2,6 @@ package com.zbc.androiddevelomentartdemo.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -11,9 +10,11 @@ import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.zbc.androiddevelomentartdemo.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -27,13 +28,13 @@ import butterknife.OnClick;
 
 public class DemoAnimationActivity extends AppCompatActivity {
 
-    @Bind(R.id.tv_view_animation)
+    @BindView(R.id.tv_view_animation)
     TextView tvViewAnimation;
-    @Bind(R.id.tv_frame_animation)
+    @BindView(R.id.tv_frame_animation)
     TextView tvFrameAnimation;
-    @Bind(R.id.tv_property_animation)
+    @BindView(R.id.tv_property_animation)
     TextView tvPropertyAnimation;
-    @Bind(R.id.view_root)
+    @BindView(R.id.view_root)
     LinearLayout viewRoot;
 
     @Override

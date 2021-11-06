@@ -2,7 +2,8 @@ package com.tot.badges;
 
 import android.app.Application;
 import android.app.Notification;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 /**
  * 网上查到了此段代码，但在vivo X21A[android-8.1.0/Funtouch OS_4.0]真机上并未测试成功。

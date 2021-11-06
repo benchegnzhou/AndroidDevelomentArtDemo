@@ -2,10 +2,10 @@ package com.tot.badges;
 
 import android.app.Application;
 import android.app.Notification;
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 /**
  * 以下是oppo客服原文（其中没有说明3.3中日活量和总下载量的标准）

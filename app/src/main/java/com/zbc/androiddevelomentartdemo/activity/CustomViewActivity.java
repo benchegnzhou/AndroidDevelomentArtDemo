@@ -1,13 +1,15 @@
 package com.zbc.androiddevelomentartdemo.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.zbc.androiddevelomentartdemo.R;
 import com.zbc.androiddevelomentartdemo.view.CustomTextView;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -18,14 +20,16 @@ import butterknife.ButterKnife;
  * 备    注：
  */
 
+@Route(path = CustomViewActivity.PATH)
 public class CustomViewActivity extends AppCompatActivity {
 
-    @Bind(R.id.tv_message)
+    @BindView(R.id.tv_message)
     TextView tvMessage;
-    @Bind(R.id.tv_android_custom_view)
+    @BindView(R.id.tv_android_custom_view)
     TextView tvAndroidCustomView;
-    @Bind(R.id.tv_custom)
+    @BindView(R.id.tv_custom)
     CustomTextView tvCustom;
+    public static final String PATH = "/app/CustomViewActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +47,8 @@ public class CustomViewActivity extends AppCompatActivity {
     private void initData() {
         tvMessage.setText("自定义控件基础知识介绍,一个控件自定义，先后经历view的测量、布局位置摆放、绘制");
         tvCustom.setText("自定义控件基础知识介绍,一个控件自定义，先后经历view的测量、布局位置摆放、绘制。自定义控件基础知识介绍,一个控件自定义，先后经历view的测量、布局位置摆放、绘制")
-        .settextColor(0xffffffff)
-        .setTextSize(72);
+                .settextColor(0xffffffff)
+                .setTextSize(72);
     }
 
 

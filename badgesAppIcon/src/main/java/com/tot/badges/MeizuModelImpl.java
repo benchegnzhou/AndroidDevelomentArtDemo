@@ -2,7 +2,8 @@ package com.tot.badges;
 
 import android.app.Application;
 import android.app.Notification;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 public class MeizuModelImpl implements IconBadgeNumModel {
     private static final String NOTIFICATION_ERROR = "not support : meizu";

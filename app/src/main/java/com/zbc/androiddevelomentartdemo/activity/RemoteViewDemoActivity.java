@@ -14,13 +14,14 @@ import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.zbc.androiddevelomentartdemo.MainActivity;
 import com.zbc.androiddevelomentartdemo.R;
@@ -29,7 +30,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -44,7 +45,7 @@ import butterknife.OnClick;
 public class RemoteViewDemoActivity extends AppCompatActivity {
 
 
-    @Bind(R.id.btn_appweiget_test)
+    @BindView(R.id.btn_appweiget_test)
     Button btnAppweigetTest;
 
     @Override

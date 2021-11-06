@@ -3,8 +3,9 @@ package com.tot.badges;
 import android.app.Application;
 import android.app.Notification;
 import android.os.Build;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
 
 import java.util.HashMap;
 import java.util.Map;

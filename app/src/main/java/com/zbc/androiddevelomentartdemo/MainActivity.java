@@ -11,12 +11,12 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.custom_round_view.constant.MOUDLE_AROUTER;
@@ -176,10 +176,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, DemoAnimationActivity.class));
                 break;
             case R.id.tv_android_custom_view:
-                startActivity(new Intent(this, CustomViewActivity.class));
+                ARouter.getInstance().build(CustomViewActivity.PATH).navigation();
                 break;
             case R.id.tv_custom_view_advanced:
-                ARouter.getInstance().build(MOUDLE_AROUTER.ROUNDVIEW_MAIN_ACTIVITY).navigation();
+//                ARouter.getInstance().build(MOUDLE_AROUTER.ROUNDVIEW_MAIN_ACTIVITY2).navigation();
+                ARouter.getInstance().build("/custom_round_view/RoundViewMainActivity").navigation();
                 break;
             default:
         }

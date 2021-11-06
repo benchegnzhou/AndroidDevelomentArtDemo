@@ -3,7 +3,9 @@ package com.tot.badges;
 import android.app.Application;
 import android.app.Notification;
 import android.content.Intent;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
+
 
 /**
  *
