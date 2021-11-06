@@ -2,12 +2,9 @@ package com.example.custom_round_view
 
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.chad.library.adapter.base.BaseQuickAdapter
-import com.chad.library.adapter.base.listener.OnItemClickListener
 import com.example.custom_round_view.adapter.MainListAdapter
 import com.example.custom_round_view.constant.MOUDLE_AROUTER
 import kotlinx.android.synthetic.main.activity_round_view_main.*
