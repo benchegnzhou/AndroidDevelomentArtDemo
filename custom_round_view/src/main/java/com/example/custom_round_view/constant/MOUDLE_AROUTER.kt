@@ -6,6 +6,7 @@ package com.example.custom_round_view.constant
 open class MOUDLE_AROUTER {
     companion object{
         const val ROUNDVIEW_MAIN_ACTIVITY= "/${PATH_CONSTANT.MODULE_ROUTER}/RoundViewMainActivity"
+        const val ROUND_WIDGET_ACTIVITY= "/${PATH_CONSTANT.MODULE_ROUTER}/RoundWidgetActivity"
 
     }
 }

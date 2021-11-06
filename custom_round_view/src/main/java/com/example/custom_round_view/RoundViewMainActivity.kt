@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
 import com.example.custom_round_view.adapter.MainListAdapter
 import com.example.custom_round_view.constant.MOUDLE_AROUTER
 import kotlinx.android.synthetic.main.activity_round_view_main.*
@@ -24,7 +25,11 @@ class RoundViewMainActivity : AppCompatActivity() {
         rv_view.layoutManager = LinearLayoutManager(this)
         rv_view.adapter = mListAdapter
         mListAdapter.animationEnable = true
-        mListAdapter.setOnItemClickListener { p0, p1, p2 -> }
+        mListAdapter.setOnItemClickListener { p0, p1, p2 ->
+            when (p2) {
+                0 -> ARouter.getInstance().build(MOUDLE_AROUTER.ROUND_WIDGET_ACTIVITY).navigation()
+            }
+        }
         initData()
     }
 
