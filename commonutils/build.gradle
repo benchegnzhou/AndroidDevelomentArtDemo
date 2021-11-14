@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 apply plugin: 'maven'
 
 
@@ -66,6 +67,7 @@ uploadArchives {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.5.2'
     testImplementation rootProject.ext.dependencies.junit
     testImplementation rootProject.ext.dependencies.runner
     testImplementation rootProject.ext.dependencies.espresso
@@ -73,4 +75,9 @@ dependencies {
     //加密
     implementation files('libs/sunjce_provider.jar')
     implementation 'com.blankj:utilcode:1.4.1'
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

@@ -6,8 +6,7 @@ plugins {
     id 'com.jakewharton.butterknife'
 }
 
-
-android {
+    android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
         applicationId "com.zbc.androiddevelomentartdemo"
