@@ -48,6 +48,8 @@ dependencies {
     implementation rootProject.ext.dependencies.recyclerview
     implementation rootProject.ext.dependencies.appcompat
     implementation rootProject.ext.dependencies.base_recyclerview_helper
+    //    https://www.coder.work/article/1173694
+    implementation 'com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava'
     // Replace with the latest version
     implementation rootProject.ext.dependencies.arouter_api
     kapt rootProject.ext.dependencies.arouter_compiler

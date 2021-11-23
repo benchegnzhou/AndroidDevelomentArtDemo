@@ -23,7 +23,7 @@ ext {
 
     java = [sourceCompatibility: JavaVersion.VERSION_1_7,
             targetCompatibility: JavaVersion.VERSION_1_7]
-    dependencies = [multidex                : "com.android.support:multidex",
+    dependencies = [multidex                : "com.android.support:multidex:1.0.3",
                     gson                    : "com.google.code.gson:gson:2.8.0",
                     okhttp                  : "com.squareup.okhttp3:okhttp:3.9.0",
                     recyclerview            : "androidx.recyclerview:recyclerview:1.2.0",
