@@ -25,13 +25,11 @@ class ProterDuffModeRoundImageView(
 
     constructor(context: Context?) : this(context, null, 0)
 
-
     val mPaint by lazy {
         val mPaint: Paint = Paint()
         mPaint.color = 0x00ff0055
         mPaint
     }
-
 
     //https://www.jianshu.com/p/d11892bbe055
     override fun draw(canvas: Canvas?) {

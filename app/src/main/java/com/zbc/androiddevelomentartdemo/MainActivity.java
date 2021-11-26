@@ -33,7 +33,7 @@ import com.zbc.androiddevelomentartdemo.content.ContentValue;
 import com.zbc.androiddevelomentartdemo.entity.SystemMsgBean;
 import com.zbc.androiddevelomentartdemo.entity.UserBean;
 import com.zbc.androiddevelomentartdemo.service.ServerService;
-import com.ztsc.commonutils.logcat.LogUtil;
+import com.ztsc.commonutils.logcat.Logger;
 
 import java.util.ArrayList;
 
@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            LogUtil.e("the ComponentName is :" + name.getClassName());
+            Logger.e("the ComponentName is :" + name.getClassName());
             mService = new Messenger(service);
 
             Message message = Message.obtain(null, ContentValue.MSG_FROM_CLIENT);
@@ -237,7 +237,7 @@ public class MainActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case ContentValue.MSG_FROM_SERVICE:
-                    LogUtil.e(msg.getData().getString("reply"));
+                    Logger.e(msg.getData().getString("reply"));
                     break;
                 default:
             }

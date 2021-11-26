@@ -1,9 +1,8 @@
 package com.ztsc.commonutils.bitmap;
 
 import android.util.Base64;
-import android.util.Log;
 
-import com.ztsc.commonutils.logcat.LogUtil;
+import com.ztsc.commonutils.logcat.Logger;
 
 import java.io.UnsupportedEncodingException;
 
@@ -41,11 +40,11 @@ public class Base64Util {
 		try {
 			String s="我是测试文本";
 			String temp= "";
-			LogUtil.e("解码前数据-----:"+s);
+			Logger.e("解码前数据-----:"+s);
 			temp= encoded(s);
-			LogUtil.e("编码后的数据"+temp);
+			Logger.e("编码后的数据"+temp);
 			temp= decode(temp);
-			LogUtil.e("解码还原最原始的数据------:"+temp);
+			Logger.e("解码还原最原始的数据------:"+temp);
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}

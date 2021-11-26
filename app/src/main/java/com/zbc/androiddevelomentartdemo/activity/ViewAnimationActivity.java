@@ -51,7 +51,6 @@ public class ViewAnimationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_animation);
         ButterKnife.bind(this);
 
-
         ViewTreeObserver observer = ivImg.getViewTreeObserver();
         observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
 

@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 
 import com.zbc.androiddevelomentartdemo.content.ContentValue;
 import com.zbc.androiddevelomentartdemo.entity.SystemMsgBean;
-import com.ztsc.commonutils.logcat.LogUtil;
+import com.ztsc.commonutils.logcat.Logger;
 
 /**
  * Created by benchengzhou on 2019/4/13  14:12 .
@@ -30,14 +30,14 @@ public class ServerService extends Service {
     private static class MessengerHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
-            LogUtil.e("ServerService's handleMessage is invoke");
+            Logger.e("ServerService's handleMessage is invoke");
             switch (msg.what) {
                 case ContentValue.MSG_FROM_CLIENT:
                     Bundle data = msg.getData();
                     //如果本次通讯是跨进程的数据传递，一定要设置classLoader，否则会因找不到可用的classLoader而报错 Parcel: Class not found when unmarshalling: com.zbc.androiddevelomentartdemo.entity.SystemMsgBean
                     data.setClassLoader(getClass().getClassLoader());
-                    LogUtil.e("----------------MessengerHandler-----------------");
-                    LogUtil.e("log from ServerService:\n the pracelable is :"
+                    Logger.e("----------------MessengerHandler-----------------");
+                    Logger.e("log from ServerService:\n the pracelable is :"
                             + data.getParcelable("systemMsgBean") + "\n the String msg is : "
                             + data.getString("msg") + "\n the int code is : "
                             + data.getInt("code"));
@@ -63,10 +63,10 @@ public class ServerService extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        LogUtil.e("ServerService binded success!");
+        Logger.e("ServerService binded success!");
         Bundle bundle = intent.getExtras();
         SystemMsgBean systemMsgBean = bundle.getParcelable("systemMsgBean");
-        LogUtil.e("onBind 接收到的消息为————————\n" + systemMsgBean.toString());
+        Logger.e("onBind 接收到的消息为————————\n" + systemMsgBean.toString());
         return mMessager.getBinder();
     }
 }

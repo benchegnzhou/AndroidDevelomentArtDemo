@@ -8,7 +8,7 @@ import android.graphics.Rect;
 import android.text.TextUtils;
 import android.text.format.Formatter;
 import android.util.Base64;
-import com.ztsc.commonutils.logcat.LogUtil;
+import com.ztsc.commonutils.logcat.Logger;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -61,26 +61,26 @@ public class Bitmap2Base642 {
         //对副本进行压缩
 //        result.compress(pictureType, qualityPercent, bos);//参数100表示不压缩
         result.compress(pictureType, qualityPercent, bos);
-        LogUtil.e("压缩前的文件大小为：------- " + bos.toByteArray().length + "  byte  ");
+        Logger.e("压缩前的文件大小为：------- " + bos.toByteArray().length + "  byte  ");
         while (bos.toByteArray().length / 1024 > 230) {   //循环压缩知道图片在范围内
             bos.reset();
             result.compress(pictureType, qualityPercent, bos);
-            LogUtil.e("图片压缩中产生的大小：------------ " + bos.toByteArray().length + "  byte  ");
+            Logger.e("图片压缩中产生的大小：------------ " + bos.toByteArray().length + "  byte  ");
             qualityPercent -= 10;
             if (qualityPercent < 10) {   //压缩质量不能太小啊
                 break;
             }
-            LogUtil.e("压缩质量：-------" + qualityPercent);
+            Logger.e("压缩质量：-------" + qualityPercent);
         }
 
 
         byte[] bytes = bos.toByteArray();
 
-        LogUtil.e("现有的文件大小为：------- " + bytes.length + "  byte  ");
+        Logger.e("现有的文件大小为：------- " + bytes.length + "  byte  ");
         try {   //使用完成之后关闭流
             bmp.recycle();//自由选择是否进行回收
         } catch (Exception e) {
-            LogUtil.e("Bitmap2Base64 流关闭异常");
+            Logger.e("Bitmap2Base64 流关闭异常");
         }
 
         return Base64.encodeToString(bytes, Base64.DEFAULT);
@@ -145,7 +145,7 @@ public class Bitmap2Base642 {
             String encodedString = Base64.encodeToString(buffer, Base64.DEFAULT);
             return encodedString;
         } catch (Exception e) {
-            LogUtil.e("文件转换base64转换异常;\n 类名 Bitmap2Base64 \n错误原因:", e);
+            Logger.e("文件转换base64转换异常;\n 类名 Bitmap2Base64 \n错误原因:", e);
             return null;
         }
     }
@@ -268,7 +268,7 @@ public class Bitmap2Base642 {
 
         //创建文件对象 通过cache目录
         File file = new File(filePath);
-        LogUtil.e("文件存储路径：----" + filePath);
+        Logger.e("文件存储路径：----" + filePath);
         try {
             //文件输出流
             FileOutputStream fos = new FileOutputStream(file);
@@ -489,7 +489,7 @@ public class Bitmap2Base642 {
     }
 
     private static void setupOriginInfo(Bitmap bitmap, Context context) {
-        LogUtil.e("origin bitmap memory size:" + Formatter.formatFileSize(context, bitmap.getByteCount())
+        Logger.e("origin bitmap memory size:" + Formatter.formatFileSize(context, bitmap.getByteCount())
                 + "\nwidth:" + bitmap.getWidth() + ",height:" + bitmap.getHeight() + ",config:" + bitmap.getConfig());
 
     }
@@ -502,9 +502,9 @@ public class Bitmap2Base642 {
 
     private static void setupCompressInfo(Bitmap bitmap, Context context) {
 
-        LogUtil.e("compress bitmap memory size:" + Formatter.formatFileSize(context, bitmap.getByteCount())
+        Logger.e("compress bitmap memory size:" + Formatter.formatFileSize(context, bitmap.getByteCount())
                 + "\nwidth:" + bitmap.getWidth() + ",height:" + bitmap.getHeight() + ",config:" + bitmap.getConfig());
-        LogUtil.e("-----------------------------------------------");
+        Logger.e("-----------------------------------------------");
     }
 
     private static void gcAndFinalize() {

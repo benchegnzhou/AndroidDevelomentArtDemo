@@ -1,6 +1,6 @@
 package com.ztsc.commonutils.network;
 
-import com.ztsc.commonutils.logcat.LogUtil;
+import com.ztsc.commonutils.logcat.Logger;
 
 import java.net.Inet6Address;
 import java.net.InetAddress;
@@ -56,7 +56,7 @@ public class IPUtil {
                 return ip;
             }
         } catch (UnknownHostException e) {
-            LogUtil.e(e.getMessage(), e);
+            Logger.e(e.getMessage(), e);
         }
 
         try {
@@ -78,7 +78,7 @@ public class IPUtil {
                 }
             }
         } catch (SocketException e) {
-            LogUtil.e(e.getMessage(), e);
+            Logger.e(e.getMessage(), e);
         }
         return ip;
     }
@@ -101,7 +101,7 @@ public class IPUtil {
                 }
             }
         } catch (Exception e) {
-            LogUtil.e(e.getMessage(), e);
+            Logger.e(e.getMessage(), e);
         }
         return ip;
     }
@@ -134,7 +134,7 @@ public class IPUtil {
             }
             MacAddr = str.toUpperCase();
         } catch (SocketException e) {
-            LogUtil.e(e.getMessage(), e);
+            Logger.e(e.getMessage(), e);
             System.exit(-1);
         }
         return MacAddr;

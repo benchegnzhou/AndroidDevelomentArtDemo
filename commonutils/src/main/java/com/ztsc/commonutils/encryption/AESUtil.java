@@ -1,7 +1,7 @@
 package com.ztsc.commonutils.encryption;
 
 import android.text.TextUtils;
-import com.ztsc.commonutils.logcat.LogUtil;
+import com.ztsc.commonutils.logcat.Logger;
 import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -91,7 +91,7 @@ public class AESUtil {
                 return new String(result, defaultCharset);
             }
         } catch (Exception e) {
-            LogUtil.e("AES 密文处理异常", e);
+            Logger.e("AES 密文处理异常", e);
         }
         return null;
     }

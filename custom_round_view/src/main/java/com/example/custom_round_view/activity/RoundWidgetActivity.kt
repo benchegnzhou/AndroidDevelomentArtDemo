@@ -13,5 +13,7 @@ class RoundWidgetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_round_widget)
         iv_back_view.setOnClickListener {  finish() }
+//        System.out.println(MyClass().demoPrint())
+//        System.out.println(ObjectSizeFetcher.getObjectSize("size = " + MyClass()))
     }
 }

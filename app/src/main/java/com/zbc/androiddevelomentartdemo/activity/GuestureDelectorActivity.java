@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.zbc.androiddevelomentartdemo.R;
 import com.zbc.androiddevelomentartdemo.view.AutoScrollView;
 import com.zbc.androiddevelomentartdemo.view.CustomViewGroup;
-import com.ztsc.commonutils.logcat.LogUtil;
+import com.ztsc.commonutils.logcat.Logger;
 import com.ztsc.commonutils.toast.ToastUtils;
 
 import butterknife.BindView;
@@ -39,15 +39,15 @@ public class GuestureDelectorActivity extends AppCompatActivity {
                 boolean custom = false;
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        LogUtil.e("viewGroupC_onTouch_ACTION_DOWN");
+                        Logger.e("viewGroupC_onTouch_ACTION_DOWN");
                         custom=false;
                         break;
                     case MotionEvent.ACTION_MOVE:
-                        LogUtil.e("viewGroupC_onTouch_ACTION_MOVE");
+                        Logger.e("viewGroupC_onTouch_ACTION_MOVE");
                         custom=false;
                         break;
                     case MotionEvent.ACTION_UP:
-                        LogUtil.e("viewGroupC_onTouch_ACTION_UP");
+                        Logger.e("viewGroupC_onTouch_ACTION_UP");
                         custom=false;
                         break;
                     default:
@@ -59,7 +59,7 @@ public class GuestureDelectorActivity extends AppCompatActivity {
         ivImg.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                LogUtil.e("ivImg 我被长按了");
+                Logger.e("ivImg 我被长按了");
                 return false;
             }
         });
@@ -73,7 +73,7 @@ public class GuestureDelectorActivity extends AppCompatActivity {
                 ivImg.scrollLeft();
 //                ivImg.smoothScroll();
                 ToastUtils.showToastShort("点击了");
-                LogUtil.e("ivImg 我被点击了");
+                Logger.e("ivImg 我被点击了");
                 break;
             default:
 

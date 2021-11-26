@@ -4,10 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
-import android.widget.LinearLayout;
 import android.widget.Scroller;
 
-import com.ztsc.commonutils.logcat.LogUtil;
+import com.ztsc.commonutils.logcat.Logger;
 
 /**
  * Created by benchengzhou on 2019/4/19  13:50 .
@@ -162,7 +161,7 @@ public class HorizontalScrollView extends android.widget.HorizontalScrollView {
 
         }
 
-        LogUtil.e("————————— HorizontalScrollView  onInterceptTouchEvent  " + (intercept ? "拦截了当前事件" : "未拦截事件"));
+        Logger.e("————————— HorizontalScrollView  onInterceptTouchEvent  " + (intercept ? "拦截了当前事件" : "未拦截事件"));
         return intercept;
     }
 
@@ -174,20 +173,20 @@ public class HorizontalScrollView extends android.widget.HorizontalScrollView {
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                LogUtil.e("______ HorizontalScrollView  onTouchEvent  ACTION_DOWN");
+                Logger.e("______ HorizontalScrollView  onTouchEvent  ACTION_DOWN");
                 break;
             case MotionEvent.ACTION_MOVE:
-                LogUtil.e("______ HorizontalScrollView  onTouchEvent  ACTION_MOVE");
+                Logger.e("______ HorizontalScrollView  onTouchEvent  ACTION_MOVE");
                 int difX = (int) (event.getX() - mDownX);
-                LogUtil.e("------ HorizontalScrollView  onTouchEvent  currentX  " + (-mStartX - difX));
+                Logger.e("------ HorizontalScrollView  onTouchEvent  currentX  " + (-mStartX - difX));
                 //scrollTo(mStartX - difX, getScrollY());
                 smoothScrollBy1(-mStartX - difX, 0, 1);
                 break;
             case MotionEvent.ACTION_UP:
-                LogUtil.e("______ HorizontalScrollView  onTouchEvent  ACTION_UP");
+                Logger.e("______ HorizontalScrollView  onTouchEvent  ACTION_UP");
                 mVelocityTracker.computeCurrentVelocity(1000);
                 int xVelocity = (int) mVelocityTracker.getXVelocity();
-                LogUtil.e("当前控件滑动速度是 " + xVelocity);
+                Logger.e("当前控件滑动速度是 " + xVelocity);
                 // smoothScrollBy1(-(int) (xVelocity * 0.3f), 0,2000);
                 break;
             default:

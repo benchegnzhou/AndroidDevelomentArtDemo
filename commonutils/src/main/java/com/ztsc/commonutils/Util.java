@@ -39,7 +39,7 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 
-import com.ztsc.commonutils.logcat.LogUtil;
+import com.ztsc.commonutils.logcat.Logger;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -1196,7 +1196,7 @@ public class Util {
 
         } catch (ParseException e) {
 //            e.printStackTrace();
-            LogUtil.e("时间转换错误", e);
+            Logger.e("时间转换错误", e);
             return "";
         }
 

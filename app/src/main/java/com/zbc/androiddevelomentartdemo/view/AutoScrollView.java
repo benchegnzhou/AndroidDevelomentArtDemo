@@ -11,7 +11,7 @@ import android.widget.Scroller;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 
-import com.ztsc.commonutils.logcat.LogUtil;
+import com.ztsc.commonutils.logcat.Logger;
 
 
 /**
@@ -142,20 +142,20 @@ public class AutoScrollView extends AppCompatImageView {
                 startY = (int) event.getY();
                 viewStartX = getScrollX();
                 viewStartY = getScrollY();
-                LogUtil.e("_____________AutoScrollView_onTouchEvent_ACTION_DOWN 被调用");
+                Logger.e("_____________AutoScrollView_onTouchEvent_ACTION_DOWN 被调用");
                 return /*true*/super.onTouchEvent(event) ;
             case MotionEvent.ACTION_MOVE:
                 int difX = (int) (startX - event.getX());
                 int difY = (int) (startY - event.getY());
 
                 AutoScrollView.this.scrollTo(viewStartX + difX, viewStartY + difY);
-                LogUtil.e("_____________AutoScrollView_onTouchEvent_ACTION_MOVE 被调用");
+                Logger.e("_____________AutoScrollView_onTouchEvent_ACTION_MOVE 被调用");
                 boolean dealWith = Math.abs(difX) < 200 && Math.abs(difY) < 200;
-                LogUtil.e("_____________AutoScrollView_onTouchEvent_ACTION_MOVE " + (dealWith ? "将事件自己处理" : "将事件交给父类处理"));
+                Logger.e("_____________AutoScrollView_onTouchEvent_ACTION_MOVE " + (dealWith ? "将事件自己处理" : "将事件交给父类处理"));
                 return super.onTouchEvent(event);
 
             case MotionEvent.ACTION_UP:
-                LogUtil.e("_____________AutoScrollView_onTouchEvent_ACTION_UP 被调用");
+                Logger.e("_____________AutoScrollView_onTouchEvent_ACTION_UP 被调用");
                 return super.onTouchEvent(event);
             default:
         }

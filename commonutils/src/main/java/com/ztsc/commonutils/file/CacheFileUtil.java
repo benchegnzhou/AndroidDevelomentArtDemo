@@ -1,6 +1,6 @@
 package com.ztsc.commonutils.file;
 
-import com.ztsc.commonutils.logcat.LogUtil;
+import com.ztsc.commonutils.logcat.Logger;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -75,7 +75,7 @@ public class CacheFileUtil {
                     size = size + getFolderSize(fileList[i]);
                 } else {
                     size = size + fileList[i].length();
-                    LogUtil.e("----当前统计到的文件-----" + fileList[i].getAbsolutePath());
+                    Logger.e("----当前统计到的文件-----" + fileList[i].getAbsolutePath());
                 }
             }
         } catch (Exception e) {

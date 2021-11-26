@@ -1,0 +1,106 @@
+plugins {
+    id 'java-library'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+
+task clearJar(type: Delete) {
+    delete 'build/libs/smarter.jar'
+    delete 'build/libs/'
+    delete 'libs/smarter.jar'
+    delete 'build/classes/'
+    delete 'build/libs/smarter/'
+}
+//
+//
+//task makeJar2(type: Copy) {
+////    delete 'build/libs/'
+//    //指定生成的jar名
+////    baseName 'smarter'
+//    //从哪里打包class文件
+//    from('build/intermediates/bundles/default/')
+//    //打包到jar后的目录结构
+//    into('build/')
+//    //去掉不需要打包的目录和文件
+//    exclude('test/', 'BuildConfig.class', 'R.class')
+//    //去掉R开头的文件
+//    exclude { it.name.startsWith('R'); }
+//}
+//makeJar2.dependsOn(build)
+
+def project_path = project.buildDir.absolutePath
+//打包任务
+//task makeJar(type: org.gradle.api.tasks.bundling.Jar) {
+//    ////Generating jar name with <smarter>
+//    baseName 'smarter'
+//    //从哪里打包class文件
+//    print("----------文件打包中-----------路径：${project_path}/classes/java/main/com/example/zbclib/")
+////    from("${project_path}/classes/java/main/com/example/zbclib/")
+//    from('build/intermediates/bundles/default/')
+//
+//    //打包到jar后的目录结构
+////    into('src/main/java/com/example/zbclib/')
+//    into('build/')
+//    //去掉不需要打包的目录和文件
+//    exclude('BuildConfig.class', 'R.class')
+//    //去掉R$开头的文件
+////    exclude { it.name.startsWith('R$'); }
+//    include("com/example/zbclib/ObjectSizeFetcher.java")
+//    //Generating Sources JAR
+//    java {
+//        //Generating file libs/zbclib-sources.jar
+//        withSourcesJar()
+//        //Generating file libs/zbclib-javadoc.jar
+//        withJavadocJar()
+//    }
+//    //此段代码将相关信息写到META-INF文件中的MANEFEST.MF文件
+//    manifest {
+//        attributes(
+//                //define MANIFEST.MF name
+//                'Implementation-Title': "${project.name}",
+//                //'Implementation-Version': "${version}",
+//                'Implementation-Version': "2.0",
+//                //这一段指向自己的ObjectSizeFetcher名称 https://www.cnblogs.com/Kidezyq/p/8030098.html
+//                'Premain-Class': "com.example.zbclib.ObjectSizeFetcher",
+//                'Built-Date': new Date().getDateTimeString(),
+//                'Built-With':
+//                        "gradle-${project.getGradle().getGradleVersion()},groovy-${GroovySystem.getVersion()}",
+//                'Created-By':
+//                        'Java ' + System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')')
+//    }
+//
+//}
+//makeJar.dependsOn(build)
+
+
+//生成jar包
+task makeJar(type: Copy) {
+
+
+    //删除存在的
+//    delete "${project_path}/build/libs/myjar.jar"
+    //设置拷贝的文件
+    from('build/intermediates/aar_main_jar/release/')
+    //打进jar包后的文件目录
+    into('build/generated/')
+    //将classes.jar放入build/libs/目录下
+    //include ,exclude参数来设置过滤
+    //（我们只关心classes.jar这个文件）
+    include('classes.jar')
+    //重命名
+    rename ('classes.jar', 'myjar.jar')
+}
+
+makeJar.dependsOn(build)
+//makeJar.dependsOn(clearJar, build)
+//makeJar.dependsOn(cleanAndBuild)
+//
+//task cleanAndBuild() {
+//
+//}
+//cleanAndBuild.dependsOn(clearJar)
+//cleanAndBuild.finalizedBy build

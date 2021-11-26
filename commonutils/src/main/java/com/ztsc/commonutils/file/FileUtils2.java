@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.ztsc.commonutils.CommonUtil;
-import com.ztsc.commonutils.logcat.LogUtil;
+import com.ztsc.commonutils.logcat.Logger;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -319,7 +319,7 @@ public class FileUtils2 {
         File file = new File(path);
         //如果path是传递过来的参数，可以做一个非目录的判断
         if (file.isDirectory()) {
-            LogUtil.e("TestFile", "The File doesn't not exist.");
+            Logger.e("TestFile", "The File doesn't not exist.");
         } else {
             try {
                 InputStream instream = new FileInputStream(file);
@@ -334,9 +334,9 @@ public class FileUtils2 {
                     instream.close();
                 }
             } catch (java.io.FileNotFoundException e) {
-                LogUtil.e("TestFile", "The File doesn't not exist.");
+                Logger.e("TestFile", "The File doesn't not exist.");
             } catch (IOException e) {
-                LogUtil.e("TestFile", e.getMessage());
+                Logger.e("TestFile", e.getMessage());
             }
         }
         return content;

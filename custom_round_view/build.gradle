@@ -53,4 +53,7 @@ dependencies {
     // Replace with the latest version
     implementation rootProject.ext.dependencies.arouter_api
     kapt rootProject.ext.dependencies.arouter_compiler
+
+    //引入Uiautomator
+    androidTestCompileOnly 'com.android.support.test.uiautomator:uiautomator-v18:2.1.3'
 }

@@ -9,7 +9,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
-import com.ztsc.commonutils.logcat.LogUtil;
+import com.ztsc.commonutils.logcat.Logger;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -239,7 +239,7 @@ public class BitmapUtils {
         view.getGlobalVisibleRect(bean.originRect);
         bean.originWidth = bean.originRect.right - bean.originRect.left;
         bean.originHeight = bean.originRect.bottom - bean.originRect.top;
-        LogUtil.e("originWidth" + bean.originWidth + "originHeight" + bean.originHeight);
+        Logger.e("originWidth" + bean.originWidth + "originHeight" + bean.originHeight);
         bean.bitmap = createBitmap(view, bean.originWidth, bean.originHeight);
         return bean.bitmap;
     }
@@ -401,7 +401,7 @@ public class BitmapUtils {
 
         if (backBitmap == null || backBitmap.isRecycled()
                 || frontBitmap == null || frontBitmap.isRecycled()) {
-            LogUtil.e("backBitmap=" + backBitmap + ";frontBitmap=" + frontBitmap);
+            Logger.e("backBitmap=" + backBitmap + ";frontBitmap=" + frontBitmap);
             return null;
         }
         Bitmap bitmap = backBitmap.copy(Bitmap.Config.ARGB_8888, true);
@@ -424,7 +424,7 @@ public class BitmapUtils {
 
         if (leftBitmap == null || leftBitmap.isRecycled()
                 || rightBitmap == null || rightBitmap.isRecycled()) {
-            LogUtil.e("leftBitmap=" + leftBitmap + ";rightBitmap=" + rightBitmap);
+            Logger.e("leftBitmap=" + leftBitmap + ";rightBitmap=" + rightBitmap);
             return null;
         }
         int height = 0; // 拼接后的高度，按照参数取大或取小
@@ -476,7 +476,7 @@ public class BitmapUtils {
 
         if (topBitmap == null || topBitmap.isRecycled()
                 || bottomBitmap == null || bottomBitmap.isRecycled()) {
-            LogUtil.e("topBitmap=" + topBitmap + ";bottomBitmap=" + bottomBitmap);
+            Logger.e("topBitmap=" + topBitmap + ";bottomBitmap=" + bottomBitmap);
             return null;
         }
         int width = 0;
@@ -541,7 +541,7 @@ public class BitmapUtils {
 
         if (backBitmap == null || backBitmap.isRecycled()
                 || frontBitmap == null || frontBitmap.isRecycled()) {
-            LogUtil.e("backBitmap=" + backBitmap + ";frontBitmap=" + frontBitmap);
+            Logger.e("backBitmap=" + backBitmap + ";frontBitmap=" + frontBitmap);
             return null;
         }
         Bitmap bitmap = backBitmap.copy(Bitmap.Config.ARGB_8888, true);
