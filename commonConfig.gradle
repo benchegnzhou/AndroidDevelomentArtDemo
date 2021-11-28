@@ -41,4 +41,42 @@ ext {
                     constraintlayout        : 'androidx.constraintlayout:constraintlayout:2.1.1',
                     appcompat               : "androidx.appcompat:appcompat:1.4.0-beta01"]
 
+
+
+    danmakuFlameMasterSoVersion = "0.9.25"
+    glideVersion = "4.12.0"
+    exoPlayerVersion = "2.15.1"
+    permissionsDispatcherVersion = "4.9.1"
+
+    viewDependencies = [
+            ijkplayer            : "com.github.CarGuo:GSYIjkJava:1.0.0",
+            transitionsEverywhere: "com.andkulikov:transitionseverywhere:2.1.0",
+            danmakuFlameMaster   : "com.github.CarGuo.DanmakuFlameMaster:DanmakuFlameMaster:${danmakuFlameMasterSoVersion}",
+            floatWindow          : "com.github.yhaolpz:FloatWindow:1.0.6",
+
+            ndkBitmap            : [
+                    "com.github.CarGuo.DanmakuFlameMaster:ndkbitmap-armv7a:${danmakuFlameMasterSoVersion}",
+                    "com.github.CarGuo.DanmakuFlameMaster:ndkbitmap-x86:${danmakuFlameMasterSoVersion}",
+                    "com.github.CarGuo.DanmakuFlameMaster:ndkbitmap-armv5:${danmakuFlameMasterSoVersion}",
+            ],
+            glide                : [
+                    "com.github.bumptech.glide:glide:${glideVersion}",
+                    "com.github.bumptech.glide:okhttp3-integration:$glideVersion"
+            ],
+            exoPlayer2           : [
+                    "com.google.android.exoplayer:exoplayer:${exoPlayerVersion}",
+                    "com.google.android.exoplayer:extension-rtmp:${exoPlayerVersion}"
+            ]
+    ]
+
+    dataDependencies = [
+            leakcanary                    : "com.squareup.leakcanary:leakcanary-android:2.7",
+            okhttp                        : "com.squareup.okhttp3:okhttp:4.9.2",
+            okhttpUtil                    : "com.zhy:okhttputils:2.6.2",
+
+            permissionsDispatcher         : "com.github.permissions-dispatcher:permissionsdispatcher:${permissionsDispatcherVersion}",
+            permissionsDispatcherProcessor: "com.github.permissions-dispatcher:permissionsdispatcher-processor:${permissionsDispatcherVersion}",
+
+    ]
+
 }
