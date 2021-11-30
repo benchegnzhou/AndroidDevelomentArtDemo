@@ -1,3 +1,65 @@
 <resources>
     <string name="app_name">custom_round_view</string>
+    <string name="message_xfermode_1">Xfermode是什么呢？\n
+Xfermode称为图形混合模式也被称为过渡模式，把两个图形混合成一张图。\n
+
+Xfermode 实现类有AvoidXfermode，PixelXorXfermode，PorterDuffXfermode，但是AvoidXfermode，PixelXorXfermode都已经被标识不推荐使用了，所以就只有PorterDuffXfermode一个实现类。PorterDuffXfermode用于图形合成时的图像过渡模式计算。
+前两个实现类在API level 16被标记为Deprecated了（因为不支持硬件加速），用也可以，但是需要关闭硬件加速，高版本api默认打开硬件加速，如果需要关闭硬件加速，无法发挥OpenGLes的作用，也就无法充分利用GPU绘图能力，有关硬件加速请看https://developer.android.com/guide/topics/graphics/hardware-accel；
+PorterDuff.Mode它是将所绘制的图形的像素与Canvas中对应位置的像素按照一定规则进行混合,形成新的像素值,从而更新Canvas中最终的像素颜色值.\n
+PorterDuff.Mode共有18种\n
+Android 中使用 图层混合模式常见的地方有三种:\n
+
+1. 组合渲染ComposeShader (详见: Android Paint总结)\n
+
+2. 画笔: Paint.setXfermode()\n
+
+3. 颜色过滤器: PorterDuffColorFilter\n
+
+</string>
+
+    <string name="message_xfermode_2">
+每一个图层混合模式代表一种规则,根据每种规则计算混合之后的透明通道值和颜色值
+使用图层混合模式有几个需要注意的点:\n\n
+
+1. 图层混合模式仅作用于src源图像\n
+
+意思是:以下面谷歌的demo中的第一个为例使用的模式为PorterDuff.Mode.CLEAR
+,源图像src为矩形图 目标图为圆形图dst,PorterDuff.Mode.CLEAR表示清除所有颜色值和透明通道,我们从效果可以看到,目标图dst只有与源图像src相交的地方才会有影响\n\n
+
+2. 禁用硬件加速\n
+
+原因: 在Android api 14之后,图层混合的有些api是不支持硬件加速的,系统的硬件加速是默认开启的,所以在使用图层混合模式之前,禁用掉硬件加速 ,方式如下:\n
+
+//禁止硬件加速\n
+setLayerType(View.LAYER_TYPE_SOFTWARE, null);\n\n
+
+
+3. 离屏绘制\n
+
+原因: 在不采用离屏绘制的情况下,控件的背景会影响图层混合模式的计算结果,导致得到期望之外的效果\n
+我们看下使用/不使用 离屏绘制的区别:\n\n
+
+    </string>
+
+    <string name="message_xfermode_3">
+
+通过使用离屏绘制(离屏缓冲),把要绘制的内容单独绘制在缓冲层,保证Xfermode的使用不会出现错误的结果\n
+
+离屏绘制有两种使用方式,一般使用第一种方式就足够了:\n\n
+
+Canvas.saveLayer() 可以做短时的离屏绘制,在绘制之前保存 ,绘制之后结束,使用方式如下:\n
+
+ int saveId= canvas.saveLayer(0, 0, width, height, Canvas.ALL_SAVE_FLAG);\n
+                canvas.translate(x, y);\n
+                canvas.drawBitmap(mDstB, 0, 0, paint);//绘制操作\n
+                paint.setXfermode(xfermode);//设置xfermode\n
+                canvas.drawBitmap(mSrcB, 0, 0, paint);//绘制操作\n
+                paint.setXfermode(null); //用完清除\n
+                canvas.restoreToCount(saveId);//图层恢复\n\n
+View.setLayerType() 直接把整个View都绘制在离屏缓冲中,使用如下:\n\n
+
+setLayerType(LAYER_TYPE_HARDWARE,paint);//使用GPU缓冲\n
+setLayerType(LAYER_TYPE_SOFTWARE,paint);//使用一个Bitmap缓冲\n
+
+    </string>
 </resources>
