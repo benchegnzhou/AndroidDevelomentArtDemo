@@ -43,8 +43,6 @@ class ProterDuffModeRoundImageView(
                 }
             }
         }
-
-
     }
 
     constructor(context: Context?) : this(context, null, 0)

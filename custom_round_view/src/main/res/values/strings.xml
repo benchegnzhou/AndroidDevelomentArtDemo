@@ -62,4 +62,105 @@ setLayerType(LAYER_TYPE_HARDWARE,paint);//使用GPU缓冲\n
 setLayerType(LAYER_TYPE_SOFTWARE,paint);//使用一个Bitmap缓冲\n
 
     </string>
+
+    <string name="message_xfermode_4">
+        两个图形一圆一方通过设置不同的模式会产生不同的组合效果，\n
+
+在API中Android为我们提供了18种（比上图多了两种ADD和OVERLAY）模式：　\n\n
+
+ADD:                饱和相加,对图像饱和度进行相加,不常用\n
+CLEAR:             清除图像\n
+DARKEN:          变暗,较深的颜色覆盖较浅的颜色，若两者深浅程度相同则混合\n
+DST:                只显示目标图像\n
+DST_ATOP:      在源图像和目标图像，相交的地方绘制【目标图像】，  不相交的地方绘制【源图像】，相交处的效果受到源图像和目标图像alpha的影响\n
+DST_IN:           只在源图像和目标图像相交的地方绘制【目标图像】，绘制效果受到源图像对应地方透明度影响\n
+DST_OUT:        只在源图像和目标图像不相交的地方绘制【目标图像】，在相交的地方根据源图像的alpha进行过滤，源图像完全不透明则完全过滤，完全透明则不过滤\n
+DST_OVER:        将目标图像放在源图像上方\n
+LIGHTEN:           变亮，与DARKEN相反，DARKEN和LIGHTEN生成的图像结果与Android对颜色值深浅的定义有关\n
+MULTIPLY:        正片叠底，源图像素颜色值乘以目标图像素颜色值除以255得到混合后图像像素颜色值\n
+OVERLAY:        叠加\n
+SCREEN:         滤色，色调均和,保留两个图层中较白的部分，较暗的部分被遮盖\n
+SRC:                只显示源图像\n
+SRC_ATOP:        在源图像和目标图像相交的地方绘制【源图像】，在不相交的地方绘制【目标图像】，相交处的效果受到源图像和目标图像alpha的影响\n
+SRC_IN:        只在源图像和目标图像相交的地方绘制【源图像】\n
+SRC_OUT:    只在源图像和目标图像不相交的地方绘制【源图像】，相交的地方根据目标图像的对应地方的alpha进行过滤，目标图像完全不透明则完全过滤，完全透明则不过滤\n
+SRC_OVER:    将源图像放在目标图像上方\n
+XOR:            在源图像和目标图像相交的地方之外绘制它们，在相交的地方受到对应alpha和色值影响，如果完全不透明则相交处完全不绘制\n\n
+
+    </string>
+
+
+
+    <string name="message_clip_path_1">
+      在Android自定义View使用绘图的裁剪功能的时候,我们最好manifest中的<application/> 或者<activity/>或者<fragment/>标签中添加如下属性\n\n
+        android:hardwareAccelerated="false"\n\n
+因为裁剪功能是不支持硬件加速的.没有设置的话,有可能绘图裁剪的效果出不来;\n
+
+Android Canvas原生api裁剪方法中clipRect和clipPath方法中，有的不传递Region.Op参数,其实在它的内部默认Region.Op.INTERSECT.这点可以查看他们的api可知;\n
+    public boolean clipRect(@NonNull RectF rect) {\n
+        return native_clipRect(mNativeCanvasWrapper, rect.left, rect.top, rect.right,\n
+           rect.bottom, Region.Op.INTERSECT.nativeInt);\n
+    }\n
+
+    public boolean clipPath(@NonNull Path path) {\n
+        return clipPath(path, Region.Op.INTERSECT);\n
+    }\n\n
+Region.Op是一个枚举类型，总共有如下几个枚举对象;\n\n
+    // the native values for these must match up with the enum in SkRegion.h\n
+    public enum Op {\n
+        DIFFERENCE(0),\n
+        INTERSECT(1),\n
+        UNION(2),\n
+        XOR(3),\n
+        REVERSE_DIFFERENCE(4),\n
+        REPLACE(5);\n
+
+        Op(int nativeInt) {\n
+            this.nativeInt = nativeInt;\n
+        }\n
+
+        /**\n
+         * @hide\n
+         */\n
+        public final int nativeInt;\n
+    }\n\n
+那么他们什么含义呢？ 形象的举个例子\n\n
+
+A:表示第一个裁剪的形状;\n
+
+B:表示第二次裁剪的形状;\n
+
+1.    Region.Op.DIFFERENCE ：是A形状中不同于B的部分显示出来\n
+2.    Region.Op.REPLACE：是只显示B的形状\n
+3.    Region.Op.REVERSE_DIFFERENCE ：是B形状中不同于A的部分显示出来，这是没有设置时候默认的\n
+4.    Region.Op.INTERSECT：是A和B交集的形状\n
+5.    Region.Op.UNION：是A和B的全集\n
+6.    Region.Op.XOR：是全集形状减去交集形状之后的部分\n
+
+下面通过代码示例逐个验证：\n\n
+              canvas.save();\n
+            canvas.translate(10, 10);\n
+            //画笔颜色设置为浅蓝色\n
+            mPaint.setColor(Color.parseColor("#D4E9FA"));\n
+            //画笔画一个矩形\n
+            canvas.drawRect(new RectF(0, 0, 300, 300), mPaint);\n
+            //画笔画一个圆形\n
+            canvas.drawCircle(300, 150, 150, mPaint);\n
+
+            //上面的画的一个矩形和圆形是属于浅蓝色的底层背景，是为了便于观察效果的，没有什么其他含义\n
+            //下面开始真正的clip操作\n
+            //1.画布裁剪一个矩形\n
+            canvas.clipRect(new RectF(0, 0, 300, 300));//第一个裁剪一个形状相当于A\n
+            //2.画布裁剪一个圆形\n
+            Path mPath = new Path();\n
+            mPath.addCircle(300, 150, 150, Path.Direction.CCW);\n
+            //2.1这里只是改变第二个参数Region.Op.来观察效果\n
+            canvas.clipPath(mPath, Region.Op.DIFFERENCE);//第二个裁剪一个形状相当于B\n
+            //3.裁剪完之后,画一个最大长宽的红色矩形观察效果\n
+            //画笔颜色设置为浅红色\n
+            mPaint.setColor(Color.parseColor("#FF4081"));\n
+            canvas.drawRect(new RectF(0, 0, Integer.MAX_VALUE, Integer.MAX_VALUE), mPaint);\n
+            canvas.restore();\n\n
+
+    </string>
 </resources>

@@ -14,6 +14,7 @@ class RoundWidgetActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_round_widget)
+        tv_title.text = "使用shape实现自定义圆角"
         iv_back_view.setOnClickListener {  finish() }
 
         Glide.with(this).load("http://minio.898311.xyz:8900/blogimg/16382723810737.png").into(iv_proter_duff_mode)

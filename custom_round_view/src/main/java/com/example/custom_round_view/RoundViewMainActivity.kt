@@ -28,6 +28,7 @@ class RoundViewMainActivity : AppCompatActivity() {
         mListAdapter.setOnItemClickListener { p0, p1, p2 ->
             when (p2) {
                 0 -> ARouter.getInstance().build(MOUDLE_AROUTER.ROUND_WIDGET_ACTIVITY).navigation()
+                1 -> ARouter.getInstance().build(MOUDLE_AROUTER.REGION_OP_ACTIVITY).navigation()
             }
         }
         initData()
@@ -35,6 +36,8 @@ class RoundViewMainActivity : AppCompatActivity() {
 
     private fun initData() {
         var list = mutableListOf<String>()
+        list.add("使用shape实现自定义圆角")
+        list.add("使用Clip的Region.Op参数 实现自定义圆角")
         list.add("使用shape实现自定义圆角")
         mListAdapter.data = list
     }
