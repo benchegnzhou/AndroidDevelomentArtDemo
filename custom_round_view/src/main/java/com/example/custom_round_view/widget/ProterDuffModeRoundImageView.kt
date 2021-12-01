@@ -2,8 +2,6 @@ package com.example.custom_round_view.widget
 
 import android.content.Context
 import android.graphics.*
-import android.os.Handler
-import android.os.Message
 import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.Nullable
@@ -11,6 +9,7 @@ import kotlinx.coroutines.*
 
 /**
  * 文章参考 https://www.jianshu.com/p/db401403385b
+ * 实际绘制发现，需要关闭硬件加速，不然会出现黑色
  */
 class ProterDuffModeRoundImageView(
     context: Context?,
