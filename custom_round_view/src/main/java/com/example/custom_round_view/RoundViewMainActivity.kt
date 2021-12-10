@@ -28,9 +28,10 @@ class RoundViewMainActivity : AppCompatActivity() {
         mListAdapter.setOnItemClickListener { p0, p1, p2 ->
             when (p2) {
                 0 -> ARouter.getInstance().build(MOUDLE_AROUTER.ROUND_WIDGET_ACTIVITY).navigation()
-                1 -> ARouter.getInstance().build(MOUDLE_AROUTER.REGION_OP_ACTIVITY).navigation()
-                2 -> ARouter.getInstance().build(MOUDLE_AROUTER.CLIP_DISPATCH_ROUND_WIDGET)
+                1 -> ARouter.getInstance().build(MOUDLE_AROUTER.BITMAP_SHADER_ROUND_VIEW)
                     .navigation()
+                2 -> ARouter.getInstance().build(MOUDLE_AROUTER.REGION_OP_ACTIVITY).navigation()
+                3 -> ARouter.getInstance().build(MOUDLE_AROUTER.CLIP_DISPATCH_ROUND_WIDGET)
             }
         }
         initData()
@@ -39,6 +40,7 @@ class RoundViewMainActivity : AppCompatActivity() {
     private fun initData() {
         var list = mutableListOf<String>()
         list.add("使用shape实现自定义圆角")
+        list.add("使用BitmapShader实现自定义圆角")
         list.add("使用Clip的Region.Op参数 实现自定义圆角")
         list.add("使用Clip.disppatch实现自定义圆角")
         mListAdapter.data = list
