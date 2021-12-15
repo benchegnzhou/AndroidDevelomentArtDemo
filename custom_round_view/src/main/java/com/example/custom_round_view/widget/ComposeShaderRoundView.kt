@@ -10,7 +10,7 @@ import androidx.annotation.Nullable
 /**
  * 参考链接：https://blog.csdn.net/u010126792/article/details/85253038
  */
-class BitmapShaderRoundView(
+class ComposeShaderRoundView(
     context: Context?,
     @Nullable attrs: AttributeSet?,
     defStyleAttr: Int
