@@ -30,7 +30,6 @@ ext {
                     base_recyclerview_helper  : 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4',
                     arouter_api               : "com.alibaba:arouter-api:1.5.2",
                     arouter_compiler          : "com.alibaba:arouter-compiler:1.5.2",
-                    gson                      : 'com.google.code.gson:gson:2.8.8',
                     junit                     : 'junit:junit:4.13.2',               //testImplementation
                     espresso                  : 'androidx.test.espresso:espresso-core:3.4.0',
                     butterknife               : 'com.jakewharton:butterknife:10.2.3',
@@ -39,9 +38,17 @@ ext {
                     test_core                 : 'androidx.test:core:1.4.0-beta03',       // Optional -- Robolectric environment
                     mockito_core              : 'org.mockito:mockito-core:4.0.0',     // Optional -- Mockito framework
                     constraintlayout          : 'androidx.constraintlayout:constraintlayout:2.1.1',
-                    appcompat                 : "androidx.appcompat:appcompat:1.4.0-beta01",
-                    glide                     : 'com.github.bumptech.glide:glide:4.12.0',
-                    glide_annotations         : 'com.github.bumptech.glide:annotations:4.12.0',
+                    appcompat                 : "androidx.appcompat:appcompat:1.4.0：w
+
+
+
+
+
+                    asdsad
+
+
+
+
                     kotlinx_coroutines_core   : 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2',
                     kotlinx_coroutines_android:  'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
 
