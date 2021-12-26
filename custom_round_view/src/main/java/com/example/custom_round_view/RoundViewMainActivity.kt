@@ -35,6 +35,10 @@ class RoundViewMainActivity : AppCompatActivity() {
                 3 -> ARouter.getInstance().build(MOUDLE_AROUTER.REGION_OP_ACTIVITY).navigation()
                 4 -> ARouter.getInstance().build(MOUDLE_AROUTER.CLIP_DISPATCH_ROUND_WIDGET)
                     .navigation()
+                5 -> ARouter.getInstance().build(MOUDLE_AROUTER.ANDROID_SHADER)
+                    .navigation()
+                6 -> ARouter.getInstance().build(MOUDLE_AROUTER.LINEAR_GRADIENT_VIEW_ACTIVITY)
+                    .navigation()
             }
         }
         initData()
@@ -47,6 +51,8 @@ class RoundViewMainActivity : AppCompatActivity() {
         list.add("使用composeShader实现自定义圆角")
         list.add("使用Clip的Region.Op参数 实现自定义圆角")
         list.add("使用Clip.disppatch实现自定义圆角")
+        list.add("Android中的shader")
+        list.add("LinearGradientViewActivity")
         mListAdapter.data = list
     }
 

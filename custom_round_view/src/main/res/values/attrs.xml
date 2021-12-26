@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The Text of TextShapeView. -->
+    <declare-styleable name="TextSharpView">
+        <!--声明MyTextView需要使用系统定义过的text属性,注意前面需要加上android命名-->
+        <attr name="android:text" />
+        <attr name="mTestColor"  format="color"/>
+        <attr name="mTestSize"  format="dimension"/>
+        <attr name="mTestBackground"  format="color"/>
+    </declare-styleable>
+</resources>

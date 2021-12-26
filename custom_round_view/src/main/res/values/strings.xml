@@ -90,9 +90,8 @@ XOR:            在源图像和目标图像相交的地方之外绘制它们，�
     </string>
 
 
-
     <string name="message_clip_path_1">
-      在Android自定义View使用绘图的裁剪功能的时候,我们最好manifest中的<application/> 或者<activity/>或者<fragment/>标签中添加如下属性\n\n
+      在Android自定义View使用绘图的裁剪功能的时候,我们最好manifest中的<application /> 或者<activity />或者<fragment />标签中添加如下属性\n\n
         android:hardwareAccelerated="false"\n\n
 因为裁剪功能是不支持硬件加速的.没有设置的话,有可能绘图裁剪的效果出不来;\n
 
@@ -162,5 +161,149 @@ B:表示第二次裁剪的形状;\n
             canvas.drawRect(new RectF(0, 0, Integer.MAX_VALUE, Integer.MAX_VALUE), mPaint);\n
             canvas.restore();\n\n
 
+    </string>
+
+    <string name="message_bitmap_shader_1">
+        BitmapShader 的作用\n\n
+官方文档说的很清楚了：\n
+Shader used to draw a bitmap as a texture.\n
+BitmapShader的作用是使用特定的图片来作为纹理来使用。\n\n\n
+
+
+        在Android提供了Shader类专门用来渲染图像以及一些几何图形。
+        Shader就是着色器的意思。我们可以这样理解，Canvas中的各种drawXXX方法定义了图形的形状，画笔中的Shader
+        则定义了图形的着色、外观，二者结合到一起就决定了最终Canvas绘制的被Shader类包括了5个直接子类，分别是BitmapShader、
+        ComposeShader、LinearGradient、RadialGradient和SweepGradient。BitmapShader要用于图像渲染，
+        ComposeShader用于混合渲染，LinearGradient用于线性渲染，RadialGradient用于环形渲染，
+        SweepGradient则用于梯度渲染。\n
+        BitmapShader，就是用Bitmap对绘制的图形进行渲染着色。可以通过Paint.setShader（Shader shader）进行设置，BitmapShader构造函数如下所示：
+public BitmapShader (Bitmap bitmap, Shader.TileMode tileX, Shader.TileMode tileY);
+参数bitmap表示用来作为纹理填充的位图；参数tileX表示在位图X方向上位图衔接形式；参数tileY表示在位图Y方向上位图衔接形式。\n\n\n
+
+Shader.TileMode有3种参数可供选择，分别为CLAMP、REPEAT和MIRROR。\n\n
+
+CLAMP： 表示拉伸 ，当所画图形的尺寸大于Bitmap的尺寸的时候，拉伸的是图片最后的那一个像素，横向的最后一个横行像素，不断的重复，纵项的那一列像素，不断的重复。\n
+REPEAT：表示重复，当绘制的图形尺寸大于Bitmap尺寸时，会用Bitmap重复平铺整个绘制的区域。\n
+MIRROR：表示镜像，当绘制的图形尺寸大于Bitmap尺寸时，MIRROR也会用Bitmap重复平铺整个绘图区域，与REPEAT不同的是横向不断翻转重复，纵向不断翻转重复。\n
+
+</string>
+    <string name="message_android_shader_1">
+        在Android提供了Shader类专门用来渲染图像以及一些几何图形。\n
+        Shader就是着色器的意思。\n
+        Android中的shader，其实基本都是自定义view的时候会用到，而且是将shader赋予给paint，类似这样：\n\n
+    Paint paint = new Paint();\n
+Shader shader = new Shader();\n
+paint.setShader(shader);\n
+    但是大家一般不会直接使用Shader，而是使用Shader的子类，Shader的子类有5个，如图：\n\n
+    </string>
+    <string name="message_android_shader_2">
+        在讲这些子类之前，我希望大家先理解了shader的实质，然后再去学习这些子类，我想，这样会轻松很多。\n
+    shader按照官方的解释是：\n\n
+    Shader is the based class for objects that return horizontal spans of colors during drawing. A subclass of Shader is installed in a Paint calling paint.setShader(shader). After that any object (other than a bitmap) that is drawn with that paint will
+        get its color(s) from the shader.\n
+        Shader是Object的子类，这些对象在绘制过程中返回颜色的水平跨度。通过Paint.setShader(shader)来使用Shader。调用了该方法后，用该paint绘制的任何对象(bitmap除外)都将从shader获得其颜色。\n
+    下面我们用示例的形式来查看下对应的作用。\n
+    我用我的理解方式给大家捋一捋，shader到底是干啥的。\n
+    这个时候，我们需要换一种理解方式来理解手机屏幕上面的字，如图：\n\n
+
+    </string>
+
+    <string name="message_android_shader_3">
+        这幅图上的东西是什么，白底？黑字？再也别这样理解了，现在在学习shader呢，换一种理解方式。\n
+    这张图片是由2张大小相同的纸构成的，第一张纸，纯黑色，第二张纸，纯白色的，不过第二张纸不是完整的，中间被扣走了部分，被扣走的部分，刚好看着有点像“演示文字”4个大字。然后将这两张纸重叠后，最终形成了如图所示的效果。\n
+    类似这种理解：\n\n
+
+    </string>
+    <string name="message_android_shader_4">
+    (PS: 不会扣字，只好扣个方框意思一下)\n
+    好的，现在我们已经丢掉了传统的思维方式：在白纸上写字。\n
+    OK，我现在要来讲shader了，shader其实就和两张纸的思维方式一样，可以这样强行理解shader，shader就是下面那张黑纸，画笔在白纸上画，或者说划？划破白纸，扣出某个形状，再搭在黑纸上，就能看到那个形状了。\n
+    比如我们把上图的那4个字的底下那层黑纸给换成一张图片，按照我们的最新的理解方式，文字就会是这样的\n\n
+    </string>
+    <string name="message_android_shader_5">
+我们把上面那层白纸换成有点透明度的白纸，来看看全貌：\n\n
+    </string>
+    <string name="message_android_shader_6">
+好了，跟着思路，我们开始，shader现在我们已经强行理解成下面那层的图片了，也就是说，当我们在作出如下行为的时候：\n\n
+    Paint paint = new Paint();\n
+Shader shader = new Shader();\n
+paint.setShader(shader);\n\n
+
+
+    实际上是修改了底层的图层，并且绘图模式变成了在上面那层扣形状，然后重叠，将下面那层的颜色通过被扣除的部分显示出来，赋予这个形状不一样的颜色。\n
+    所以，当我们为画笔设置shader的时候，使用paint.setColor()这种方法就显的没有意义了。\n
+    好了，关于shader的概念，我就先讲到这里了，要不要再回去看看官方的解释？\n\n
+    </string>
+    <string name="message_android_shader_7">
+        BitmapShader\n
+首先我们先讲BitmapShader，容易跟上节奏，BitmapShader是Shader的子类，在使用他的时候，要传递一个bitmap，可想而知，这个bitmap就成了这个图像的底层。\n
+我们拿这张图片作为例子底层\n\n
+    </string>
+    <string name="message_android_shader_8">
+    override fun onDraw(canvas: Canvas?) {\n
+        super.onDraw(canvas)\n
+        val shader = BitmapShader(\n
+            bgBitmap,\n
+            Shader.TileMode.REPEAT, Shader.TileMode.REPEAT\n
+        )\n
+
+        mPaint.shader = shader\n
+        mPaint.textSize = mTextSize\n
+
+
+        //计算baseline\n
+        val fontMetrics: Paint.FontMetrics = mPaint.fontMetrics\n
+        val distance = (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom\n
+        val baseline: Float = height.toFloat() / 2 + distance\n
+        canvas?.drawText(mText, width / 2f, baseline, mPaint)\n
+
+    }\n
+
+
+    val bgBitmap by lazy {\n
+        val options: BitmapFactory.Options = BitmapFactory.Options()\n
+        options.inJustDecodeBounds = true\n
+        BitmapFactory.decodeResource(\n
+            context!!.resources,\n
+            R.drawable.sadeqjedhqwj,\n
+            options\n
+        )\n
+        //获取压缩比例并压缩\n
+        options.inSampleSize = min(width / options.outWidth, height / options.outHeight)\n
+        options.inJustDecodeBounds = false\n
+
+        val bitmap = BitmapFactory.decodeResource(\n
+            context!!.resources,\n
+            R.drawable.sadeqjedhqwj,\n
+            options\n
+        )\n
+        //缩放到指定大小\n
+        Bitmap.createScaledBitmap(bitmap,width,height,false)\n
+    }\n
+
+        待会再讲里面的Shader.TileMode是干嘛的，现在先这样填写，现在这个paint就被赋予了魔力，我们在onDraw中使用这个paint写几个字：
+      //计算baseline\n
+        val fontMetrics: Paint.FontMetrics = mPaint.fontMetrics\n
+        val distance = (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom\n
+        val baseline: Float = height.toFloat() / 2 + distance\n
+        canvas?.drawText(mText, width / 2f, baseline, mPaint)\n\n
+        没错，效果就是之前看到的：\n\n
+    </string>
+
+    <string name="message_android_shader_9">
+        你还可以绘制任意图形\n\n
+    </string>
+    <string name="message_android_shader_10">
+      接下来我来解释下BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);中后面的那两个参数具体是干嘛的。\n
+    首先Shader.TileMode顾名思义肯定是一种模式，到这里就可以理解为是一种显示模式，进入这个类，我们会发现一共有 CLAMP, REPEAT, MIRROR三种显示模式。\n
+        方法中的第一个Shader.TileMode是X轴的显示模式，第二个是Y轴上的显示模式。\n
+    BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP); 好像图片所不及的区域，就取了图片对应轴上的最后一个颜色对其复制\n
+    </string>
+    <string name="message_android_shader_11">
+    BitmapShader(bitmap1, Shader.TileMode.MIRROR, Shader.TileMode.MIRROR);\n
+这个就是镜面对称\n
+    </string>   <string name="message_android_shader_12">
+BitmapShader(bitmap1, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);\n
+这个自然是无限重复了\n
     </string>
 </resources>

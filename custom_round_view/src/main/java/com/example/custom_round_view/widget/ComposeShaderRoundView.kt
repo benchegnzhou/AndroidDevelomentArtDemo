@@ -67,31 +67,31 @@ class ComposeShaderRoundView(
             if (right) {
                 if (current_ballX > (width - BALL_MAX_X)) {
                     right = false
-                    current_ballX -= 1
+                    current_ballX -= 2
                 } else {
-                    current_ballX += 1
+                    current_ballX += 2
                 }
             } else {
                 if (current_ballX < (BALL_MAX_X)) {
                     right = true
-                    current_ballX += 1
+                    current_ballX += 2
                 } else {
-                    current_ballX -= 1
+                    current_ballX -= 2
                 }
             }
             if (bottom) {
                 if (current_ballY > (height - BALL_MAX_Y)) {
                     bottom = false
-                    current_ballY -= 1
+                    current_ballY -= 2
                 } else {
-                    current_ballY += 1
+                    current_ballY += 2
                 }
             } else {
                 if (current_ballY < (BALL_MAX_Y)) {
                     bottom = true
-                    current_ballY += 1
+                    current_ballY += 2
                 } else {
-                    current_ballY -= 1
+                    current_ballY -= 2
                 }
             }
         }
