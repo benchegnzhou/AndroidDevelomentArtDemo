@@ -302,8 +302,127 @@ paint.setShader(shader);\n\n
     <string name="message_android_shader_11">
     BitmapShader(bitmap1, Shader.TileMode.MIRROR, Shader.TileMode.MIRROR);\n
 这个就是镜面对称\n
-    </string>   <string name="message_android_shader_12">
+    </string>
+    <string name="message_android_shader_12">
 BitmapShader(bitmap1, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);\n
 这个自然是无限重复了\n
+    </string>
+    <string name="message_linear_gradient_1">
+    用来实现线性渐变效果\n
+
+此类是Shader的子类\n
+通过paint.setShader来设置渐变。\n
+
+有两个构造方法分别如下：\n
+
+LinearGradient(float x0, float y0, float x1, float y1, int colors[], float positions[], TileMode tile)\n
+注：Android中计算x,y坐标都是以屏幕左上角为原点，向右为x+，向下为y+\n
+第一个参数为线性起点的x坐标\n
+第二个参数为线性起点的y坐标\n
+第三个参数为线性终点的x坐标\n
+第四个参数为线性终点的y坐标\n
+第五个参数为实现渐变效果的颜色的组合\n
+第六个参数为前面的颜色组合中的各颜色在渐变中占据的位置（比重），如果为空，则表示上述颜色的集合在渐变中均匀出现\n
+第七个参数为渲染器平铺的模式，一共有三种\n
+-CLAMP\n
+边缘拉伸\n
+-REPEAT\n
+在水平和垂直两个方向上重复，相邻图像没有间隙\n
+-MIRROR\n
+以镜像的方式在水平和垂直两个方向上重复，相邻图像有间隙\n\n
+
+public LinearGradient(float x0, float y0, float x1, float y1, int color0, int color1, TileMode tile)\n
+其他参数同上\n
+int color0表示渐变起始颜色\n
+int color1表示渐变终止颜色\n
+
+
+</string>
+
+    <string name="message_linear_gradient_2">
+    下面主要来演示一下第一种构造方法下的实现效果：\n
+    首先是\n\n
+    val linearGradient =\n
+                LinearGradient(\n
+                        0f,\n
+                        0f,\n
+                        width.toFloat(),\n
+                        0f,\n
+                        arrayListOf(Color.parseColor("#FFEE3A8C"), Color.parseColor("#FFCD0000"), Color.parseColor("#FF9400D3")).toIntArray(),\n
+                        arrayListOf(0.1f, 0.2f, 1.0f).toFloatArray(),\n
+                        Shader.TileMode.CLAMP\n
+                )\n
+        mPaint.shader = linearGradient\n
+
+        canvas?.apply {\n
+            save()\n
+            canvas.drawRect(Rect(0, 0, width, height), mPaint)\n
+            restore()\n
+        }\n\n
+这个效果就是将图片划分成粉红、深红、紫色三部分，各个颜色的横向比重为1:1:8 即(0-0.1)：(0.2-0.1):(1.0-0.2)\n
+        你要记住最终变成1.0表示占满LinearGradient.width\n
+        第一次我们演示的是水平填充，各个图快占用的比例如图所示\n
+    </string>
+    <string name="message_linear_gradient_3">
+        还是上面的栗子，我们将参数3和参数4变更为参数会怎么样？\n
+        答案是可以改变颜色梯度的角度\n
+        变换成45度渲染，绘制是沿着直线进行的\n
+    </string>
+    <string name="message_linear_gradient_4">
+        修改梯度线为竖直，你会发现颜色梯度变化变成竖直了\n
+        会变成竖向的色彩变化\n
+    </string>
+
+    <string name="message_linear_gradient_5">
+        反向绘制渐变色。\n
+        上面的栗子都是从0开始的，那我们如果是从view.width开始到0，参数2一直为0会怎么样呢\n
+        没错颜色会倒序绘制,正好和上面的栗子是反的\n
+    </string>
+    <string name="message_linear_gradient_6">
+        再来看一个对角绘制的栗子\n
+    </string>
+    <string name="message_linear_gradient_7">
+        最后一个参数Shader.TileMode\n
+        这个是颜色的矩形块不足填充需要绘制区域的时候，区域外面的填充模式使用的\n
+        上面的栗子都是宽度等于控件宽度，那么如果不等于且填充模式为 Shader.TileMode.CLAMP怎么样呢？\n
+    </string>
+    <string name="message_linear_gradient_8">
+        Shader.TileMode.REPEAT怎么样呢？\n
+    </string>
+    <string name="message_linear_gradient_9">
+        Shader.TileMode.MIRROR怎么样呢？\n
+    </string>
+    <string name="message_linear_gradient_10">
+         从上面的栗子我们可以得出结论，\n\n
+        1. LinearGradient实际就相当于提前准备了一个色块，这个色块有自己的方向，就是前四个参数组成的两个顶点连线的方向，按照将这个色块放置在画笔当中，当我们去绘制一个图形的
+        时候我们会从画笔的shader中去获取这个渐变色矩形块，填充canvas绘制的图形（画笔的颜色会不生效，优先获取shader的颜色渐变块）。\n
+        2. 总结前四个参数就是为了调整梯度变化方向控制的
+        3. 如果shader颜色矩形块大，那么直接填充绘制\n
+        4. 如果shader颜色矩形块小，那么会在shader大小不足的地方根据最后一个参数 Shader.TileMode 去填充\n
+        5. 填充的比例是累加的，直到最后一个参数必须为1.0f,如果比例不写，就是均匀分配
+        我们可以利用这个特性绘制一些特殊的效果\n
+    </string>
+    <string name="message_linear_gradient_12">
+       使用LinearGradient配合Matrix实现文字闪动效果：\n
+首先需要设置渐变（在onSizeChaged方法中实现）\n
+mLinearGradient = new LinearGradient(0,0,mViewWidth,0,new int[]{Color.BLUE,0xffffffff,Color.BLUE},null, Shader.TileMode.CLAMP);\n
+然后，在onDraw()方法中，调用如下代码：\n
+if(mGradientMatrix != null){ \n
+        //从0开始，每次递增mViewWidth / 5，即从最左侧开始每次向前平移1/5个长度\n
+        mTransLate += (mViewWidth / 5);\n
+        if(mTransLate > mViewWidth){ //渐变平移走到头，需要重新从头开始 \n
+        mTransLate = -mViewWidth; \n
+        } \n
+        mGradientMatrix.setTranslate(mTransLate,0);\n
+        mLinearGradient.setLocalMatrix(mGradientMatrix);\n
+        postInvalidateDelayed(1000); }\n\n
+Matrix表示变换矩阵\n
+其中的setTranslate表示平移，两个参数分别为x和y方向平移量\n
+setLocalMatrix方法是Shader类的方法\n
+表示 设置shader的本地矩阵\n
+
+上述代码意思就是，设置一个偏移量，每次递增1/5View的长度，进行平移，当该长度递增超过了View的长度时就将其平移回最左侧，再从头开始。\n
+其中的setLocalMatrix设置了渐变的平移矩阵\n
+postInvalidateDelayed表示延迟重绘\n
     </string>
 </resources>

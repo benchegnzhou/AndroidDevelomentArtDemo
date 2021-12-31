@@ -20,26 +20,28 @@
             android:lineSpacingExtra="3dp"
             android:lineSpacingMultiplier="1.4"
             android:paddingHorizontal="16dp"
-            android:text="实现效果展示"
+            android:text="@string/message_linear_gradient_1"
             android:textColor="@color/black"
             android:textSize="16dp" />
 
-        <com.example.custom_round_view.widget.BitmapShaderRoundView
+
+        <com.example.custom_round_view.widget.LinearGradientView_1
+            android:id="@+id/linegrad_1"
             android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="20dp">
+            android:layout_height="240dp" />
+        <!--        https://blog.csdn.net/qq_30889373/article/details/78793086-->
+        <TextView
+            android:id="@+id/tv_btn_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/purple_200"
+            android:paddingVertical="10dp"
+            android:text="点击我切换pathStyle"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="这里模拟聊天内容等,,,,"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-
-
-        </com.example.custom_round_view.widget.BitmapShaderRoundView>
 
         <TextView
             android:layout_width="match_parent"
@@ -48,123 +50,152 @@
             android:lineSpacingExtra="3dp"
             android:lineSpacingMultiplier="1.4"
             android:paddingHorizontal="16dp"
-            android:text="@string/message_android_shader_1"
+            android:text="@string/message_linear_gradient_2"
             android:textColor="@color/black"
             android:textSize="16dp" />
 
+        <com.example.custom_round_view.widget.LinearGradientView_2
+            android:layout_width="match_parent"
+            android:layout_height="240dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:lineSpacingExtra="3dp"
+            android:lineSpacingMultiplier="1.4"
+            android:paddingHorizontal="16dp"
+            android:text="@string/message_linear_gradient_3"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <com.example.custom_round_view.widget.LinearGradientView_3
+            android:layout_width="match_parent"
+            android:layout_height="240dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:lineSpacingExtra="3dp"
+            android:lineSpacingMultiplier="1.4"
+            android:paddingHorizontal="16dp"
+            android:text="@string/message_linear_gradient_4"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <com.example.custom_round_view.widget.LinearGradientView_4
+            android:layout_width="match_parent"
+            android:layout_height="240dp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:lineSpacingExtra="3dp"
+            android:lineSpacingMultiplier="1.4"
+            android:paddingHorizontal="16dp"
+            android:text="@string/message_linear_gradient_5"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <com.example.custom_round_view.widget.LinearGradientView_5
+            android:layout_width="match_parent"
+            android:layout_height="240dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:lineSpacingExtra="3dp"
+            android:lineSpacingMultiplier="1.4"
+            android:paddingHorizontal="16dp"
+            android:text="@string/message_linear_gradient_6"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <com.example.custom_round_view.widget.LinearGradientView_6
+            android:layout_width="match_parent"
+            android:layout_height="240dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:lineSpacingExtra="3dp"
+            android:lineSpacingMultiplier="1.4"
+            android:paddingHorizontal="16dp"
+            android:text="@string/message_linear_gradient_7"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <com.example.custom_round_view.widget.LinearGradientView_7
+            android:layout_width="match_parent"
+            android:layout_height="240dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:lineSpacingExtra="3dp"
+            android:lineSpacingMultiplier="1.4"
+            android:paddingHorizontal="16dp"
+            android:text="@string/message_linear_gradient_8"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <com.example.custom_round_view.widget.LinearGradientView_8
+            android:layout_width="match_parent"
+            android:layout_height="240dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:lineSpacingExtra="3dp"
+            android:lineSpacingMultiplier="1.4"
+            android:paddingHorizontal="16dp"
+            android:text="@string/message_linear_gradient_9"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <com.example.custom_round_view.widget.LinearGradientView_9
+            android:layout_width="match_parent"
+            android:layout_height="240dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:lineSpacingExtra="3dp"
+            android:lineSpacingMultiplier="1.4"
+            android:paddingHorizontal="16dp"
+            android:text="@string/message_linear_gradient_9"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
 
         <ImageView
-            android:id="@+id/iv_clip_path_1"
+            android:id="@+id/iv_linear_gradient_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:scaleType="fitCenter" />
 
-
-        <TextView
+        <com.example.custom_round_view.widget.LinearGradientView_10
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:lineSpacingExtra="3dp"
-            android:lineSpacingMultiplier="1.4"
-            android:paddingHorizontal="16dp"
-            android:text="@string/message_android_shader_2"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:layout_height="240dp" />
 
-        <com.example.custom_round_view.widget.TextSharpView
+        <com.example.custom_round_view.widget.LinearGradientView_11
             android:layout_width="match_parent"
-            android:layout_height="98dp"
-            android:text="演示文字"
-            app:mTestColor="@color/black"
-            app:mTestSize="74dp" />
+            android:layout_height="240dp" />
 
-        <ImageView
-            android:id="@+id/iv_clip_path_2"
+        <com.example.custom_round_view.widget.LinearGradientView_text
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            android:scaleType="fitCenter"
-            android:visibility="gone" />
+            android:layout_height="240dp" />
 
-        <TextView
+        <com.example.custom_round_view.widget.LinearGradientView_text_2
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:lineSpacingExtra="3dp"
-            android:lineSpacingMultiplier="1.4"
-            android:paddingHorizontal="16dp"
-            android:text="@string/message_android_shader_3"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
-
-        <ImageView
-            android:id="@+id/iv_clip_path_3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            android:scaleType="fitCenter" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:lineSpacingExtra="3dp"
-            android:lineSpacingMultiplier="1.4"
-            android:paddingHorizontal="16dp"
-            android:text="@string/message_android_shader_4"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
-
-        <com.example.custom_round_view.widget.TextBitmapSharpView
-            android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:text="演示文字"
-            app:mTestColor="@color/black"
-            app:mTestSize="78dp" />
-
-        <ImageView
-            android:id="@+id/iv_clip_path_4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            android:scaleType="fitCenter" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:lineSpacingExtra="3dp"
-            android:lineSpacingMultiplier="1.4"
-            android:paddingHorizontal="16dp"
-            android:text="@string/message_android_shader_5"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
-
-        <ImageView
-            android:id="@+id/iv_clip_path_5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            android:scaleType="fitCenter" />
-
-        <com.example.custom_round_view.widget.TextBitmapSharpView2
-            android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:text="演示文字"
-            app:mTestColor="@color/black"
-            app:mTestSize="78dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:lineSpacingExtra="3dp"
-            android:lineSpacingMultiplier="1.4"
-            android:paddingHorizontal="16dp"
-            android:text="@string/message_android_shader_6"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
-
+            android:layout_height="240dp" />
     </LinearLayout>
 </ScrollView>
