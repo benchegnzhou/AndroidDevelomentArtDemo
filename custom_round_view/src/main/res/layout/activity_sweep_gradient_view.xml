@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include layout="@layout/common_top_title" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:lineSpacingExtra="3dp"
+            android:lineSpacingMultiplier="1.4"
+            android:paddingHorizontal="16dp"
+            android:text="@string/message_sweep_gradient_1"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:id="@+id/iv_sweep_gradient_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:scaleType="fitCenter" />
+
+        <ImageView
+            android:id="@+id/iv_sweep_gradient_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:lineSpacingExtra="3dp"
+            android:lineSpacingMultiplier="1.4"
+            android:paddingHorizontal="16dp"
+            android:text="@string/message_sweep_gradient_2"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <com.example.custom_round_view.widget.SweepGradientView_1
+            android:layout_width="match_parent"
+            android:layout_height="320dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:lineSpacingExtra="3dp"
+            android:lineSpacingMultiplier="1.4"
+            android:paddingHorizontal="16dp"
+            android:text="@string/message_sweep_gradient_3"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <com.example.custom_round_view.widget.SweepGradientView_2
+            android:layout_width="match_parent"
+            android:layout_height="320dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:lineSpacingExtra="3dp"
+            android:lineSpacingMultiplier="1.4"
+            android:paddingHorizontal="16dp"
+            android:text="@string/message_sweep_gradient_4"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <com.example.custom_round_view.widget.SweepGradientView_3
+            android:layout_width="match_parent"
+            android:layout_height="320dp" />
+
+        <com.example.custom_round_view.widget.SweepGradientView_4
+            android:layout_width="match_parent"
+            android:layout_height="320dp" />
+
+        <com.example.custom_round_view.widget.SweepGradientRadarView
+            android:layout_width="match_parent"
+            android:layout_height="320dp" />
+    </LinearLayout>
+</ScrollView>

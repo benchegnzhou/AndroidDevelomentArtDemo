@@ -3,25 +3,20 @@ package com.example.custom_round_view.widget
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
-import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.Nullable
 
 /**
- * 参考：https://blog.csdn.net/qq_30889373/article/details/78793086
+ * 参考：https://blog.csdn.net/u010126792/article/details/85238050
  */
-class LinearGradientView_text_2(
+class SweepGradientView_2(
     context: Context?,
     @Nullable attrs: AttributeSet?,
     defStyleAttr: Int
 ) :
     View(context, attrs, defStyleAttr), View.OnClickListener {
-
-    var right = true
-    var bottom = true
-    var current_ballX = 0f
-    var current_ballY = 0f
-
+    private var currentCorner = 0f
+    private var isClockwise = true
     constructor(
         context: Context?,
         @Nullable attrs: AttributeSet?
@@ -36,51 +31,51 @@ class LinearGradientView_text_2(
         val paint = Paint()
         paint.color = Color.BLACK
         paint.isAntiAlias = true
-        paint.textSize = 78f
-        paint.textAlign = Paint.Align.CENTER
-        paint.typeface = Typeface.DEFAULT_BOLD
         paint
     }
-    var array = arrayListOf(0.15f, 0.3f, 0.6f, 1.0f).toFloatArray()
+    var array = arrayListOf(0.1f, 0.2f, 1.0f).toFloatArray()
     private val RECT by lazy { RectF(0f, 0f, width * 0.2f, height * 0.2f) }
 
     override fun draw(canvas: Canvas?) {
         super.draw(canvas)
-
+        if (!isAttachToWindows) {
+            return
+        }
         val linearGradient =
-            LinearGradient(
-                RECT.left,
-                RECT.top,
-                RECT.right,
-                RECT.bottom,
+            SweepGradient(
+                width / 2.0f,
+                height / 2.0f,
                 arrayListOf(
-                    Color.parseColor("#FFF0F0F0"),
-                    Color.parseColor("#FFB5B5B5"),
+                    Color.parseColor("#FFEE3A8C"),
                     Color.parseColor("#FFCD0000"),
                     Color.parseColor("#FF9400D3")
                 ).toIntArray(),
-                array,
-                Shader.TileMode.MIRROR
+                array
             )
-
-        linearGradient.setLocalMatrix(Matrix().apply { setTranslate(current_ballX, current_ballY) })
-        current_ballX += 7
-        current_ballY += 7
         mPaint.shader = linearGradient
 
         canvas?.apply {
             save()
-            val fontMetrics: Paint.FontMetrics = mPaint.fontMetrics
-            val distance = (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom
-            val baseline: Float = height.toFloat() / 2 + distance
-            canvas?.drawText("测试文字。。。", width / 2.0f, baseline, mPaint)
+            canvas.drawRoundRect(
+                RectF(0f, 0f, width.toFloat(), height.toFloat()),
+                currentCorner,
+                currentCorner,
+                mPaint
+            )
             restore()
         }
-        if (isAttachToWindows) {
-            postInvalidateDelayed(2)
-        }
-
         drawText(canvas)
+
+        currentCorner += if (isClockwise) 2f else -2f
+        val max = Math.min(width, height).toFloat() / 2
+        if (currentCorner < 0f) {
+            currentCorner = 0f
+            isClockwise = true
+        } else if (currentCorner > max) {
+            currentCorner = max
+            isClockwise = false
+        }
+        postInvalidateDelayed(6)
     }
 
 
@@ -98,8 +93,7 @@ class LinearGradientView_text_2(
             var title = "当前的颜色比为："
 
 
-            title =
-                "$title ${array[0]} : ${array[1] - array[0]} : ${array[2] - array[1]}: ${array[3] - array[2]}"
+            title = "$title ${array[0]} : ${array[1] - array[0]} : ${array[2] - array[1]}"
 
             val fontMetrics: Paint.FontMetrics = paint.fontMetrics
             val distance = (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom
@@ -112,21 +106,15 @@ class LinearGradientView_text_2(
     override fun onClick(v: View?) {
         val random1 = getRandom()
         val random2 = getRandom()
-        val random3 = getRandom()
-        array = arrayListOf(
-            random1,
-            random2 + random1,
-            random3 + random2 + random1,
-            1.0f
-        ).toFloatArray()
+        array = arrayListOf(random1, random2 + random1, 1.0f).toFloatArray()
         invalidate()
     }
 
     private fun getRandom(): Float {
-        return (1..3).random() / 10.0f
+        return (1..5).random() / 10.0f
     }
 
-    var isAttachToWindows = false;
+    var isAttachToWindows = false
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         isAttachToWindows = true
@@ -137,5 +125,4 @@ class LinearGradientView_text_2(
         super.onDetachedFromWindow()
         isAttachToWindows = false
     }
-
 }

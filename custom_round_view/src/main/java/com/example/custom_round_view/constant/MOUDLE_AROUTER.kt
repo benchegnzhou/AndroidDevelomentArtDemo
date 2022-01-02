@@ -13,6 +13,8 @@ open class MOUDLE_AROUTER {
         const val ANDROID_SHADER= "/${PATH_CONSTANT.MODULE_ROUTER}/AndroidShaderActivity"
         const val COMPOSE_SHADER_ROUND_VIEW= "/${PATH_CONSTANT.MODULE_ROUTER}/ComposeShaderRoundViewActivity"
         const val LINEAR_GRADIENT_VIEW_ACTIVITY= "/${PATH_CONSTANT.MODULE_ROUTER}/LinearGradientViewActivity"
+        const val SWEEP_GRADIENTT_VIEW_ACTIVITY= "/${PATH_CONSTANT.MODULE_ROUTER}/SweepGradientActivity"
+        const val RADIAL_GRADIENTT_VIEW_ACTIVITY= "/${PATH_CONSTANT.MODULE_ROUTER}/RadialGradientViewActivity"
 
     }
 }

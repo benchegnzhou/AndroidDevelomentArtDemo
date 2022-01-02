@@ -18,7 +18,7 @@ class LinearGradientViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_linear_gradient_view)
-        tv_title.text = "通过 BitmapShader 实现自定义圆角"
+        tv_title.text = "LinearGradient 实现绘制颜色线性渐变效果"
         iv_back_view.setOnClickListener { finish() }
         Glide.with(this).load("http://minio.898311.xyz:8900/blogimg/16406784771690.png")
             .into(iv_linear_gradient_1)

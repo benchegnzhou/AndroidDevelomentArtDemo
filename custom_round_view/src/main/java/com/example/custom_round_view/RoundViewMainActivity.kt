@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.common_top_title.*
 
 @Route(path = MOUDLE_AROUTER.ROUNDVIEW_MAIN_ACTIVITY)
 class RoundViewMainActivity : AppCompatActivity() {
-    lateinit var mListAdapter: MainListAdapter
+    private lateinit var mListAdapter: MainListAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_round_view_main)
@@ -25,7 +25,7 @@ class RoundViewMainActivity : AppCompatActivity() {
         rv_view.layoutManager = LinearLayoutManager(this)
         rv_view.adapter = mListAdapter
         mListAdapter.animationEnable = true
-        mListAdapter.setOnItemClickListener { p0, p1, p2 ->
+        mListAdapter.setOnItemClickListener { _, _, p2 ->
             when (p2) {
                 0 -> ARouter.getInstance().build(MOUDLE_AROUTER.ROUND_WIDGET_ACTIVITY).navigation()
                 1 -> ARouter.getInstance().build(MOUDLE_AROUTER.BITMAP_SHADER_ROUND_VIEW)
@@ -39,13 +39,17 @@ class RoundViewMainActivity : AppCompatActivity() {
                     .navigation()
                 6 -> ARouter.getInstance().build(MOUDLE_AROUTER.LINEAR_GRADIENT_VIEW_ACTIVITY)
                     .navigation()
+                7 -> ARouter.getInstance().build(MOUDLE_AROUTER.SWEEP_GRADIENTT_VIEW_ACTIVITY)
+                    .navigation()
+                8 -> ARouter.getInstance().build(MOUDLE_AROUTER.RADIAL_GRADIENTT_VIEW_ACTIVITY)
+                    .navigation()
             }
         }
         initData()
     }
 
     private fun initData() {
-        var list = mutableListOf<String>()
+        val list = mutableListOf<String>()
         list.add("使用shape实现自定义圆角")
         list.add("使用BitmapShader实现自定义圆角")
         list.add("使用composeShader实现自定义圆角")
@@ -53,6 +57,8 @@ class RoundViewMainActivity : AppCompatActivity() {
         list.add("使用Clip.disppatch实现自定义圆角")
         list.add("Android中的shader")
         list.add("LinearGradientViewActivity")
+        list.add("SweepGradient扫描/梯度渲染")
+        list.add("RadialGradient辐射梯度渲染")
         mListAdapter.data = list
     }
 

@@ -425,4 +425,58 @@ setLocalMatrix方法是Shader类的方法\n
 其中的setLocalMatrix设置了渐变的平移矩阵\n
 postInvalidateDelayed表示延迟重绘\n
     </string>
+
+    <string name="message_sweep_gradient_1">
+        SweepGradient是Shaderd的另一个子类\n
+        SweepGradient可以实现扫描渐变渲染，类似雷达扫描图，渐变圆弧，渐变进度条等，构造函数有两个：\n
+    </string>
+    <string name="message_sweep_gradient_2">
+       参数说明：\n\n
+cx,cy 渐变中心坐标。\n
+colors，positions：类似LinearGradient,用于多颜色渐变,positions为null时，根据颜色线性渐变。\n\n
+color0,color1：渐变开始结束颜色。\n
+
+两种颜色渐变\n
+构造函数：\n
+SweepGradient(float cx, float cy, @ColorInt int color0, @ColorInt int color1)\n
+    </string>
+    <string name="message_sweep_gradient_3">
+    多颜色扫描渐变\n
+构造函数：\n
+SweepGradient(float cx, float cy,@NonNull @ColorInt int colors[], @Nullable float positions[])\n
+        具体的可以参考LinearGradient章节，参数都是类似的\n
+    </string>
+
+    <string name="message_sweep_gradient_4">
+    明白了这些我们是不是可以同改变不同色块的比例来实现不同的效果了呢!!!\n
+        下面的这个小例子可能会给你启发\n
+    </string>
+
+    <string name="message_radial_gradient_1">
+    RadialGradient是Shaderd的另一个子类\n
+    RadialGradient被称为放射渐变，就是从中心向外圆形渐变。\n
+    RadialGradient可以实现中心点扩散效果渲染，类似View水波纹绘制等，构造函数有多个，但是总结下来只有两个：\n
+    第一个构造函数可以实现两种颜色的渐变\n
+    第二个构造函数可以实现多个颜色的渐变\n
+    </string>
+    <string name="message_radial_gradient_2">
+      参数说明：\n
+    centerX ,centerY：shader 的中心坐标，开始渐变的坐标。\n
+    radius:渐变的半径,\n
+    centerColor,edgeColor:中心点渐变颜色，边界的渐变颜色，\n
+    colors:渐变颜色数组，\n
+    stoops:渐变位置数组，类似扫描渐变的positions数组，取值[0,1],中心点为0，半径到达位置为1.0f，\n
+    tileMode:shader未覆盖以外的填充模式。\n
+    </string>
+    <string name="message_radial_gradient_3">
+    2. 两种颜色渐变\n
+    构造函数：\n
+    RadialGradient(float centerX, float centerY, float radius, @ColorInt int centerColor, @ColorInt int edgeColor, @NonNull TileMode tileMode)；\n
+    </string>
+    <string name="message_radial_gradient_4">
+  任意view 点击扩散效果
+    </string>
+    <string name="message_radial_gradient_5">
+  水波纹效果的实现
+    </string>
 </resources>
