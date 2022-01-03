@@ -477,6 +477,148 @@ SweepGradient(float cx, float cy,@NonNull @ColorInt int colors[], @Nullable floa
   任意view 点击扩散效果
     </string>
     <string name="message_radial_gradient_5">
-  水波纹效果的实现
+  水波纹效果的实现\n
     </string>
+    <string name="message_compose_shader_1">
+ ComposeShader:组合渲染\n
+即 组合另外两种shader的效果。\n
+ComposeShader构造函数：\n
+    </string>
+    <string name="message_compose_shader_2">
+ComposeShader(Shader shaderA, Shader shaderB, Xfermode mode)\n
+shaderA ：渲染器A\n
+shaderB ：渲染器B\n
+Xfermode ：两种渲染器组合的模式,Xfermode对象\n
+ComposeShader(Shader shaderA, Shader shaderB, Mode mode)\n
+Mode ：两种渲染器组合的模式,ProterDuff.Mode对象\n
+        2 Xfermode是什么呢？\n
+Xfermode称为图形混合模式也被称为过渡模式，把两个图形混合成一张图。\n
+Xfermode 实现类有AvoidXfermode，PixelXorXfermode，PorterDuffXfermode，但是AvoidXfermode，PixelXorXfermode都已经被标识不推荐使用了，所以就只有PorterDuffXfermode一个实现类。PorterDuffXfermode用于图形合成时的图像过渡模式计算。\n
+前两个实现类在API level 16被标记为Deprecated了（因为不支持硬件加速），用也可以，但是需要关闭硬件加速，高版本api默认打开硬件加速，如果需要关闭硬件加速，无法发挥OpenGLes的作用，也就无法充分利用GPU绘图能力，有关硬件加速请看https://developer.android.com/guide/topics/graphics/hardware-accel；\n
+不同版本对硬件加速的支持程度（摘抄自官网）:\n
+    </string>
+
+    <string name="message_compose_shader_3">
+    之前已经讲过了除ComposeShader之外Shader的全部子类, 在讲ComposeShader(组合渲染)之前,  由于构造ComposeShader需要 PorterDuffXfermode或者PorterDuff.Mode作为参数,所以在此先详细地了解下这两个类的作用,这对之后的绘图会有很大的帮助:\n
+    在讲具体的使用之前补充一点知识,这就是 ProterDuff的由来:\n
+    相信大多数人看到这个ProterDuff单词很奇怪了吧，这肿么个意思呢,然后就用有道啊，金山啊开始翻译，但是翻译软件给出的结果肯定还是  ProterDuff或者"未找到".\n
+    这是神马情况呢？因为ProterDuff是两个人名的组合: Tomas Proter和 Tom Duff. 他们是最早在SIGGRAPH上提出图形混合概念的大神级人物. 有兴趣的童靴们可以自己查下并深入了解，在此不再做过多描述.\n
+    </string>
+    <string name="message_compose_shader_4">
+        利用ProterBuff.Mode我们可以完成任意2D图像测操作， 比如涂鸦画板应用中的橡皮擦效果，绘制各种自定义的进度,等等很强大的效果，下面请看具体的介绍:\n
+    </string>
+    <string name="message_compose_shader_5">
+        新的标识模式说明：
+        原图，目标图：先绘制的是目标图，后绘制的是原图。
+        举例说明：
+        目标图片：
+    </string>
+    <string name="message_compose_shader_6">
+       源图片：
+    </string>
+    <string name="message_compose_shader_7">
+        先看Xfermode\n
+        Xfermode有三个子类 :\n
+        AvoidXfermode  指定了一个颜色和容差，强制Paint避免在它上面绘图(或者只在它上面绘图)。\n
+        PixelXorXfermode  当覆盖已有的颜色时，应用一个简单的像素异或操作。\n
+        PorterDuffXfermode  这是一个非常强大的转换模式，使用它，可以使用图像合成的16条Porter-Duff规则的任意一条来控制Paint如何与已有的Canvas图像进行交互。\n
+        要应用转换模式，可以使用setXferMode方法，如下所示：\n
+        画src和dst的画笔必须要是同一对象.
+    </string>
+    <string name="message_compose_shader_8">
+        这里有一个效果图是我从网上找的\n
+    </string>
+    <string name="message_compose_shader_9">
+        从上面我们可以看到PorterDuff.Mode为枚举类,一共有16个枚举值:\n\n
+        1.PorterDuff.Mode.CLEAR\n
+        所绘制不会提交到画布上。\n
+        清除模式，[0, 0]，即图像中所有像素点的alpha和颜色值均为0，此时所有图片不显示，所以在学习Canvas，可以设置画笔的Xfermode，mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));\n
+        可以清空画布。
+    </string>
+    <string name="message_compose_shader_10">
+        2.PorterDuff.Mode.SRC\n
+        显示上层绘制图片\n
+        只保留原图像的 alpha 和 color ，所以绘制出来只有源图。
+    </string>
+    <string name="message_compose_shader_11">
+        3.PorterDuff.Mode.DST\n
+        显示下层绘制图片\n
+        只保留了目标图像的alpha和color值，所以绘制出来的只有目标图。
+    </string>
+
+    <string name="message_compose_shader_12">
+       4.PorterDuff.Mode.SRC_OVER\n
+        正常绘制显示，上下层绘制叠盖\n
+        源图像被绘制在目标图像的上方
+    </string>
+    <string name="message_compose_shader_13">
+          5.PorterDuff.Mode.DST_OVER\n
+        上下层都显示。下层居上显示。\n
+        目标图像被绘制在源图像的上方
+    </string>
+    <string name="message_compose_shader_14">
+         6.PorterDuff.Mode.SRC_IN\n
+        取两层绘制交集。显示上层。\n
+在两者相交的地方绘制源图像，并且绘制的效果会受到目标图像对应地方透明度的影响
+    </string>
+    <string name="message_compose_shader_15">
+          7.PorterDuff.Mode.DST_IN\n
+        取两层绘制交集。显示下层。\n
+       与SRC_IN 对比，在两者相交的地方绘制目标图像，并且绘制的效果会受到源图像对应地方透明度的影响
+    </string>
+    <string name="message_compose_shader_16">
+        8.PorterDuff.Mode.SRC_OUT\n
+        取上层绘制非交集部分。\n
+        在不相交的地方绘制源图像，表示如果相交处的目标色的alpha是完全不透明的，这时候源图像会完全被过滤掉，否则会受到相交处目标色 alpha 影响，呈现出对应色值。
+    </string>
+    <string name="message_compose_shader_17">
+          9.PorterDuff.Mode.DST_OUT\n
+        取下层绘制非交集部分。\n
+        对比SRC_OUT , 在不相交的地方绘制目标图像，相交处根据源图像alpha进行过滤，完全不透明处则完全过滤，完全透明则不过滤。
+    </string>
+    <string name="message_compose_shader_18">
+           10.PorterDuff.Mode.SRC_ATOP\n
+        取下层非交集部分与上层交集部分\n
+        源图像和目标图像相交处绘制源图像，不相交的地方绘制目标图像，并且相交处的效果会受到源图像和目标图像alpha的影响
+    </string>
+    <string name="message_compose_shader_19">
+          11.PorterDuff.Mode.DST_ATOP\n
+        取上层非交集部分与下层交集部分\n
+        源图像和目标图像相交处绘制目标图像，不相交的地方绘制源图像，并且相交处的效果会受到源图像和目标图像alpha的影响
+    </string>
+    <string name="message_compose_shader_20">
+         12.PorterDuff.Mode.XOR\n
+        异或：去除两图层交集部分\n
+        在不相交的地方按原样绘制源图像和目标图像，相交的地方受到对应alpha和颜色值影响，按公式进行计算，如果都完全不透明则相交处完全不绘制。
+    </string>
+    <string name="message_compose_shader_21">
+         13.PorterDuff.Mode.DARKEN\n
+        取两图层全部区域，交集部分颜色加深\n
+        效果变暗，即进行对应像素的比较，取较暗值，如果色值相同则进行混合。
+    </string>
+    <string name="message_compose_shader_22">
+        14.PorterDuff.Mode.LIGHTEN\n
+        取两图层全部，点亮交集部分颜色\n
+        对比DARKEN ，DARKEN 的目的是变暗，LIGHTEN 的目的则是变亮，如果在均完全不透明的情况下，色值取源色值和目标色值中的较大值，否则按上面算法进行计算。
+    </string>
+    <string name="message_compose_shader_23">
+        15.PorterDuff.Mode.MULTIPLY\n
+  取两图层交集部分叠加后颜色\n
+        正片叠底，源图像素颜色值乘以目标图像素颜色值除以255得到混合后图像像素颜色值。结果色总是较暗的颜色，任何颜色与黑色复合产生黑色，任何颜色与白色复合保持不变，
+        当用黑色或白色以外的颜色绘画时，绘画工具绘制的连续描边产生逐渐变暗的颜色。
+    </string>
+    <string name="message_compose_shader_24">
+       16.PorterDuff.Mode.SCREEN\n
+  取两图层全部区域，交集部分变为透明色\n
+        滤色，保留两个图层中较白的部分，较暗的部分被遮盖；当一层使用了滤色（屏幕）模式时，图层中纯黑的部分变成完全透明，纯白部分完全不透明，其他的颜色根据颜色级别产生半透明的效果。
+    </string>
+    <string name="message_compose_shader_25">
+       17.PorterDuff.Mode.ADD\n
+        饱和度相加，不常用
+    </string>
+    <string name="message_compose_shader_26">
+       18.PorterDuff.Mode.OVERLAY\n
+        像素是进行 Multiply （正片叠底）混合还是 Screen （屏幕）混合，取决于底层颜色，但底层颜色的高光与阴影部分的亮度细节会被保留。
+    </string>
+
 </resources>

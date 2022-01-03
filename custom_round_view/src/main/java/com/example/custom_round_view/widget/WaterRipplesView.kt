@@ -68,8 +68,8 @@ class WaterRipplesView(
         val linearGradient =
             RadialGradient(
                 touchX,
-                max(currentRadius / 20, 10f),
                 touchY,
+                max(currentRadius / 20, 10f),
                 arrayListOf(
                     Color.parseColor("#66FFFFFF"),
                     Color.parseColor("#00FFFFFF")
