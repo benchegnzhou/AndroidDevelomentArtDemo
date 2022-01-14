@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.custom_round_view.widget.RoundFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="144px"
+    android:layout_marginHorizontal="40px"
+    android:layout_marginTop="100px"
+    app:backgroundColor="@color/color_47a8fc"
+    app:radius="@dimen/qb_px_56">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="数据序列化"
+        android:textColor="@color/color_bg_ffffff" />
+
+</com.example.custom_round_view.widget.RoundFrameLayout>

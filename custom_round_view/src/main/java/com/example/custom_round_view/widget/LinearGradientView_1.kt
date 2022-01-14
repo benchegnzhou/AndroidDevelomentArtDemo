@@ -130,7 +130,6 @@ class LinearGradientView_1(
                 this@LinearGradientView_1.parent.requestDisallowInterceptTouchEvent(false)
             }
         }
-
         return true
     }
 

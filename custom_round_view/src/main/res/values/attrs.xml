@@ -8,4 +8,11 @@
         <attr name="mTestSize"  format="dimension"/>
         <attr name="mTestBackground"  format="color"/>
     </declare-styleable>
+
+    <!-- The Text of TextShapeView. -->
+    <declare-styleable name="RoundFrameLayout">
+        <!--声明MyTextView需要使用系统定义过的text属性,注意前面需要加上android命名-->
+        <attr name="backgroundColor"  format="color"/>
+        <attr name="radius"  format="dimension"/>
+    </declare-styleable>
 </resources>
