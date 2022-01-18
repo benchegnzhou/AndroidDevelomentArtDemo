@@ -1,3 +1,4 @@
 include ':app', 'commonutils', 'badgesAppIcon'
 include ':custom_round_view'
 include ':zbclib'
+include ':kotlincoroutinedemo'

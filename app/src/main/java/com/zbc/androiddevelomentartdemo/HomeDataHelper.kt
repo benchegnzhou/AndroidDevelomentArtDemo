@@ -1,6 +1,7 @@
 package com.zbc.androiddevelomentartdemo
 
 import android.app.Activity
+import com.example.kotlincoroutinedemo.KotlinCoroutineHomeList
 import com.zbc.androiddevelomentartdemo.activity.*
 
 class HomeDataHelper {
@@ -25,6 +26,7 @@ class HomeDataHelper {
             HomeBean("android 高级自定义控件", CustomViewActivity::class.java, 10, "android 高级自定义控件"),
             HomeBean("android compose", CustomViewActivity::class.java, 11, "android compose"),
             HomeBean("android live data", CustomViewActivity::class.java, 12, "android live data"),
+            HomeBean("Kotlin Coroutine", KotlinCoroutineHomeList::class.java, 13, "Kotlin Coroutine"),
         )
     }
 //    ARouter.getInstance().build(MOUDLE_AROUTER.ROUNDVIEW_MAIN_ACTIVITY).navigation();

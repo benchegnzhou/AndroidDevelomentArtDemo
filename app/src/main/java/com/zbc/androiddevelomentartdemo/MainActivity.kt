@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                 holder.setText(R.id.tv_title, item.title)
             }
         }.apply {
-            setOnItemClickListener { var1, var2, var3 ->
+            setOnItemClickListener { var1, _, var3 ->
                 when (var3) {
                     2 -> {
                         sendMessageService()
@@ -111,7 +111,7 @@ class MainActivity : AppCompatActivity() {
                         Debug.stopMethodTracing();
                     }
                     else -> {
-                        (var1.data.get(var3) as HomeDataHelper.HomeBean)?.apply {
+                        (var1.data.get(var3) as HomeDataHelper.HomeBean).apply {
                             startActivity(Intent(this@MainActivity, this.clazz))
                         }
                     }

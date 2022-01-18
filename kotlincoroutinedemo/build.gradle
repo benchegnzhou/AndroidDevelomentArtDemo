@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
@@ -58,6 +59,7 @@ dependencies {
     //引入Uiautomator
     androidTestCompileOnly 'com.android.support.test.uiautomator:uiautomator-v18:2.1.3'
     implementation project(":commonutils")
+    implementation project(":custom_round_view")
     implementation rootProject.ext.dependencies.kotlinx_coroutines_core
     implementation rootProject.ext.dependencies.kotlinx_coroutines_android
     implementation rootProject.ext.dependencies.glide

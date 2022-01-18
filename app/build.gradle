@@ -58,6 +58,7 @@ dependencies {
     implementation project(':commonutils')
     implementation project(':badgesAppIcon')
     implementation project(':custom_round_view')
+    implementation project(':kotlincoroutinedemo')
     // The number of method references in a .dex file cannot exceed 64K
     implementation rootProject.ext.dependencies.multidex
     testImplementation rootProject.ext.dependencies.junit
