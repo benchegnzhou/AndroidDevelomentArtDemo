@@ -23,7 +23,8 @@
         <activity android:name=".activity.BadgeDemoActivity" />
         <activity android:name=".activity.RemoteViewDemoActivity" />
         <activity android:name=".activity.IBinderTestActivity" />
-        <activity android:name=".activity.ScrolllConflictActivity" />
+        <activity android:name=".activity.ScrollConflictActivity" />
+        <activity android:name=".activity.ThreadLocalTestActivity" />
         <activity android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

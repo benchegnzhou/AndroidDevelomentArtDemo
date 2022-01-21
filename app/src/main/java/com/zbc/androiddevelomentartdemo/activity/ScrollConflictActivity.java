@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
  * 备    注：
  */
 
-public class ScrolllConflictActivity extends AppCompatActivity {
+public class ScrollConflictActivity extends AppCompatActivity {
 
     @BindView(R.id.view_111)
     RecyclerView view111;

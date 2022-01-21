@@ -12,11 +12,11 @@ class HomeDataHelper {
             HomeBean("传递信息给指定的service", CustomViewActivity::class.java, 1, "传递信息给指定的service"),
             HomeBean(
                 "android且套滑动事件冲突解决",
-                ScrolllConflictActivity::class.java,
+                ScrollConflictActivity::class.java,
                 2,
                 "android且套滑动事件冲突解决"
             ),
-            HomeBean("IBinder数据传递", ScrolllConflictActivity::class.java, 3, "IBinder数据传递"),
+            HomeBean("IBinder数据传递", ScrollConflictActivity::class.java, 3, "IBinder数据传递"),
             HomeBean("手势监听识别", GuestureDelectorActivity::class.java, 4, "手势监听识别s"),
             HomeBean("remoteViewDemo", RemoteViewDemoActivity::class.java, 5, "remoteViewDemo"),
             HomeBean("桌面图标小红点", BadgeDemoActivity::class.java, 6, "桌面图标小红点"),
@@ -27,6 +27,7 @@ class HomeDataHelper {
             HomeBean("android compose", CustomViewActivity::class.java, 11, "android compose"),
             HomeBean("android live data", CustomViewActivity::class.java, 12, "android live data"),
             HomeBean("Kotlin Coroutine", KotlinCoroutineHomeList::class.java, 13, "Kotlin Coroutine"),
+            HomeBean("ThreadLocal Test", ThreadLocalTestActivity::class.java, 14, "ThreadLocal Test"),
         )
     }
 //    ARouter.getInstance().build(MOUDLE_AROUTER.ROUNDVIEW_MAIN_ACTIVITY).navigation();
