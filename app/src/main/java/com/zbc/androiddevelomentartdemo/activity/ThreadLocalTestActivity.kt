@@ -1,73 +1,33 @@
 package com.zbc.androiddevelomentartdemo.activity
 
-import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.zbc.androiddevelomentartdemo.R
-import java.io.ByteArrayOutputStream
-import java.io.InputStream
-import java.lang.Exception
 import kotlin.concurrent.thread
 
 class ThreadLocalTestActivity : AppCompatActivity() {
-    var threadLocal: ThreadLocal<String> = ThreadLocal<String>()
+    private var threadLocal: ThreadLocal<Any> = ThreadLocal<Any>()
+    private var threadLocal2: ThreadLocal<Any> = ThreadLocal<Any>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_thread_local_test)
         threadLocal.set("this is first string!")
         threadLocal.set("this is two string!")
-        threadLocal.set("this is three string!")
-        threadLocal.set("this is four string!")
-
+        threadLocal2.set("this is three string!")
+        threadLocal2.set("this is four string!")
+        threadLocal.set(10)
+        threadLocal.set(10.0f)
+        Log.e("----", "创建线程获取到的值 threadLocal2 = ${threadLocal2.get()}");
+        Log.e("----", "创建线程获取到的值 threadLocal = ${threadLocal.get()}");
         thread {
+            threadLocal2.set("我是子线程设置的数据！！！")
+            threadLocal.set("我是子线程设置的数据！！！")
             for (i in 1..4) {
-                Log.e("----", "${threadLocal.get()}");
+                Log.e("----", "子线程获取到的 threadLocal2 = ${threadLocal2.get()}");
+                Log.e("----", "子线程获取到的 threadLocal = ${threadLocal.get()}");
             }
         }
-        try {
-            val url = "http://www.baidu.com/head.webpng"
-            checkUrl()
-            asyncBitmapCancellable(url = url, onSuccess = ::show, onError = ::showError)
-        } catch (err: Exception) {
-            showError(err)
-        }
-
-    }
-
-
-    private fun showError(err: Throwable) {
-
-    }
-
-
-    fun asyncBitmapCancellable(
-        url: String, onSuccess: (Bitmap) -> Unit, onError: (Throwable) -> Unit
-    ) =
-        thread {
-            try {
-                downloadCancellable(url)
-            } catch (err: Exception) {
-                onError(err)
-            }
-        }
-
-
-    private fun downloadCancellable(url: String): Bitmap {
-        return getAsStream(url).use { inputStream ->
-            val bos = ByteArrayOutputStream()
-            val buffer = ByteArray(1024 * 8)
-            while (true) {
-                ...
-                if (Thread.interrupted()) {
-                    throw InterruptedException("Task is cancelled")
-                }
-            }
-        }
-    }
-
-    private fun getAsStream(url: String): InputStream {
-
     }
 
 }

@@ -13,7 +13,7 @@
         android:icon="@mipmap/list_ic_message_huodong"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.CustomViewActivity"/>
+        <activity android:name=".activity.CustomViewActivity" />
         <activity android:name=".activity.FrameTestActivity" />
         <activity android:name=".activity.FrameAnimationActivity" />
         <activity android:name=".activity.PropertyAnimationActivity" />
@@ -25,7 +25,9 @@
         <activity android:name=".activity.IBinderTestActivity" />
         <activity android:name=".activity.ScrollConflictActivity" />
         <activity android:name=".activity.ThreadLocalTestActivity" />
-        <activity android:name=".MainActivity"
+        <activity android:name=".activity.PassingDataServiceActivity" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,12 +37,24 @@
         </activity>
         <activity android:name=".activity.DemoTestActivity" /> <!-- android:process=":remote" -->
         <activity android:name=".activity.GuestureDelectorActivity" />
+        <activity android:name=".activity.TransformDataServiceActivity" />
 
         <service
-            android:name=".service.ServerService"
+            android:name=".service.MessageServerService"
             android:enabled="true"
             android:exported="true"
             android:process=":remote" />
+
+        <service
+            android:name=".service.RemoteServerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":message">
+            <intent-filter>
+                <action android:name="service.RemoteServerService" />
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/service_message"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_600"
+            android:background="@color/color_bg_f0f0f0"
+            android:padding="@dimen/qb_px_24"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btn_act_send_data"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_144"
+            android:layout_marginHorizontal="@dimen/qb_px_30"
+            android:layout_marginTop="@dimen/qb_px_60"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="Activity 调用sendMessage()"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_act_call_method1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_144"
+            android:layout_marginHorizontal="@dimen/qb_px_30"
+            android:layout_marginTop="@dimen/qb_px_60"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="Activity 调用method1()"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_act_call_method2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_144"
+            android:layout_marginHorizontal="@dimen/qb_px_30"
+            android:layout_marginTop="@dimen/qb_px_60"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="Activity 调用method2()"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_act_call_request_memory_file"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_144"
+            android:layout_marginHorizontal="@dimen/qb_px_30"
+            android:layout_marginTop="@dimen/qb_px_60"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="请求远程共享数据文件"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_360"
+            android:layout_marginTop="@dimen/qb_px_20"
+            android:scaleType="fitXY" />
+    </LinearLayout>
+</ScrollView>

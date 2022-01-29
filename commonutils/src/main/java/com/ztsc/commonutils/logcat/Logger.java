@@ -3,6 +3,7 @@ package com.ztsc.commonutils.logcat;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -44,29 +45,29 @@ public class Logger {
 
     }
 
-    public static void d(String tag,String message) {
+    public static void d(String tag, String message) {
 
     }
 
-    public static void d(String tag,String message1,String message2,String message3) {
+    public static void d(String tag, String message1, String message2, String message3) {
 
     }
 
-    public static void e(String tag, String s) {
-
+    public static void e(String tag, String message) {
+        e(tag, message,null);
     }
 
     public static void e(String message, Exception e) {
-
+        e("", message, e);
     }
 
 
-    public static void e(String tag,String message, Exception e) {
-
+    public static void e(String tag, String message, Exception e) {
+        Log.e(tag, message + "", e);
     }
 
     public static void e(String s) {
-
+        Log.e("commonUtil", s + "");
     }
 
     public static void w(String tag, String s) {

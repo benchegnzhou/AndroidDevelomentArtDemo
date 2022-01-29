@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:id="@+id/service_message"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/qb_px_600"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/color_bg_f0f0f0"
+        android:padding="@dimen/qb_px_24"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btn_act_send_data"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/qb_px_144"
+        android:layout_marginHorizontal="@dimen/qb_px_30"
+        android:layout_marginTop="@dimen/qb_px_60"
+        app:layout_constraintTop_toBottomOf="@+id/service_message"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="Activity 调用sendMessage()"
+        android:textColor="@color/white" />
+</androidx.constraintlayout.widget.ConstraintLayout>
