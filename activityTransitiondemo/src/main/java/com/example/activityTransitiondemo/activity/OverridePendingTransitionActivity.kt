@@ -18,6 +18,7 @@ class OverridePendingTransitionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_override_pending_transition)
+        supportActionBar?.hide();   //如果标题栏不为空，给它隐藏
         findViewById<TextView>(R.id.tv_title).text = "第一个界面"
         findViewById<View>(R.id.iv_back_view).setOnClickListener { finish() }
         view_btn.text = "A启动B： A发生exit动画，B发生enter动画\nB返回A：B发生return动画，A发生reenter动画"

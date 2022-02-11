@@ -22,6 +22,7 @@ class ActivityTransitionDemoListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_activity_transition_demo_mian)
+        supportActionBar?.hide();   //如果标题栏不为空，给它隐藏
         mListAdapter = HomeListAdapter(R.layout.item_cummon_list, null)
         findViewById<TextView>(R.id.tv_title).text = "自定义转场动画"
 

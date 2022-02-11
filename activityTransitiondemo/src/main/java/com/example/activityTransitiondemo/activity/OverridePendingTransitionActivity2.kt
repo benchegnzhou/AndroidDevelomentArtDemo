@@ -15,6 +15,7 @@ class OverridePendingTransitionActivity2 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide();   //如果标题栏不为空，给它隐藏
         setContentView(R.layout.activity_override_pending_transition)
         findViewById<TextView>(R.id.tv_title).text = "第二个界面"
         findViewById<View>(R.id.iv_back_view).setOnClickListener { finish() }
