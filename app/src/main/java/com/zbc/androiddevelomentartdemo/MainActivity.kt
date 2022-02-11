@@ -10,6 +10,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.alibaba.android.arouter.launcher.ARouter
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.zbc.androiddevelomentartdemo.activity.IBinderTestActivity
@@ -105,15 +106,17 @@ class MainActivity : AppCompatActivity() {
                     }
                     else -> {
                         (var1.data.get(var3) as HomeDataHelper.HomeBean).apply {
-                            startActivity(Intent(this@MainActivity, this.clazz))
+                            if(clz == null){
+                                ARouter.getInstance().build(activityPath).navigation();
+                            }else{
+                                startActivity(Intent(this@MainActivity, this.clz))
+                            }
                         }
                     }
                 }
             }
         }
     }
-
-
 
     private fun requestPermissions() {
         //acitivty中申请权限
