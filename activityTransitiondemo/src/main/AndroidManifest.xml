@@ -15,6 +15,22 @@
         <activity
             android:name=".activity.OverridePendingTransitionActivity2"
             android:exported="true" />
+        <activity
+            android:name=".activity.OverridePendingTransitionActivity3"
+            android:exported="true" />
+        <activity
+            android:name=".activity.OverridePendingTransitionActivity4"
+            android:exported="true" />
+        <activity
+            android:name=".activity.MaterialDesignExplodeSlideAnimActivity1"
+            android:exported="true" />
+        <activity
+            android:name=".activity.MaterialDesignExplodeSlideAnimActivity2"
+            android:exported="true" />
+        <activity
+            android:name=".activity.ContentTransitionActivity1"
+            android:theme="@style/MaterialAnimations"
+            android:exported="true" />
     </application>
 
 </manifest>

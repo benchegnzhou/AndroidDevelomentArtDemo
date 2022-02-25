@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_top_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_root">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/view_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="16dp"
+                android:text="@string/material_design_explode_slide_anim_activity_page_1_content_1"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:id="@+id/iv_pending_transition_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="16dp"
+                android:text="@string/material_design_explode_slide_anim_activity_page_1_content_2"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:id="@+id/iv_pending_transition_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="16dp"
+                android:text="@string/material_design_explode_slide_anim_activity_page_1_content_3"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:id="@+id/iv_pending_transition_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:scaleType="fitCenter" />
+
+            <ImageView
+                android:id="@+id/iv_pending_transition_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:scaleType="fitCenter" />
+
+            <ImageView
+                android:id="@+id/iv_pending_transition_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="16dp"
+                android:text="@string/material_design_explode_slide_anim_activity_page_1_content_4"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#fff0f0f0"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="16dp"
+                android:text="res/transition/activity_slide.xml"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#fff0f0f0"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="16dp"
+                android:text="ActivityA的代码如下：因为从ActivityA切换到ActivityB,所以ActivityA是退出动画使用的方法是："
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#fff0f0f0"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="16dp"
+                android:text="ActivityB是进入动画使用方法：getWindow().setEnterTransition(fade);，ActivityB的代码如下"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#fff0f0f0"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text="2、代码方式实现。"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text="ActivityA代码如下：实现一个Slide对象并且设置时间为1000毫秒。"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#fff0f0f0"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text="ActivityB中实现一个Fide对象并且设置时间为1000毫秒。"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#fff0f0f0"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text="上面两种方式最终的实现效果如下："
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/tv_title_1"
+                android:layout_width="match_parent"
+                android:layout_height="144px"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/common_list_item_bg"
+                android:gravity="center"
+                android:textColor="#121212"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_title_2"
+                android:layout_width="match_parent"
+                android:layout_height="144px"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/common_list_item_bg"
+                android:gravity="center"
+                android:textColor="#121212"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_title_3"
+                android:layout_width="match_parent"
+                android:layout_height="144px"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/common_list_item_bg"
+                android:gravity="center"
+                android:textColor="#121212"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_title_4"
+                android:layout_width="match_parent"
+                android:layout_height="144px"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/common_list_item_bg"
+                android:gravity="center"
+                android:textColor="#121212"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text="上面的动画过程分析：
+1、Activity A 启动Activity B
+2、Transition FrameWork层得到Activity A的退出动画slide并且应用到全部可见的view中。
+3、Transition FrameWork层得到Activity B的进入动画fade并且应用到全部可见的view中。
+4、当从Activity B返回到Activity A的时候会分别执行Enter和Exit相反的动画（没有设置returnTransition，和reenterTransition时）。
+"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_pending_transition_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:scaleType="fitCenter" />
+
+
+            <TextView
+                android:id="@+id/tv_pending_transition_21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text="给Activity A增加了ReturnTransition的代码如下："
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/tv_pending_transition_22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#fff0f0f0"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text="增加了返回动画和没有增加返回动画的对比效果如下："
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_pending_transition_9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/tv_title_5"
+                android:layout_width="match_parent"
+                android:layout_height="144px"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/common_list_item_bg"
+                android:gravity="center"
+                android:textColor="#121212"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_title_6"
+                android:layout_width="match_parent"
+                android:layout_height="144px"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/common_list_item_bg"
+                android:gravity="center"
+                android:textColor="#121212"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text="2、 Shared elements between Activities"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text="Shared elements转换确定两个Activity之间共享的视图如何在这两个Activity之间转换。例如，如果两个Activity在不同的位置和大小中具有相同的图像，则通过Shared elements转换会在这两个Activity之间平滑地转换和缩放图像。
+主要方法"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_pending_transition_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_26"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text="如下图，当从Activity A跳转到Activity B时，ActivityA， ActivityB中的两个item有动画变化，但是要注意的时ActivityA ，ActivityB中的item是两个独立的item。"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_pending_transition_11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:scaleType="fitCenter" />
+
+
+            <TextView
+                android:id="@+id/tv_pending_transition_27"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text="shared elements转换包括以下几种："
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/tv_pending_transition_28"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_29"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text="1、 Enable Window Content Transition"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text="设置styles.xml文件，允许windowContentTransitions如下： value/style.xml"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/tv_pending_transition_31"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#fff0f0f0"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_32"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text="2、定义一个相同的transition名称"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_33"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text="分别在Activity A 和Activity B的布局文件中定义item，这两个item的属性可以不一样，但是android:transitionName必须一样。如下： layout/activity_a.xml"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_34"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#fff0f0f0"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_35"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text="layout/activity_b.xml"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/tv_pending_transition_36"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#fff0f0f0"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_37"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text="3、在activity中启动shared element"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_38"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text="使用ActivityOptions.makeSceneTransitionAnimation()方法 ActivityA.java"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/tv_pending_transition_39"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#fff0f0f0"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_pending_transition_40"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.4"
+                android:paddingHorizontal="17dp"
+                android:text="效果如下："
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_content_transition"
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dp_10"
+                android:src="@drawable/bcb218eb665ee2c3fa97a09af36a269a"
+                android:transitionName="@string/content_transition_key" />
+
+            <TextView
+                android:id="@+id/tv_title_10"
+                android:layout_width="match_parent"
+                android:layout_height="144px"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/common_list_item_bg"
+                android:gravity="center"
+                android:textColor="#121212"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

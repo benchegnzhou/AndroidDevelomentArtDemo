@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="override_pending_transition_page_1_title">转场动画第一个界面</string>
+    <string name="override_pending_transition_page_1_content_1">
+        转场动画的第一种调用方式就是Activity的函数：\n
+        public void overridePendingTransition (int enterAnim, int exitAnim)\n
+        从官方文档看：
+        在startActivity(android.content.Intent)或finish()的其中一种之后立即调用，以指定一个明确的过渡动画来执行下一步。\n
+
+        以Build.VERSION_CODES为例，在启动Activity中使用这个的另一种选择是通过一个ActivityOptions包来提供所需的动画信息给startActivity(android.content.Intent, android.os.Bundle)这个函数。
+        你可以指定一个自定义动画，即使是在当前top activity的上下文之外启动一个activity。\n\n
+
+    </string>
+
+
+    <string name="override_pending_transition_page_2_content_2">
+        从文档可以看出：\n
+        enterAnim：int,转入Activity的动画资源的资源ID。使用0表示没有动画。\n
+        exitAnim：int:转出活动使用的动画资源的资源ID。使用0表示没有动画。\n\n
+        《示例：》\n
+        A启动B： A发生exit动画，B发生enter动画\n
+        记住一个核心点，如果是创建动画，需要在startActivity之后并且是在被启动的Activity的onResume()函数执行之前\n
+        那么最理想的调用位置就是startActivity之后如\n
+         ARouter.getInstance().build(MOUDLE_AROUTER.OVERRIDE_PENDING_TRANSITION_ACTIVITY2)
+                .navigation()\n
+
+            overridePendingTransition(\n
+                R.anim.enter_override_pending_transition_activity,\n
+                R.anim.exit_override_pending_transition_activity\n
+            )\n
+        或者是在被启动activity的onCreate()函数中\n
+        override fun onCreate(savedInstanceState: Bundle?) {\n
+        super.onCreate(savedInstanceState)\n
+        setContentView(R.layout.activity_override_pending_transition)\n
+         overridePendingTransition(\n
+                R.anim.enter_override_pending_transition_activity,\n
+                R.anim.exit_override_pending_transition_activity\n
+            )\n
+        //...\n
+        }\n
+        现在的这个栗子就是页面A启动页面B，启动的时候A执行向左平移10%，B执行向左平移100%入场\n
+        B返回A：B发生return动画，A发生reenter动画</string>
+
+    <string name="override_pending_transition_page_2_title">转场动画第二个界面</string>
+
+    <string name="override_pending_transition_page_2_content_1">
+        转场动画的第一种调用方式就是Activity的函数：\n
+        public void overridePendingTransition (int enterAnim, int exitAnim)\n
+        从官方文档看：
+        在startActivity(android.content.Intent)或finish()的其中一种之后立即调用，以指定一个明确的过渡动画来执行下一步。\n
+
+        以Build.VERSION_CODES为例，在启动Activity中使用这个的另一种选择是通过一个ActivityOptions包来提供所需的动画信息给startActivity(android.content.Intent, android.os.Bundle)这个函数。
+        你可以指定一个自定义动画，即使是在当前top activity的上下文之外启动一个activity。\n\n
+    </string>
+
+    <string name="material_design_explode_slide_anim_activity_page_1_title">转场动画第二个界面</string>
+    <string name="material_design_explode_slide_anim_activity_page_1_content_1">两个activity切换时的，有两个动画，如下图，从activity A 切换到activity B时，会有A的退出动画和B的进入动画。</string>
+    <string name="material_design_explode_slide_anim_activity_page_1_content_2">
+        activity主要的进场和出场方法：\n
+
+Window.setEnterTransition() 设置进场动画\n
+Window.setExitTransition() 设置出场动画\n
+Window().setReturnTransition() 设置返回activity时动画\n
+Window().setReenterTransition()  设置重新进入时动画\n
+如下图：\n
+ </string>
+    <string name="material_design_explode_slide_anim_activity_page_1_content_3">
+     在Google提供的android.transition.Transition包中从activity A切换到activity B有三种方式：Explode, Slide 和Fade。\n
+1、Explode：从屏幕的中间进入或退出。\n
+2、Slide：从屏幕的一边向另一边进入或退出。\n
+3、Fade：通过改变透明度来出现或消失。\n
+效果如下图所示：\n
+ </string>
+
+    <string name="material_design_explode_slide_anim_activity_page_1_content_4">
+在res目录下新建transition文件夹在transition文件夹下新建activity_fade.xml文件。\n
+        res/transition/activity_fade.xml\n
+ </string>
+
+    <string name="content_transition_key">content_transition_key</string>
+</resources>
