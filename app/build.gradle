@@ -3,7 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
-    id 'com.jakewharton.butterknife'
+//    id 'com.jakewharton.butterknife'
 }
 
 android {
@@ -27,7 +27,7 @@ android {
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         //添加如下配置就OK了
-        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
+        //javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
         //版本名后面添加一句话，意思就是flavor dimension 它的维度就是该版本号，这样维度就是都是统一的了
         flavorDimensions "versionCode"
         //manifestPlaceholders = [CHANNEL_NAME: "channel_name"]

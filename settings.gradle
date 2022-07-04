@@ -1,3 +1,114 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        maven { url 'https://maven.aliyun.com/repository/public' }//jcenter
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }//gradle-plugin
+        maven { url 'https://maven.aliyun.com/repository/central' }//central
+        maven { url 'https://maven.aliyun.com/repository/google' }//google
+        maven { url 'https://www.jitpack.io' }
+        jcenter()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+        google()
+        mavenCentral()
+    }
+}
+
+dependencyResolutionManagement {
+
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url 'https://www.jitpack.io'
+        }
+        google()
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        //jcenter
+        maven {
+            url 'https://maven.aliyun.com/repository/gradle-plugin'
+        }
+        //gradle-plugin
+        maven {
+            url 'https://maven.aliyun.com/repository/central'
+        }
+        //central
+        maven {
+            url 'https://maven.aliyun.com/repository/google'
+        }
+        //google
+        jcenter()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+
+        maven { url "https://maven.fabric.io/public" }
+
+//        maven {
+//            allowInsecureProtocol = true
+//            url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
+//        }
+    }
+}
+//
+//
+//buildscript {
+//    ext.kotlin_version = '1.6.0-RC2'
+//    repositories {
+//        google()
+//        maven { url 'https://maven.aliyun.com/repository/public' }//jcenter
+//        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }//gradle-plugin
+//        maven { url 'https://maven.aliyun.com/repository/central' }//central
+//        maven { url 'https://maven.aliyun.com/repository/google' }//google
+//        maven { url 'https://www.jitpack.io' }
+//        jcenter()
+//        maven {
+//            url 'https://maven.google.com/'
+//            name 'Google'
+//        }
+//    }
+//    dependencies {
+//        classpath 'com.android.tools.build:gradle:3.4.0'
+//
+//        // 数据库GreenDao
+//        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
+//        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30'// add plugin
+//        classpath 'com.jakewharton:butterknife-gradle-plugin:10.1.0'
+//        //ARouter https://blog.csdn.net/yu540135101/article/details/113720438
+//        classpath "com.alibaba:arouter-register:1.0.2"
+//        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+//        // NOTE: Do not place your application dependencies here; they belong
+//        // in the individual module build.gradle files
+//    }
+//}
+//
+//allprojects {
+//    repositories {
+//        maven { url 'https://www.jitpack.io' }
+//        google()
+//        maven { url 'https://maven.aliyun.com/repository/public' }//jcenter
+//        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }//gradle-plugin
+//        maven { url 'https://maven.aliyun.com/repository/central' }//central
+//        maven { url 'https://maven.aliyun.com/repository/google' }//google
+//        jcenter()
+//        maven {
+//            url 'https://maven.google.com/'
+//            name 'Google'
+//        }
+//
+//        maven { url 'http://maven.aliyun.com/nexus/content/repositories/releases/' }
+//    }
+//}
+
+
+rootProject.name = "AndroidDevelomentArtDemo"
 include ':app', 'commonutils', 'badgesAppIcon'
 include ':custom_round_view'
 include ':zbclib'
