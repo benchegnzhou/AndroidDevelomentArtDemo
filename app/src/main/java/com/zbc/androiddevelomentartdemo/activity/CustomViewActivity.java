@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.zbc.androiddevelomentartdemo.R;
+import com.zbc.androiddevelomentartdemo.content.ActRouter;
 import com.zbc.androiddevelomentartdemo.view.CustomTextView;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
  * 备    注：
  */
 
-@Route(path = CustomViewActivity.PATH)
+@Route(path = ActRouter.CUSTOM_VIEW_ACTIVITY)
 public class CustomViewActivity extends AppCompatActivity {
 
     @BindView(R.id.tv_message)
@@ -29,7 +29,6 @@ public class CustomViewActivity extends AppCompatActivity {
     TextView tvAndroidCustomView;
     @BindView(R.id.tv_custom)
     CustomTextView tvCustom;
-    public static final String PATH = "/app/CustomViewActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

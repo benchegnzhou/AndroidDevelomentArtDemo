@@ -1,9 +1,14 @@
 package com.zbc.androiddevelomentartdemo.activity;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.zbc.androiddevelomentartdemo.R;
@@ -29,30 +34,52 @@ import butterknife.OnClick;
  * 备    注：
  */
 
-public class DemoTestActivity extends AppCompatActivity {
+public class DemoTestActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-    @BindView(R.id.tv_msg)
     TextView tvMsg;
-    @BindView(R.id.tv_serializable)
     TextView tvSerializable;
-    @BindView(R.id.tv_unserializable)
     TextView tvUnserializable;
-    @BindView(R.id.tv_parcelable)
     TextView tvParcelable;
-    @BindView(R.id.tv_unparcelable)
     TextView tvUnparcelable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo_test);
-        ButterKnife.bind(this);
+
+        tvMsg = findViewById(R.id.tv_msg);
+        tvSerializable = findViewById(R.id.tv_serializable);
+        tvUnserializable = findViewById(R.id.tv_unserializable);
+        tvParcelable = findViewById(R.id.tv_parcelable);
+        tvUnparcelable = findViewById(R.id.tv_unparcelable);
+        tvMsg.setOnClickListener(this);
+        tvSerializable.setOnClickListener(this);
+        tvParcelable.setOnClickListener(this);
+        tvUnparcelable.setOnClickListener(this);
+
+        // 内存泄露测试
+        thread.start();
+        handler= new Handler(thread.getLooper()) {
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                while (true){
+                    try {
+                        Thread.sleep(200);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Log.e("-----","Handler is active");
+                    Log.e("-----",msg.getTarget().toString());
+                }
+            }
+        };
     }
+    HandlerThread thread = new HandlerThread("test-Thread");
+    Handler handler ;
 
-
-    @OnClick({R.id.tv_serializable, R.id.tv_unserializable, R.id.tv_parcelable, R.id.tv_unparcelable})
-    public void onclick(View view) {
+    @Override
+    public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_serializable:
                 try {
@@ -83,6 +110,7 @@ public class DemoTestActivity extends AppCompatActivity {
 //                BindViewer BindViewer = new BindViewer();
                 break;
             case R.id.tv_unparcelable:
+                handler.sendMessage(new Message());
                 break;
             default:
         }

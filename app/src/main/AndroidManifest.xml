@@ -26,6 +26,8 @@
         <activity android:name=".activity.ScrollConflictActivity" />
         <activity android:name=".activity.ThreadLocalTestActivity" />
         <activity android:name=".activity.PassingDataServiceActivity" />
+        <activity android:name=".activity.DumpServiceTestActivity" />
+        <service android:name=".service.DumpTestService" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

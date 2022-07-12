@@ -20,10 +20,11 @@ class TransformDataServiceActivity : AppCompatActivity() {
     companion object {
         private const val CODE_BASE = 0
         const val CODE_REPLAY = CODE_BASE + 1
+        private var mServiceMessenger: Messenger? = null
     }
 
     private var isBindServiceSuccess = false
-    private var mServiceMessenger: Messenger? = null
+
     private val mHandler =
         object : Handler(Looper.getMainLooper()) {
             override fun handleMessage(msg: Message) {

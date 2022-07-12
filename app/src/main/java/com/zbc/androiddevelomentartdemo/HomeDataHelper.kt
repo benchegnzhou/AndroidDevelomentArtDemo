@@ -6,6 +6,7 @@ import com.example.custom_round_view.RoundViewMainActivity
 import com.example.custom_round_view.constant.MOUDLE_AROUTER
 import com.example.kotlincoroutinedemo.KotlinCoroutineHomeList
 import com.zbc.androiddevelomentartdemo.activity.*
+import com.zbc.androiddevelomentartdemo.content.ActRouter
 
 class HomeDataHelper {
     companion object {
@@ -75,7 +76,7 @@ class HomeDataHelper {
             HomeBean(
                 "android 控件自定义基础",
                 null,
-                MOUDLE_AROUTER.ROUNDVIEW_MAIN_ACTIVITY,
+                ActRouter.CUSTOM_VIEW_ACTIVITY,
                 null,
                 BASE_NUM + 10,
                 "android 控件自定义基础"
@@ -127,6 +128,14 @@ class HomeDataHelper {
                 null,
                 16,
                 "转场动画"
+            ),
+            HomeBean(
+                "dump测试",
+                null,
+                ActRouter.DUMP_SERVICE_TEST_ACTIVITY,
+                null,
+                17,
+                "dump测试"
             ),
         )
     }

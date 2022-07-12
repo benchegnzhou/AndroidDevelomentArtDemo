@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#a9c5e5"
+    android:orientation="vertical"
+    tools:context="com.zbc.androiddevelomentartdemo.activity.DemoTestActivity">
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="match_parent"
+        android:layout_height="680px"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="100px"
+        android:layout_marginRight="40px"
+        android:background="@color/color_bg_f0f0f0"
+        android:gravity="center"
+        android:text="序列化测试"
+        android:textColor="@color/color_text_33333" />
+
+
+    <TextView
+        android:id="@+id/tv_serializable"
+        android:layout_width="match_parent"
+        android:layout_height="144px"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="100px"
+        android:layout_marginRight="40px"
+        android:background="@color/color_47a8fc"
+        android:gravity="center"
+        android:text="service重写dump函数"
+        android:textColor="@color/color_bg_ffffff" />
+
+    <TextView
+        android:id="@+id/tv_unserializable"
+        android:layout_width="match_parent"
+        android:layout_height="144px"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="100px"
+        android:layout_marginRight="40px"
+        android:background="@color/color_47a8fc"
+        android:gravity="center"
+        android:text="通过执行adb shell"
+        android:textColor="@color/color_bg_ffffff" />
+
+    <TextView
+        android:id="@+id/tv_parcelable"
+        android:layout_width="match_parent"
+        android:layout_height="144px"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="100px"
+        android:layout_marginRight="40px"
+        android:background="@color/color_47a8fc"
+        android:gravity="center"
+        android:text="dumpsys activity service {当前service名称}"
+        android:textColor="@color/color_bg_ffffff" />
+
+    <TextView
+        android:id="@+id/tv_unparcelable"
+        android:layout_width="match_parent"
+        android:layout_height="144px"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="100px"
+        android:layout_marginRight="40px"
+        android:background="@color/color_47a8fc"
+        android:gravity="center"
+        android:text="得到运行结果"
+        android:textColor="@color/color_bg_ffffff" />
+
+
+</LinearLayout>
