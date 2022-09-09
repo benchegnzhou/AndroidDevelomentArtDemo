@@ -1,0 +1,4 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">GymAppointment</string>
+    <string name="screen_number">第<xliff:g>%d</xliff:g>屏</string>
+</resources>

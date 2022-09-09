@@ -137,6 +137,22 @@ class HomeDataHelper {
                 17,
                 "dump测试"
             ),
+            HomeBean(
+                "GymAppointment",
+                null,
+                ActRouter.GYM_APPOINTMENT_ACTIVITY,
+                null,
+                18,
+                "GymAppointment"
+            ),
+            HomeBean(
+                "AnimDemoActivity",
+                null,
+                ActRouter.GYM_ANIMDEMO_ACTIVITY,
+                null,
+                19,
+                "AnimDemoActivity"
+            ),
         )
     }
 

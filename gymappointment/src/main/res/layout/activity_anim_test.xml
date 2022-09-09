@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="true"
+    android:clipToPadding="true">
+
+    <RelativeLayout
+        android:id="@+id/container_1"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="#5555ff11"
+        android:clipChildren="true"
+        android:clipToPadding="true">
+
+        <com.zbc.gymappointment.widget.CustomImageView
+            android:id="@+id/custom_view"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:background="#ff5544"
+            android:elevation="@dimen/dp_10" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/container_2"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:clipChildren="true"
+        android:layout_centerInParent="true"
+        android:clipToPadding="true">
+        <RelativeLayout
+            android:id="@+id/container_2"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:clipChildren="true"
+            android:layout_centerInParent="true"
+            android:clipToPadding="true">
+            <RelativeLayout
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:clipChildren="true"
+                android:layout_centerInParent="true"
+                android:clipToPadding="true">
+                <RelativeLayout
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:clipChildren="true"
+                    android:layout_centerInParent="true"
+                    android:clipToPadding="true">
+                    <RelativeLayout
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:clipChildren="true"
+                        android:layout_centerInParent="true"
+                        android:clipToPadding="true">
+                        <com.zbc.gymappointment.widget.CustomImageView
+                            android:id="@+id/custom_view_2"
+                            android:layout_width="@dimen/dp_40"
+                            android:layout_height="@dimen/dp_40"
+                            android:background="#ff5544"
+                            android:elevation="@dimen/dp_10" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

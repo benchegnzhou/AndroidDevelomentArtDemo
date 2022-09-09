@@ -75,7 +75,7 @@ dependencies {
     //加密
     implementation files('libs/sunjce_provider.jar')
     implementation 'com.blankj:utilcode:1.4.1'
-    implementation "androidx.core:core-ktx:+"
+    implementation  rootProject.ext.dependencies.core_ktx
 //    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation group: 'io.earcam.instrumental', name: 'io.earcam.instrumental.agent', version: '0.1.0'
 }

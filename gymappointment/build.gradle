@@ -1,20 +1,18 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
-//    id 'com.jakewharton.butterknife'
 }
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
+
     defaultConfig {
-        applicationId "com.zbc.androiddevelomentartdemo"
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
-
         //ARouter
         kapt {
             arguments {
@@ -24,61 +22,43 @@ android {
                 //arg("AROUTER_GENERATE_DOC", "enable")
             }
         }
-        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        //添加如下配置就OK了
-        //javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
-        //版本名后面添加一句话，意思就是flavor dimension 它的维度就是该版本号，这样维度就是都是统一的了
-        flavorDimensions "versionCode"
-        //manifestPlaceholders = [CHANNEL_NAME: "channel_name"]
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    packagingOptions {
-        exclude 'META-INF/DEPENDENCIES'
-        exclude 'META-INF/NOTICE'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/NOTICE.txt'
+    kotlinOptions {
+        jvmTarget = '1.8'
     }
-
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':commonutils')
-    implementation project(':badgesAppIcon')
-    implementation project(':custom_round_view')
-    implementation project(':kotlincoroutinedemo')
-    implementation project(':activityTransitiondemo')
-    implementation project(':gymappointment')
-    // The number of method references in a .dex file cannot exceed 64K
-    implementation rootProject.ext.dependencies.multidex
     testImplementation rootProject.ext.dependencies.junit
+    testImplementation rootProject.ext.dependencies.ext_junit
     testImplementation rootProject.ext.dependencies.runner
     testImplementation rootProject.ext.dependencies.espresso
     implementation rootProject.ext.dependencies.recyclerview
-    implementation rootProject.ext.dependencies.base_recyclerview_helper
     implementation rootProject.ext.dependencies.appcompat
-    implementation rootProject.ext.dependencies.gson
-    implementation rootProject.ext.dependencies.constraintlayout
+    implementation rootProject.ext.dependencies.base_recyclerview_helper
+    //    https://www.coder.work/article/1173694
+    implementation 'com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava'
     // Replace with the latest version
     implementation rootProject.ext.dependencies.arouter_api
     kapt rootProject.ext.dependencies.arouter_compiler
+    implementation rootProject.ext.dependencies.constraintlayout
 
-    /** androidx 依赖与老版本的 butterknife 冲突 */
-    implementation rootProject.ext.dependencies.butterknife
-    kapt rootProject.ext.dependencies.butterknife_compiler
-
+    //引入Uiautomator
+    androidTestCompileOnly 'com.android.support.test.uiautomator:uiautomator-v18:2.1.3'
+    implementation project(":commonutils")
     implementation rootProject.ext.dependencies.kotlinx_coroutines_core
     implementation rootProject.ext.dependencies.kotlinx_coroutines_android
     implementation rootProject.ext.dependencies.glide
