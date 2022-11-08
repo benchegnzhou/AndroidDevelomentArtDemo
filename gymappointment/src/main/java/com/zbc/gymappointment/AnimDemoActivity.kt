@@ -1,14 +1,14 @@
 package com.zbc.gymappointment
 
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.zbc.gymappointment.test.BaseClass
-import com.zbc.gymappointment.test.IAnim
-import com.zbc.gymappointment.test.KClass
+import com.zbc.gymappointment.test.*
 import kotlinx.android.synthetic.main.activity_anim_test.*
 
 @Route(path = "/gym/AnimDemoActivity")
@@ -29,12 +29,14 @@ class AnimDemoActivity : AppCompatActivity() {
         custom_view_2.tag = kass
 
         view_root.setOnClickListener { _ ->
-            for (i in 0..10){
+            TestClass().test()
+            startActivity(Intent(this@AnimDemoActivity, TestActivity::class.java))
+            for (i in 0..10) {
 
-        }
+            }
             startTime = System.currentTimeMillis()
             val contentDescription: String = getString(R.string.screen_number, 1)
-            Log.e(TAG,"$contentDescription , time = ${System.currentTimeMillis()-startTime}")
+            Log.e(TAG, "$contentDescription , time = ${System.currentTimeMillis() - startTime}")
 
 //            ValueAnimator().apply {
 //                setFloatValues(0f, 500f)
@@ -49,14 +51,19 @@ class AnimDemoActivity : AppCompatActivity() {
 //                    }
 //                })
 //                }.start()
-            Log.e("-------","findViewWithTag   ${view_root.findViewWithTag<View>(kass).hashCode()}  ,  custom_view_2.hashcode = ${custom_view_2.hashCode()}")
+            Log.e(
+                "-------",
+                "findViewWithTag   ${
+                    view_root.findViewWithTag<View>(kass).hashCode()
+                }  ,  custom_view_2.hashcode = ${custom_view_2.hashCode()}"
+            )
             val animator: ObjectAnimator =
                 ObjectAnimator.ofFloat(container_1.getChildAt(0), "y", 0f, 800f)
             animator.setDuration(5000)
             animator.start()
-            if (container_1.getChildAt(0) is IAnim){
+            if (container_1.getChildAt(0) is IAnim) {
                 container_1.getChildAt(0).let {
-                        Log.e("----", "${it.javaClass.simpleName} , ${it.isAttachedToWindow}")
+                    Log.e("----", "${it.javaClass.simpleName} , ${it.isAttachedToWindow}")
                 }
             }
         }

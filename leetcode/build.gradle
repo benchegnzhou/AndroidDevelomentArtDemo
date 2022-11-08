@@ -1,0 +1,66 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        //ARouter
+        kapt {
+            arguments {
+                //根据模块名来命名路由根节点
+                arg("AROUTER_MODULE_NAME", project.getName())
+                //生成Json文件
+                //arg("AROUTER_GENERATE_DOC", "enable")
+            }
+        }
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation rootProject.ext.dependencies.junit
+    testImplementation rootProject.ext.dependencies.ext_junit
+    testImplementation rootProject.ext.dependencies.runner
+    testImplementation rootProject.ext.dependencies.espresso
+    implementation rootProject.ext.dependencies.recyclerview
+    implementation rootProject.ext.dependencies.appcompat
+    implementation rootProject.ext.dependencies.base_recyclerview_helper
+    //    https://www.coder.work/article/1173694
+    implementation 'com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava'
+    // Replace with the latest version
+    implementation rootProject.ext.dependencies.arouter_api
+    kapt rootProject.ext.dependencies.arouter_compiler
+    implementation rootProject.ext.dependencies.constraintlayout
+
+    //引入Uiautomator
+    androidTestCompileOnly 'com.android.support.test.uiautomator:uiautomator-v18:2.1.3'
+    implementation project(":commonutils")
+    implementation rootProject.ext.dependencies.kotlinx_coroutines_core
+    implementation rootProject.ext.dependencies.kotlinx_coroutines_android
+    implementation rootProject.ext.dependencies.glide
+    kapt rootProject.ext.dependencies.glide_annotations
+}

@@ -6,12 +6,16 @@
         <activity
             android:name=".GymAppointmentActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
 
         <activity
             android:name=".AnimDemoActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".test.TestActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
     </application>
 
 </manifest>

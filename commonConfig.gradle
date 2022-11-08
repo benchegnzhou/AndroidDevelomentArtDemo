@@ -6,7 +6,7 @@ ext {
     android = [compileSdkVersion: 32,
                buildToolsVersion: '32.0.0',
                minSdkVersion    : 21,
-               targetSdkVersion : 32,
+               targetSdkVersion : 28,
                versionCode      : 127,
                versionName      : '1.0.127',
                versionSupporPad : '1', //各个项目工程版本的全局配置 ,版本更新前请确认更新
@@ -35,13 +35,13 @@ ext {
                     espresso                  : 'androidx.test.espresso:espresso-core:3.4.0',
                     butterknife               : 'com.jakewharton:butterknife:10.2.3',
                     butterknife_compiler      : 'com.jakewharton:butterknife-compiler:10.2.3',
-                    material                  : 'com.google.android.material:material:1.4.0',
+                    material                  : 'com.google.android.material:material:1.7.0',
                     runner                    : 'androidx.test:runner:1.4.0',
                     test_core                 : 'androidx.test:core:1.4.0-beta03',       // Optional -- Robolectric environment
                     mockito_core              : 'org.mockito:mockito-core:4.0.0',     // Optional -- Mockito framework
-                    constraintlayout          : 'androidx.constraintlayout:constraintlayout:2.1.3',
+                    constraintlayout          : 'androidx.constraintlayout:constraintlayout:2.1.4',
                     core_ktx                  : 'androidx.core:core-ktx:1.7.0',
-                    appcompat                 : "androidx.appcompat:appcompat:1.4.1",
+                    appcompat                 : "androidx.appcompat:appcompat:1.5.1",
                     glide                     : 'com.github.bumptech.glide:glide:4.12.0',
                     glide_annotations         : 'com.github.bumptech.glide:annotations:4.12.0',
                     kotlinx_coroutines_core   : 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2',
