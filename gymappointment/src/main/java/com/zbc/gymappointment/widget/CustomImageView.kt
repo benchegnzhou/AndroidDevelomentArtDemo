@@ -48,10 +48,4 @@ class CustomImageView @JvmOverloads constructor(
         else -> default
     }
 
-    @kotlin.internal.InlineOnly
-    open inline fun <T, R> with(receiver: T, block: T.() -> R) = receiver.block()
-
-    @kotlin.internal.inlineOnly
-    open inline fun <T,R> T.run(block:T.()->R):R=block()
-
 }

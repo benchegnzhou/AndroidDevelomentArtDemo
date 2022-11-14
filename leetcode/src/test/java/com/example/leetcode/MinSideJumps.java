@@ -13,11 +13,13 @@ public class MinSideJumps {
     }
 
     public int minSideJumps(int[] obstacles) {
-        int arr[][] = new int[][]{};
-        int len = obstacles.length;
-        for (int i = 0; i < len; i++) {
-
-        }
+//        int n =
+//        int dp[][] = new int[][]{};
+//        int len = obstacles.length;
+//        for (int i = 0; i < len; i++) {
+//
+//        }
+        return 0;
     }
 
 

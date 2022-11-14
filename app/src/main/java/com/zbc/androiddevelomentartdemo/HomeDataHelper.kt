@@ -5,6 +5,7 @@ import com.example.activityTransitiondemo.activity.ActivityTransitionDemoListAct
 import com.example.custom_round_view.RoundViewMainActivity
 import com.example.custom_round_view.constant.MOUDLE_AROUTER
 import com.example.kotlincoroutinedemo.KotlinCoroutineHomeList
+import com.example.kotlincoroutinedemo.constant.RouterPath
 import com.zbc.androiddevelomentartdemo.activity.*
 import com.zbc.androiddevelomentartdemo.content.ActRouter
 
@@ -152,6 +153,14 @@ class HomeDataHelper {
                 null,
                 19,
                 "AnimDemoActivity"
+            ),
+            HomeBean(
+                "kotlinDemo",
+                null,
+                RouterPath.KOTLIN_COROUTINE_HOME_LIST_AT,
+                null,
+                19,
+                "kotlinDemo"
             ),
         )
     }
