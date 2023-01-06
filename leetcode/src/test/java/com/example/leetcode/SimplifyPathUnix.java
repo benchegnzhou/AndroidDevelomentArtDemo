@@ -15,6 +15,15 @@ public class SimplifyPathUnix {
         String path = "/home/";
         String result = simplifyPath(path);
         Assert.assertEquals("/home", result);
+
+        path = "/../";
+        Assert.assertEquals("/", simplifyPath(path));
+
+        path = "/home//foo/";
+        Assert.assertEquals("/home/foo", simplifyPath(path));
+
+        path = "/a/./b/../../c/";
+        Assert.assertEquals("/c", simplifyPath(path));
     }
 
     public String simplifyPath(String path) {
@@ -27,12 +36,24 @@ public class SimplifyPathUnix {
         // 遍历路径中的每个路径。
         for (int i = 0; i < files.length; i++) {
             String file = files[i];
-            if (file == "" || file == ".") {
+            if (file == null || file.length() == 0 || ".".equals(file)) {
                 continue;
-            } else if (file == "..") fileStack.pop();
-            fileStack.add(files[i]);
+            } else if ("..".equals(file)) {
+                if (!fileStack.isEmpty()) {
+                    fileStack.pop();
+                }
+            } else {
+                fileStack.push(files[i]);
+            }
         }
-        return
+        if (fileStack.isEmpty()) {
+            simplePath.append("/");
+        } else {
+            while (!fileStack.isEmpty()) {
+                simplePath.insert(0, "/" + fileStack.pop());
+            }
+        }
+        return simplePath.toString();
     }
 
 }
